@@ -1,0 +1,3 @@
+[submodule "portal-site-2021-vr"]
+	path = portal-site-2021-vr
+	url = git@github.com:sungyongcho/portal-site-2021-vr.git
