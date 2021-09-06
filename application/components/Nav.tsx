@@ -4,7 +4,6 @@ import { useRouter } from 'next/dist/client/router'
 const Nav = () => {
   const router = useRouter()
 
-
   return (
     <nav>
       <ul>

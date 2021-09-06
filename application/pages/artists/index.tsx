@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import router from 'next/router'
 
 const ArtistNav = () => {
   return (
     <nav>
       <ul>
         <li>
-          <Link href="artists/moonsohyun"><a>문소현</a></Link>
+          <Link href="artists/문소현"><a>문소현</a></Link>
         </li>
         <li>
           <Link href="artists/aaa"><a>박동준</a></Link>
@@ -41,6 +42,5 @@ const ArtistNav = () => {
     </nav>
   )
 }
-
 
 export default ArtistNav
