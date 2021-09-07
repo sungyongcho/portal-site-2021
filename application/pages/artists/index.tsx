@@ -19,7 +19,7 @@ const ArtistNav = ({ artists }: ArtistProps) => {
             {artists.map((artists) => (
               <div key={artists.slug}>
                 <li>
-                  <Link href={`artists/${artists.slug}`}><a>{artists.artist_name}</a></Link>
+                  <Link href={`artists/${artists.slug}`}><a>{artists.artistName}</a></Link>
                 </li>
               </div>
             ))}
@@ -36,10 +36,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const artists = getAllArtistPosts([
     'slug',
     'order',
-    'artist_name',
+    'artistName',
     'introduction',
-    'profile_photo',
-    'work_image',
+    'profilePhoto',
+    'workImage',
     'cv',
     'contatct',
     'content',

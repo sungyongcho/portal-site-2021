@@ -1,10 +1,10 @@
 export interface IArtist {
   slug: string;
-  artist_name: string;
+  artistName: string;
   genre: string;
   introduction: string;
-  profile_photo: string;
-  work_image: string[];
+  profilePhoto: string;
+  workImage: string[];
   cv: string[];
   contact: string[];
 }

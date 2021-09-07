@@ -3,6 +3,7 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 
+
 type Items = {
   [key: string]: string;
 };
@@ -14,27 +15,31 @@ type Post = {
   content: string;
 };
 
-const POSTS_PATH = join(process.cwd(), '_artists');
+const ARTISTS_PATH = join(process.cwd(), '/_mdx/artists');
+const EXHIBITONS_PATH = join(process.cwd(), '/_mdx/exhibitions');
+const TEXTS_PATH = join(process.cwd(), '/_mdx/texts');
+const INTERVIEWS_PATH = join(process.cwd(), '/_mdx/interviews');
 
-function getPostFilePaths(): string[] {
+
+function getItemFilePaths(items_path: string): string[] {
   return (
     fs
-      .readdirSync(POSTS_PATH)
+      .readdirSync(items_path)
       // Only include md(x) files
       .filter((path) => /\.mdx?$/.test(path))
   );
 }
 
-export function getArtistPost(artist_name: string): Post {
-  const fullPath = join(POSTS_PATH, `${artist_name}.mdx`);
+export function getPost(artist_name: string): Post {
+  const fullPath = join(ARTISTS_PATH, `${artist_name}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
   return { data, content };
 }
 
-export function getPostItems(filePath: string, fields: string[] = []): Items {
+export function getArtistItems(filePath: string, fields: string[] = []): Items {
   const slug = filePath.replace(/\.mdx?$/, '');
-  const { data, content } = getArtistPost(slug);
+  const { data, content } = getPost(slug);
 
   const items: Items = {};
 
@@ -55,9 +60,37 @@ export function getPostItems(filePath: string, fields: string[] = []): Items {
 }
 
 export function getAllArtistPosts(fields: string[] = []): Items[] {
-  const filePaths = getPostFilePaths();
+  const filePaths = getItemFilePaths(ARTISTS_PATH);
   const posts = filePaths
-    .map((filePath) => getPostItems(filePath, fields))
+    .map((filePath) => getArtistItems(filePath, fields))
     .sort((post1, post2) => (post1.order < post2.order ? -1 : 1));
   return posts;
 }
+
+export function getAllExhibitions(fields: string[] = []): Items[] {
+  const filePaths = getItemFilePaths(ARTISTS_PATH);
+  const posts = filePaths
+    .map((filePath) => getArtistItems(filePath, fields))
+    .sort((post1, post2) => (post1.order < post2.order ? -1 : 1));
+  return posts;
+}
+
+export function getAllTexts(fields: string[] = []): Items[] {
+  const filePaths = getItemFilePaths(ARTISTS_PATH);
+  const posts = filePaths
+    .map((filePath) => getArtistItems(filePath, fields))
+    .sort((post1, post2) => (post1.order < post2.order ? -1 : 1));
+  return posts;
+}
+
+
+export function getAllInterviews(fields: string[] = []): Items[] {
+  const filePaths = getItemFilePaths(ARTISTS_PATH);
+  const posts = filePaths
+    .map((filePath) => getArtistItems(filePath, fields))
+    .sort((post1, post2) => (post1.order < post2.order ? -1 : 1));
+  return posts;
+}
+
+
+

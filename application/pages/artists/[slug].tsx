@@ -6,11 +6,11 @@ import dynamic from 'next/dynamic';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { IArtist } from '../../types/IArtist';
-import { getArtistPost, getAllArtistPosts } from '../../utils/mdxUtils';
+import { getPost, getAllArtistPosts } from '../../utils/mdxUtils';
 
 type Props = {
   source: MDXRemoteSerializeResult;
-  frontMatter: Omit<IArtist, 'slug'>;
+  frontMatter: Omit<IArtist, 'slug' | 'order'>;
 };
 
 
@@ -18,7 +18,8 @@ const artistPage: NextPage = ({ source, frontMatter }: Props) => {
   const router = useRouter();
   return (
     <div>
-      아티스트 이름 {frontMatter.artist_name}
+      아티스트 이름 {frontMatter.artistName} <br />
+      아티스트 소개 {frontMatter.contact}
     </div>
   )
 }
@@ -27,7 +28,7 @@ export default artistPage
 
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { content, data } = getArtistPost(params?.slug as string);
+  const { content, data } = getPost(params?.slug as string);
 
   const mdxSource = await serialize(content, { scope: data });
 
