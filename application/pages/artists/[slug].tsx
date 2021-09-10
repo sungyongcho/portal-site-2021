@@ -19,10 +19,10 @@ type Props = {
 const artistPage = ({ source, frontMatter }: Props) => {
   return (
     <div>
-      아티스트 이름 {frontMatter.artistName} <br />
-      아티스트 소개 {frontMatter.contact}
+      [아티스트 소개: {frontMatter.artistName}]
+      [아티스트 장르: {frontMatter.genre}]
       <ArtistHeader artistName={frontMatter.artistName} profileImage={frontMatter.profilePhoto} introduction={frontMatter.introduction} />
-      <ArtistBody content={frontMatter.introduction}></ArtistBody>
+      <ArtistBody content={frontMatter.contact}></ArtistBody>
     </div>
   )
 }
