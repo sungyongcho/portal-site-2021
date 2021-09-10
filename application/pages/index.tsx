@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Home: NextPage = () => {
   return (
     <div>
-      <h1>Welcome to my blog</h1>
+      <h1>포털 사이트 2021</h1>
     </div>
   )
 }

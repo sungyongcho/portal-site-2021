@@ -7,6 +7,8 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { IArtist } from '../../types/IArtist';
 import { getPost, getAllArtistPosts } from '../../utils/mdxUtils';
+import ArtistBody from '../../components/artist-body';
+import ArtistHeader from '../../components/artist-header'
 
 type Props = {
   source: MDXRemoteSerializeResult;
@@ -14,12 +16,13 @@ type Props = {
 };
 
 
-const artistPage: NextPage = ({ source, frontMatter }: Props) => {
-  const router = useRouter();
+const artistPage = ({ source, frontMatter }: Props) => {
   return (
     <div>
       아티스트 이름 {frontMatter.artistName} <br />
       아티스트 소개 {frontMatter.contact}
+      <ArtistHeader artistName={frontMatter.artistName} profileImage={frontMatter.profilePhoto} introduction={frontMatter.introduction} />
+      <ArtistBody content={frontMatter.introduction}></ArtistBody>
     </div>
   )
 }
