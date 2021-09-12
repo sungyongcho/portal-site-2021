@@ -7,7 +7,7 @@ type Props = {
   introduction: string
 }
 
-const PostHeader = ({ artistName, profileImage, introduction }: Props) => {
+const ArtistHeader = ({ artistName, profileImage, introduction }: Props) => {
   return (
     <>
       {/* <PostTitle>{title}</PostTitle> */}
@@ -23,4 +23,4 @@ const PostHeader = ({ artistName, profileImage, introduction }: Props) => {
   )
 }
 
-export default PostHeader
+export default ArtistHeader

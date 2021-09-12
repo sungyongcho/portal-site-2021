@@ -1,13 +1,45 @@
-import type { NextPage } from 'next';
-import HeadInfo from '../../components/HeadInfo';
+import { GetStaticProps } from 'next';
 
-const exhibition: NextPage = () => {
+import Link from 'next/link'
+import router from 'next/router'
+import { IExhibition } from '../../types/IExhibition';
+
+import { getAllExhibitions } from '../../utils/mdxUtils';
+
+type ExhibitionProps = {
+  exhibitions: IExhibition[];
+}
+
+const ExhibitionNav = ({ exhibitions }: ExhibitionProps) => {
   return (
-    <div>
-      <HeadInfo title="Exhibition"></HeadInfo>
-      <h1>Exhibitions--wip</h1>
-    </div>
+    <>
+      <div>
+        <nav>
+          <ul>
+            {exhibitions.map((exhibitions) => (
+              <div key={exhibitions.slug}>
+                <li>
+                  <Link href={`exhibition/${exhibitions.slug}`}><a>{exhibitions.artistName}</a></Link>
+                </li>
+              </div>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </>
   )
 }
 
-export default exhibition
+export default ExhibitionNav
+
+export const getStaticProps: GetStaticProps = async () => {
+  const exhibitions = getAllExhibitions([
+    'slug',
+    'order',
+    'artistName',
+    'exhibitionUrl',
+    'content'
+  ]);
+
+  return { props: { exhibitions } };
+};

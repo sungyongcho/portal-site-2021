@@ -4,9 +4,9 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import dynamic from 'next/dynamic';
 
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { IArtist } from '../../types/IArtist';
-import { getPost, getAllArtistPosts } from '../../utils/mdxUtils';
+import { getAllArtistPosts, getArtistPost } from '../../utils/mdxUtils';
 import ArtistBody from '../../components/artist-body';
 import ArtistHeader from '../../components/artist-header'
 
@@ -22,7 +22,12 @@ const artistPage = ({ source, frontMatter }: Props) => {
       [아티스트 소개: {frontMatter.artistName}]
       [아티스트 장르: {frontMatter.genre}]
       <ArtistHeader artistName={frontMatter.artistName} profileImage={frontMatter.profilePhoto} introduction={frontMatter.introduction} />
-      <ArtistBody content={frontMatter.contact}></ArtistBody>
+      <ArtistBody
+        worklist={frontMatter.workList}
+        cv={frontMatter.cv}
+        email={frontMatter.email}
+        sns={frontMatter.sns}
+        website={frontMatter.website}></ArtistBody>
     </div>
   )
 }
@@ -31,7 +36,7 @@ export default artistPage
 
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { content, data } = getPost(params?.slug as string);
+  const { content, data } = getArtistPost(params?.slug as string);
 
   const mdxSource = await serialize(content, { scope: data });
 

@@ -30,16 +30,38 @@ function getItemFilePaths(items_path: string): string[] {
   );
 }
 
-export function getPost(artist_name: string): Post {
-  const fullPath = join(ARTISTS_PATH, `${artist_name}.mdx`);
+export function getArtistPost(filename: string): Post {
+  const fullPath = join(ARTISTS_PATH, `${filename}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
   return { data, content };
 }
 
+export function getTextPost(filename: string): Post {
+  const fullPath = join(TEXTS_PATH, `${filename}.mdx`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+  return { data, content };
+}
+
+export function getExhibitionPost(filename: string): Post {
+  const fullPath = join(EXHIBITONS_PATH, `${filename}.mdx`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+  return { data, content };
+}
+
+export function getInterviewPost(filename: string): Post {
+  const fullPath = join(INTERVIEWS_PATH, `${filename}.mdx`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+  return { data, content };
+}
+
+
 export function getArtistItems(filePath: string, fields: string[] = []): Items {
   const slug = filePath.replace(/\.mdx?$/, '');
-  const { data, content } = getPost(slug);
+  const { data, content } = getArtistPost(slug);
 
   const items: Items = {};
 
@@ -59,6 +81,77 @@ export function getArtistItems(filePath: string, fields: string[] = []): Items {
   return items;
 }
 
+export function getTextItems(filePath: string, fields: string[] = []): Items {
+  const slug = filePath.replace(/\.mdx?$/, '');
+  const { data, content } = getTextPost(slug);
+
+  const items: Items = {};
+
+  // Ensure only the minimal needed data is exposed
+  fields.forEach((field) => {
+    if (field === 'slug') {
+      items[field] = slug;
+    }
+    if (field === 'content') {
+      items[field] = content;
+    }
+
+    if (data[field]) {
+      items[field] = data[field];
+    }
+  })
+  console.log(fields);
+  return items;
+}
+
+export function getExhibitionItems(filePath: string, fields: string[] = []): Items {
+  const slug = filePath.replace(/\.mdx?$/, '');
+  const { data, content } = getExhibitionPost(slug);
+
+  const items: Items = {};
+
+  // Ensure only the minimal needed data is exposed
+  fields.forEach((field) => {
+    if (field === 'slug') {
+      items[field] = slug;
+    }
+    if (field === 'content') {
+      items[field] = content;
+    }
+
+    if (data[field]) {
+      items[field] = data[field];
+    }
+  })
+  console.log(fields);
+  return items;
+}
+
+
+export function getInterviewItems(filePath: string, fields: string[] = []): Items {
+  const slug = filePath.replace(/\.mdx?$/, '');
+  const { data, content } = getInterviewPost(slug);
+
+  const items: Items = {};
+
+  // Ensure only the minimal needed data is exposed
+  fields.forEach((field) => {
+    if (field === 'slug') {
+      items[field] = slug;
+    }
+    if (field === 'content') {
+      items[field] = content;
+    }
+
+    if (data[field]) {
+      items[field] = data[field];
+    }
+  })
+  console.log(fields);
+  return items;
+}
+
+
 export function getAllArtistPosts(fields: string[] = []): Items[] {
   const filePaths = getItemFilePaths(ARTISTS_PATH);
   const posts = filePaths
@@ -67,27 +160,27 @@ export function getAllArtistPosts(fields: string[] = []): Items[] {
   return posts;
 }
 
-export function getAllExhibitions(fields: string[] = []): Items[] {
-  const filePaths = getItemFilePaths(ARTISTS_PATH);
-  const posts = filePaths
-    .map((filePath) => getArtistItems(filePath, fields))
-    .sort((post1, post2) => (post1.order < post2.order ? -1 : 1));
-  return posts;
-}
-
 export function getAllTexts(fields: string[] = []): Items[] {
-  const filePaths = getItemFilePaths(ARTISTS_PATH);
+  const filePaths = getItemFilePaths(TEXTS_PATH);
   const posts = filePaths
-    .map((filePath) => getArtistItems(filePath, fields))
+    .map((filePath) => getTextItems(filePath, fields))
     .sort((post1, post2) => (post1.order < post2.order ? -1 : 1));
   return posts;
 }
 
+
+export function getAllExhibitions(fields: string[] = []): Items[] {
+  const filePaths = getItemFilePaths(EXHIBITONS_PATH);
+  const posts = filePaths
+    .map((filePath) => getExhibitionItems(filePath, fields))
+    .sort((post1, post2) => (post1.order < post2.order ? -1 : 1));
+  return posts;
+}
 
 export function getAllInterviews(fields: string[] = []): Items[] {
-  const filePaths = getItemFilePaths(ARTISTS_PATH);
+  const filePaths = getItemFilePaths(INTERVIEWS_PATH);
   const posts = filePaths
-    .map((filePath) => getArtistItems(filePath, fields))
+    .map((filePath) => getInterviewItems(filePath, fields))
     .sort((post1, post2) => (post1.order < post2.order ? -1 : 1));
   return posts;
 }

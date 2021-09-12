@@ -1,6 +1,7 @@
 export interface IInterview {
   slug: string;
+  artistName: string;
   interviewTitle: string;
-  interviewMovie: string;
+  interviewVideo: string;
   interviewText: string;
 }

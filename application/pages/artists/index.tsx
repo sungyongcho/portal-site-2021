@@ -37,11 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
     'slug',
     'order',
     'artistName',
-    'introduction',
     'profilePhoto',
-    'workImage',
-    'cv',
-    'contatct',
     'content',
   ]);
 
