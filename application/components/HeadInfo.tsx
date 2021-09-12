@@ -1,12 +1,17 @@
 import React from 'react'
 import Head from 'next/head'
 
-const HeadInfo = ({ title, keyword, contents }) => {
+type Props = {
+  title: string,
+  keyword: string,
+  contents: string;
+}
+const HeadInfo = ({ title, keyword, contents }: Props) => {
   return (
     <Head>
       <title>Portal Site -- 포털사이트 {title}</title>
-      <meta keyword={keyword}></meta>
-      <meta contents={contents}></meta>
+      {/* <meta keyword={keyword}></meta>
+      <meta contents={contents}></meta> */}
     </Head>
   )
 }

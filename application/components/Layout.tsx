@@ -2,8 +2,11 @@ import Menu from './Menu'
 import Nav from './Nav'
 import { useRouter } from "next/router";
 
+type Props = {
+  children: any
+}
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: Props) => {
 
   const router = useRouter();
 
