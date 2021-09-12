@@ -15,8 +15,10 @@ type Props = {
 const ExhibitionPage = ({ source, frontMatter }: Props) => {
   return (
     <div>
-      [아티스트 이름: {frontMatter.artistName}]
-      [작품 제목: {frontMatter.exhibitionTitle}]
+      <div>
+        [아티스트 이름: {frontMatter.artistName}]
+        [작품 제목: {frontMatter.exhibitionTitle}]
+      </div>
       <ExhibitionBody vr={frontMatter.exhibitionUrl}></ExhibitionBody>
     </div>
   )

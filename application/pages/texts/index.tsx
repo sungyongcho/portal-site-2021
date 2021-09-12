@@ -13,6 +13,7 @@ type TextProps = {
 const InterviewNav = ({ texts }: TextProps) => {
   return (
     <>
+      <h2>Texts</h2>
       <div>
         <nav>
           <ul>

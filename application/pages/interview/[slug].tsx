@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { getAllInterviews, getInterviewPost } from '../../utils/mdxUtils';
 import { IInterview } from '../../types/IInterview';
 import InterviewBody from '../../components/interview-body';
@@ -11,13 +11,17 @@ type Props = {
   frontMatter: Omit<IInterview, 'slug' | 'order'>;
 };
 
+const components = {
+  InterviewBody,
+};
+
 
 const interviewPage = ({ source, frontMatter }: Props) => {
   return (
     <div>
       [아티스트 이름: {frontMatter.artistName}]
       [인터뷰 제목: {frontMatter.interviewTitle}]
-      <InterviewBody video={frontMatter.interviewVideo} text={frontMatter.interviewText}></InterviewBody>
+      <MDXRemote {...source} components={components} />
     </div>
   )
 }

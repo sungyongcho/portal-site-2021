@@ -13,6 +13,7 @@ type ExhibitionProps = {
 const ExhibitionNav = ({ exhibitions }: ExhibitionProps) => {
   return (
     <>
+      <h2>Exhibitions</h2>
       <div>
         <nav>
           <ul>

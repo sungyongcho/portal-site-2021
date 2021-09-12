@@ -7,16 +7,18 @@ const Layout = ({ children }) => {
 
   const router = useRouter();
 
-  const showMenu = router.pathname === "/artists" ? false : true;
+  const showMenu = ((router.pathname.match(/\//g) || []).length === 2) ? false : true;
 
-  console.log(router.pathname);
   return (
     <>
 
       {showMenu && <Menu />}
       <Nav />
       <div>
-        {children}
+        {showMenu && <h1>포털 사이트 2021</h1>}
+        <div>
+          {children}
+        </div>
       </div>
     </>
   )

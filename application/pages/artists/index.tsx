@@ -13,6 +13,7 @@ type ArtistProps = {
 const ArtistNav = ({ artists }: ArtistProps) => {
   return (
     <>
+      <h2>Artists</h2>
       <div>
         <nav>
           <ul>

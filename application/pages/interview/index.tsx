@@ -13,6 +13,8 @@ type InterviewProps = {
 const InterviewNav = ({ interviews }: InterviewProps) => {
   return (
     <>
+      <h2>Interviews</h2>
+
       <div>
         <nav>
           <ul>
