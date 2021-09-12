@@ -1,12 +1,19 @@
 import Menu from './Menu'
-import Head from 'next/head'
 import Nav from './Nav'
+import { useRouter } from "next/router";
+
 
 const Layout = ({ children }) => {
+
+  const router = useRouter();
+
+  const showMenu = router.pathname === "/artists" ? false : true;
+
+  console.log(router.pathname);
   return (
     <>
 
-      <Menu />
+      {showMenu && <Menu />}
       <Nav />
       <div>
         {children}
