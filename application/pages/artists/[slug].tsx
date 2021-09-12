@@ -4,31 +4,35 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import dynamic from 'next/dynamic';
 
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { IArtist } from '../../types/IArtist';
 import { getAllArtistPosts, getArtistPost } from '../../utils/mdxUtils';
 import ArtistBody from '../../components/artist-body';
-import ArtistHeader from '../../components/artist-header'
+import ArtistContact from '../../components/artist-contact'
+import ArtistProfile from '../../components/artist-profile'
+import ArtistWorklist from '../../components/artist-worklist'
+import TextContent from '../../components/TextContent'
 
 type Props = {
   source: MDXRemoteSerializeResult;
   frontMatter: Omit<IArtist, 'slug' | 'order'>;
 };
 
+const components = {
+  ArtistProfile,
+  ArtistWorklist,
+  ArtistContact
+};
+
 
 const artistPage = ({ source, frontMatter }: Props) => {
+  console.log(source);
   return (
     <div>
       [아티스트 소개: {frontMatter.artistName}]
       [아티스트 장르: {frontMatter.genre}]
-      <ArtistHeader artistName={frontMatter.artistName} profileImage={frontMatter.profilePhoto} introduction={frontMatter.introduction} />
-      <ArtistBody
-        worklist={frontMatter.workList}
-        cv={frontMatter.cv}
-        email={frontMatter.email}
-        sns={frontMatter.sns}
-        website={frontMatter.website}></ArtistBody>
-    </div>
+      <MDXRemote {...source} components={components} />
+    </div >
   )
 }
 
