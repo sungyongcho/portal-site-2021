@@ -18,7 +18,7 @@ const InterviewBody = ({ video, text }: Props) => {
             allowFullScreen />
         </VideoArea>
         <InterviewContent>
-          <TextContent content={text} />
+          <TextContent content={text} textSize={'2em'} />
         </InterviewContent>
       </InterviewLayout>
     </>
