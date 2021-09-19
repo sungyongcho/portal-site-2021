@@ -8,6 +8,8 @@ import ExhibitionBody from '../../components/exhibition-body';
 import styled from 'styled-components';
 import { media } from "../../styles/theme";
 
+import { AnimatePresence, motion } from 'framer-motion'
+
 type Props = {
   source: MDXRemoteSerializeResult;
   frontMatter: Omit<IExhibition, 'slug' | 'order'>;
@@ -20,17 +22,26 @@ const components = {
 
 const ExhibitionPage = ({ source, frontMatter }: Props) => {
   return (
-    <>
-      <ExhibitionWrapper>
-        <ArtistName>{frontMatter.artistName}</ArtistName>
-        <ExhibitionTitle> {frontMatter.exhibitionTitle}</ExhibitionTitle>
-      </ExhibitionWrapper>
-      <ExhibitionLayout>
-
-        <MDXRemote {...source} components={components} />
-      </ExhibitionLayout>
-
-    </>
+    <AnimatePresence exitBeforeEnter>
+      <motion.div initial="initial"
+        animate="animate"
+        variants={{
+          initial: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+        }}>
+        <ExhibitionWrapper>
+          <ArtistName>{frontMatter.artistName}</ArtistName>
+          <ExhibitionTitle> {frontMatter.exhibitionTitle}</ExhibitionTitle>
+        </ExhibitionWrapper>
+        <ExhibitionLayout>
+          <MDXRemote {...source} components={components} />
+        </ExhibitionLayout>
+      </motion.div>
+    </AnimatePresence>
   )
 }
 
@@ -53,7 +64,7 @@ const ExhibitionLayout = styled.div`
 `;
 
 
-const ExhibitionWrapper = styled.div`
+const ExhibitionWrapper = styled(motion.div)`
   overflow: scroll;
   display: flex;
   flex-direction: row;

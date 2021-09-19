@@ -4,7 +4,7 @@ import logoImage from '../public/logo.png'
 import styled from 'styled-components'
 import { media } from '../styles/theme'
 
-
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Menu = () => {
   return (
@@ -18,7 +18,7 @@ const Menu = () => {
         <Link href="/exhibition"><LinkStyle>Exhibition</LinkStyle></Link>
         <Link href="/texts"><LinkStyle>Texts</LinkStyle></Link>
         <Link href="/networking"><LinkStyle>Networking</LinkStyle></Link>
-      </Nav >
+      </Nav>
     </>
   )
 }
@@ -38,7 +38,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: #686868;
    ${media.mobile} {
    flex-direction:column;
 }

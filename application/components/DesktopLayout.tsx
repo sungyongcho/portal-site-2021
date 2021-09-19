@@ -1,7 +1,7 @@
 import Menu from './Menu'
 import { useRouter } from "next/router";
 import styled from 'styled-components'
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 type Props = {
   children: any
 }
@@ -20,19 +20,28 @@ const DesktopLayout = ({ children }: Props) => {
   return (
     <>
       {(showMenu && router.pathname !== '/networking') && <Menu />}
-      <DesktopBody initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}>
-        {children}
-      </DesktopBody>
+      <motion.div initial="initial"
+        animate="animate"
+        variants={{
+          initial: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+        }}>
+        <DesktopBody>
+          {children}
+        </DesktopBody>
+      </motion.div>
     </>
   )
 }
 
-const DesktopBody = styled(motion.div)`
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-`
+const DesktopBody = styled.div`
+      flex-direction: row;
+      justify-content: center;
+      text-align: center;
+      `
 
 export default DesktopLayout;

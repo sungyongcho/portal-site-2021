@@ -5,6 +5,7 @@ import logoImage from '../public/logo.png'
 import styled from 'styled-components'
 import { darken, lighten } from 'polished';
 import { media } from '../styles/theme';
+import { motion } from 'framer-motion';
 
 
 const Nav = () => {
