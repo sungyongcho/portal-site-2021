@@ -17,7 +17,7 @@ const interviewPage = ({ source, frontMatter }: Props) => {
     <div>
       [비평가 이름 이름: {frontMatter.criticName}]
       [텍스트 제목: {frontMatter.textTitle}]
-      <TextContent content={frontMatter.textContent}></TextContent>
+      <TextContent content={frontMatter.textContent} textSize={'2em'}></TextContent>
     </div>
   )
 }
