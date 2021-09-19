@@ -1,6 +1,6 @@
-export interface IArtist {
+export interface IMember {
   slug: string;
-  artistName: string;
+  memberName: string;
   genre: string;
   profilePhoto: string;
   workList: string[];

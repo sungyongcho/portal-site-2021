@@ -5,6 +5,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { getAllInterviews, getInterviewPost } from '../../utils/mdxUtils';
 import { IInterview } from '../../types/IInterview';
 import InterviewBody from '../../components/interview-body';
+import styled from 'styled-components';
 
 type Props = {
   source: MDXRemoteSerializeResult;
@@ -18,16 +19,34 @@ const components = {
 
 const interviewPage = ({ source, frontMatter }: Props) => {
   return (
-    <div>
-      [아티스트 이름: {frontMatter.artistName}]
-      [인터뷰 제목: {frontMatter.interviewTitle}]
-      <MDXRemote {...source} components={components} />
-    </div>
+    <>
+      <InterviewWrapper>
+        <InterviewName>{frontMatter.artistName}</InterviewName>
+        <InterviewTitle> {frontMatter.interviewTitle}</InterviewTitle>
+      </InterviewWrapper>
+      <div>
+        <MDXRemote {...source} components={components} />
+      </div>
+    </>
   )
 }
 
 export default interviewPage
 
+const InterviewWrapper = styled.div`
+  overflow: scroll;
+  padding-top: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const InterviewName = styled.p`
+font-size: 2em;
+`;
+const InterviewTitle = styled.p`
+font-size: 2em;
+`;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = getInterviewPost(params?.slug as string);

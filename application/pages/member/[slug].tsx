@@ -2,40 +2,47 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { IArtist } from '../../types/IArtist';
-import { getAllArtistPosts, getArtistPost } from '../../utils/mdxUtils';
-import ArtistContact from '../../components/artist-contact'
-import ArtistProfile from '../../components/artist-profile'
-import ArtistWorklist from '../../components/artist-worklist'
+import { IMember } from '../../types/IMember';
+import { getAllMemberPosts, getMemberPost } from '../../utils/mdxUtils';
+import MemberContact from '../../components/member-contact'
+import MemberProfile from '../../components/member-profile'
+import MemberWorklist from '../../components/member-worklist'
+
+import styled from 'styled-components'
 
 type Props = {
   source: MDXRemoteSerializeResult;
-  frontMatter: Omit<IArtist, 'slug' | 'order'>;
+  frontMatter: Omit<IMember, 'slug' | 'order'>;
 };
 
 const components = {
-  ArtistProfile,
-  ArtistWorklist,
-  ArtistContact
+  MemberProfile,
+  MemberWorklist,
+  MemberContact
 };
 
 
-const artistPage = ({ source, frontMatter }: Props) => {
+const MemberPage = ({ source, frontMatter }: Props) => {
   console.log(source);
   return (
-    <div>
-      [아티스트 이름: {frontMatter.artistName}]
+    <MemberLayout>
+      [아티스트 이름: {frontMatter.memberName}]
       [아티스트 장르: {frontMatter.genre}]
       <MDXRemote {...source} components={components} />
-    </div >
+    </MemberLayout >
   )
 }
 
-export default artistPage
+export default MemberPage
+
+const MemberLayout = styled.div`
+overflow: scroll;
+margin-top: 10%;
+`
 
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { content, data } = getArtistPost(params?.slug as string);
+  const { content, data } = getMemberPost(params?.slug as string);
 
   const mdxSource = await serialize(content, { scope: data });
 
@@ -48,7 +55,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllArtistPosts(['slug']);
+  const posts = getAllMemberPosts(['slug']);
 
   const paths = posts.map((post) => ({
     params: {

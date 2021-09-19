@@ -1,6 +1,8 @@
 import TextContent from './TextContent'
-import IFrame from 'react-iframe'
-import { jsx, css } from '@emotion/react';
+import styled from 'styled-components';
+import IframeResizer from 'iframe-resizer-react'
+import { media } from "../styles/theme";
+
 
 type Props = {
   vr: string,
@@ -8,24 +10,33 @@ type Props = {
 
 const ExhibitionBody = ({ vr }: Props) => {
   return (
-    <div style={{
-      boxSizing: "border-box",
-      paddingLeft: "5%",
-      paddingRight: "5%"
-    }}>
-      <div style={{
-        position: "relative",
-        width: "100%",
-        paddingBottom: "56.25%",
-      }}>
-        <iframe style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-        }} src={vr} sandbox="allow-scripts" allow="fullscreen"></iframe>
-      </div>
-    </div>
+    <ExhibitionArea>
+      <ExhibitionFrame frameBorder="0" src={vr} sandbox="allow-scripts" allow="fullscreen" allowFullScreen />
+    </ExhibitionArea >
   )
 }
 
+
+
+const ExhibitionArea = styled.div`
+  position: relative;
+	width : 100%;
+	height : 0;
+  padding-bottom: 56.25%;
+`;
+
+
+const ExhibitionFrame = styled.iframe`
+  position: absolute;
+  top : 0;
+	left : 0;
+  width: 100%; /* 부모에 맞게 꽉 채운다. */
+  height: 100%;
+  ${media.mobile} {
+    width: 34rem;
+    height: 45rem;
+  }
+`
+
 export default ExhibitionBody
+

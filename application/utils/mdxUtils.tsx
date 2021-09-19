@@ -15,7 +15,7 @@ type Post = {
   content: string;
 };
 
-const ARTISTS_PATH = join(process.cwd(), '/_mdx/artists');
+const MEMBERS_PATH = join(process.cwd(), '/_mdx/members');
 const EXHIBITONS_PATH = join(process.cwd(), '/_mdx/exhibitions');
 const TEXTS_PATH = join(process.cwd(), '/_mdx/texts');
 const INTERVIEWS_PATH = join(process.cwd(), '/_mdx/interviews');
@@ -30,8 +30,8 @@ function getItemFilePaths(items_path: string): string[] {
   );
 }
 
-export function getArtistPost(filename: string): Post {
-  const fullPath = join(ARTISTS_PATH, `${filename}.mdx`);
+export function getMemberPost(filename: string): Post {
+  const fullPath = join(MEMBERS_PATH, `${filename}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
   return { data, content };
@@ -59,9 +59,10 @@ export function getInterviewPost(filename: string): Post {
 }
 
 
-export function getArtistItems(filePath: string, fields: string[] = []): Items {
+export function getMemberItems(filePath: string, fields: string[] = []): Items {
+
   const slug = filePath.replace(/\.mdx?$/, '');
-  const { data, content } = getArtistPost(slug);
+  const { data, content } = getMemberPost(slug);
 
   const items: Items = {};
 
@@ -100,7 +101,6 @@ export function getTextItems(filePath: string, fields: string[] = []): Items {
       items[field] = data[field];
     }
   })
-  console.log(fields);
   return items;
 }
 
@@ -123,7 +123,6 @@ export function getExhibitionItems(filePath: string, fields: string[] = []): Ite
       items[field] = data[field];
     }
   })
-  console.log(fields);
   return items;
 }
 
@@ -147,15 +146,14 @@ export function getInterviewItems(filePath: string, fields: string[] = []): Item
       items[field] = data[field];
     }
   })
-  console.log(fields);
   return items;
 }
 
 
-export function getAllArtistPosts(fields: string[] = []): Items[] {
-  const filePaths = getItemFilePaths(ARTISTS_PATH);
+export function getAllMemberPosts(fields: string[] = []): Items[] {
+  const filePaths = getItemFilePaths(MEMBERS_PATH);
   const posts = filePaths
-    .map((filePath) => getArtistItems(filePath, fields))
+    .map((filePath) => getMemberItems(filePath, fields))
     .sort((post1, post2) => (post1.order < post2.order ? -1 : 1));
   return posts;
 }

@@ -5,7 +5,6 @@ const networking: NextPage = () => {
   return (
     <div>
       <HeadInfo title="Networking"></HeadInfo>
-
       <h1>Networking</h1>
     </div>
   )

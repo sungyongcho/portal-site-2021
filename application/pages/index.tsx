@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import Link from 'next/link'
+import styled from "styled-components";
 
 const Home: NextPage = () => {
   return (
@@ -7,5 +7,8 @@ const Home: NextPage = () => {
     </>
   )
 }
+
+
+
 
 export default Home

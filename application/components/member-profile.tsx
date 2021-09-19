@@ -6,7 +6,7 @@ type Props = {
   content: string
 }
 
-const ArtistProfile = ({ name, picture, content }: Props) => {
+const MemberProfile = ({ name, picture, content }: Props) => {
   return (
     <div className="flex items-center">
       <Image src={picture} width="100" height="100" className="w-12 h-12 rounded-full mr-4" alt={name} />
@@ -15,4 +15,4 @@ const ArtistProfile = ({ name, picture, content }: Props) => {
   )
 }
 
-export default ArtistProfile
+export default MemberProfile

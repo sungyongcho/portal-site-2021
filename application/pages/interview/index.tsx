@@ -1,10 +1,9 @@
 import { GetStaticProps } from 'next';
 
 import Link from 'next/link'
-import router from 'next/router'
 
 import { IInterview } from '../../types/IInterview'
-import { getAllArtistPosts, getAllInterviews } from '../../utils/mdxUtils';
+import { getAllInterviews } from '../../utils/mdxUtils';
 
 type InterviewProps = {
   interviews: IInterview[];
@@ -13,8 +12,6 @@ type InterviewProps = {
 const InterviewNav = ({ interviews }: InterviewProps) => {
   return (
     <>
-      <h2>Interviews</h2>
-
       <div>
         <nav>
           <ul>

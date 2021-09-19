@@ -1,34 +1,30 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Config
+!config/default.json
+!config/development.json.sample
+config/*.json
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Next
+.next
+out
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+coverage
 
-# local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# NPM
+node_modules/
 
-# vercel
-.vercel
+# Transpiled code
+dist
+out
+.out
+
+# Dev tools
+.DS_Store
+.vscode
+.idea
+*.swp
+*.bak
+
+node_modules.nosync/
+*.env.*

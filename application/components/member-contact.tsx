@@ -5,7 +5,7 @@ type Props = {
   website: string
 }
 
-const ArtistContact = ({ email, sns, website }: Props) => {
+const MemberContact = ({ email, sns, website }: Props) => {
   return (
     <div className="max-w-2xl mx-auto">
       <ul>
@@ -31,4 +31,4 @@ const ArtistContact = ({ email, sns, website }: Props) => {
   )
 }
 
-export default ArtistContact
+export default MemberContact

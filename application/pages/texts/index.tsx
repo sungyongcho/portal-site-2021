@@ -4,16 +4,15 @@ import Link from 'next/link'
 import router from 'next/router'
 
 import { IText } from '../../types/IText';
-import { getAllArtistPosts, getAllInterviews, getAllTexts } from '../../utils/mdxUtils';
+import { getAllTexts } from '../../utils/mdxUtils';
 
 type TextProps = {
   texts: IText[];
 }
 
-const InterviewNav = ({ texts }: TextProps) => {
+const TextNav = ({ texts }: TextProps) => {
   return (
     <>
-      <h2>Texts</h2>
       <div>
         <nav>
           <ul>
@@ -31,7 +30,7 @@ const InterviewNav = ({ texts }: TextProps) => {
   )
 }
 
-export default InterviewNav
+export default TextNav
 
 export const getStaticProps: GetStaticProps = async () => {
   const texts = getAllTexts([
