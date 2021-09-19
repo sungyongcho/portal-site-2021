@@ -6,29 +6,38 @@ import router from 'next/router'
 import { IText } from '../../types/IText';
 import { getAllTexts } from '../../utils/mdxUtils';
 
+import styled from 'styled-components'
+import { motion } from 'framer-motion';
+
+
 type TextProps = {
   texts: IText[];
 }
 
 const TextNav = ({ texts }: TextProps) => {
   return (
-    <>
-      <div>
-        <nav>
-          <ul>
-            {texts.map((texts) => (
-              <div key={texts.slug}>
-                <li>
-                  <Link href={`texts/${texts.slug}`}><a>{texts.criticName}</a></Link>
-                </li>
-              </div>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </>
+    <TextList>
+      {texts.map((texts) => (
+        <ExhibitionItem key={texts.slug}>
+          <Link href={`texts/${texts.slug}`}><a>{texts.criticName}</a></Link>
+        </ExhibitionItem>
+      ))}
+    </TextList>
   )
 }
+
+const TextList = styled(motion.div)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+`
+
+const ExhibitionItem = styled(motion.div)`
+  font-size: 1.8em;
+  padding: 0 0.5em;
+`
 
 export default TextNav
 

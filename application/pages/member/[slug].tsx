@@ -36,8 +36,12 @@ const MemberPage = ({ source, frontMatter }: Props) => {
 export default MemberPage
 
 const MemberLayout = styled.div`
-overflow: scroll;
-margin-top: 10%;
+  padding: 0 8%;
+  padding-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  text-align: left;
 `
 
 

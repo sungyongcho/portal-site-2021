@@ -64,13 +64,16 @@ const LogoWrapper = styled.div`
 `;
 
 const Wrapper = styled(motion.div)`
-  width:100vw;
-  height:100vh;
+  width:95vw;
+  height:95vh;
   .title {
     font-weight: 800;
   }
+  margin: 2em;
+  align-self: center;
   flex-direction: column;
-  background: #ffb01e;
+  background: rgb(236,67,36);
+  background: linear-gradient(180deg, rgba(236,67,36,0.95) 0%, rgba(103,43,135,0.95) 15%, rgba(111,45,129,0.95) 85%, rgba(236,67,36,0.9500175070028011) 100%);
   display: flex;
   align-items: center;
   justify-content: center;

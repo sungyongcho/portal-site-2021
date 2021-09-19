@@ -6,30 +6,37 @@ import router from 'next/router'
 import { IMember } from '../../types/IMember'
 import { getAllMemberPosts } from '../../utils/mdxUtils';
 
+import styled from 'styled-components'
+import { motion } from 'framer-motion';
+
 type MemberProps = {
   members: IMember[];
 }
 
 const MemberNav = ({ members }: MemberProps) => {
   return (
-    <>
-      <div>
-        <nav>
-          <ul>
-            {members.map((members) => (
-              <div key={members.slug}>
-                <li>
-                  <Link href={`member/${members.slug}`}><a>{members.memberName}</a></Link>
-                </li>
-              </div>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </>
+    <ExhibitionList>
+      {members.map((members) => (
+        <ExhibitionItem key={members.slug}>
+          <Link href={`member/${members.slug}`}><a>{members.memberName}</a></Link>
+        </ExhibitionItem>
+      ))}
+    </ExhibitionList>
   )
 }
 
+const ExhibitionList = styled(motion.div)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+`
+
+const ExhibitionItem = styled(motion.div)`
+  font-size: 1.8em;
+  padding: 0 0.5em;
+`
 export default MemberNav
 
 export const getStaticProps: GetStaticProps = async () => {

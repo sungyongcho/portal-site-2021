@@ -37,7 +37,6 @@ const ExhibitionPage = ({ source, frontMatter }: Props) => {
 export default ExhibitionPage
 
 const ExhibitionLayout = styled.div`
-  overflow: scroll;
   box-sizing: "border-box";
   padding-left: 0;
   padding-right: 0;

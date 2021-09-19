@@ -1,14 +1,19 @@
-
+import styled from 'styled-components';
 type Props = {
-  content: string
+  content: string,
+  textSize: string
 }
 
-const TextContent = ({ content }: Props) => {
+const TextContent = ({ content, textSize }: Props) => {
+  const TextSize = styled.div`
+  font-size: ${textSize};
+  `;
+
   return (
     <div className="max-w-2xl mx-auto">
-      <div
+      <TextSize
         dangerouslySetInnerHTML={{ __html: content }}
-      />
+      ></TextSize>
     </div>
   )
 }

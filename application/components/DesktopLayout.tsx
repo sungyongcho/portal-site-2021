@@ -31,6 +31,7 @@ const DesktopLayout = ({ children }: Props) => {
 
 const DesktopBody = styled(motion.div)`
   flex-direction: row;
+  justify-content: center;
   text-align: center;
 `
 
