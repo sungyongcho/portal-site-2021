@@ -18,9 +18,7 @@ export const theme: DefaultTheme = {
 
 const customMediaQuery = (maxWidth: number): string => {
   return (
-    (maxWidth > 1440) ?
-      `@media screen and (max-width: 1440px)` :
-      `@media screen and (max-width: ${maxWidth}px)`)
+    `@media (max-width: ${maxWidth}px)`)
 };
 
 export const media = {

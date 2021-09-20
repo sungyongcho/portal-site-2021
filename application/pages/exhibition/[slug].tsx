@@ -22,26 +22,24 @@ const components = {
 
 const ExhibitionPage = ({ source, frontMatter }: Props) => {
   return (
-    <AnimatePresence exitBeforeEnter>
-      <motion.div initial="initial"
-        animate="animate"
-        variants={{
-          initial: {
-            opacity: 0,
-          },
-          animate: {
-            opacity: 1,
-          },
-        }}>
-        <ExhibitionWrapper>
-          <ArtistName>{frontMatter.artistName}</ArtistName>
-          <ExhibitionTitle> {frontMatter.exhibitionTitle}</ExhibitionTitle>
-        </ExhibitionWrapper>
-        <ExhibitionLayout>
-          <MDXRemote {...source} components={components} />
-        </ExhibitionLayout>
-      </motion.div>
-    </AnimatePresence>
+    <motion.div initial="initial"
+      animate="animate"
+      variants={{
+        initial: {
+          opacity: 0,
+        },
+        animate: {
+          opacity: 1,
+        },
+      }}>
+      <ExhibitionWrapper>
+        <ArtistName>{frontMatter.artistName}</ArtistName>
+        <ExhibitionTitle> {frontMatter.exhibitionTitle}</ExhibitionTitle>
+      </ExhibitionWrapper>
+      <ExhibitionLayout>
+        <MDXRemote {...source} components={components} />
+      </ExhibitionLayout>
+    </motion.div>
   )
 }
 
@@ -51,6 +49,7 @@ const ExhibitionLayout = styled.div`
   box-sizing: "border-box";
   padding-left: 0;
   padding-right: 0;
+  width: 90em;
   ${media.desktop} {
     width: 80em;
   }
