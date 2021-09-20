@@ -19,27 +19,27 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <AnimatePresence exitBeforeEnter>
-        <HeadInfo />
-        <GlobalStyle />
-        <NavWrapper exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <Nav />
-        </NavWrapper>
-        <Wrapper>
-          <ThemeProvider theme={theme}>
-            {width > 376 ?
-              <DesktopLayout>
+      <HeadInfo />
+      <GlobalStyle />
+      <NavWrapper>
+        <Nav />
+      </NavWrapper>
+      <Wrapper>
+        <ThemeProvider theme={theme}>
+          {width > 376 ?
+            <DesktopLayout>
+              <AnimatePresence exitBeforeEnter>
                 <Component {...pageProps} />
-              </DesktopLayout> :
-              <MobileLayout>
-                <Component {...pageProps} key={router.route} />
-              </MobileLayout>}
-          </ThemeProvider>
-        </Wrapper>
-        <LogoWrapper>
-          <LogoList />
-        </LogoWrapper>
-      </AnimatePresence>
+              </AnimatePresence>
+            </DesktopLayout> :
+            <MobileLayout>
+              <Component {...pageProps} />
+            </MobileLayout>}
+        </ThemeProvider>
+      </Wrapper>
+      <LogoWrapper>
+        <LogoList />
+      </LogoWrapper>
     </>
   );
 }
@@ -68,8 +68,8 @@ const Wrapper = styled(motion.div)`
       width:95vw;
       height:95vh;
       .title {
-        font - weight: 800;
-  }
+        font-weight: 800;
+      }
       margin: 2em;
       align-self: center;
       flex-direction: column;
@@ -80,7 +80,7 @@ const Wrapper = styled(motion.div)`
       justify-content: center;
       ${media.mobile} {
         overflow: scroll;
-  }
-      `;
+      }
+`;
 
 export default MyApp;

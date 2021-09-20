@@ -11,17 +11,28 @@ import { motion } from 'framer-motion';
 const Nav = () => {
   const router = useRouter()
   return (
-    <NavStyle>
-      <ToHomeButton type="button" onClick={() => router.push('/')} />
-      <ToUpButton type="button" onClick={() => {
-        let temp = router.asPath;
-        router.push((temp.slice(0, temp.lastIndexOf('/')) === '') ? '/' : temp.slice(0, temp.lastIndexOf('/')))
-      }} />
-      <GoBackButton type="button" onClick={() => router.back()} />
-    </NavStyle>
+    <motion.div key={router.route} initial="initial"
+      animate="animate"
+      variants={{
+        initial: {
+          opacity: 0,
+        },
+        animate: {
+          opacity: 1,
+        },
+      }}>
+      <NavStyle>
+        <ToHomeButton type="button" onClick={() => router.push('/')} />
+        <ToUpButton type="button" onClick={() => {
+          let temp = router.asPath;
+          router.push((temp.slice(0, temp.lastIndexOf('/')) === '') ? '/' : temp.slice(0, temp.lastIndexOf('/')))
+        }} />
+        <GoBackButton type="button" onClick={() => router.back()} />
+      </NavStyle>
+    </motion.div>
   )
 }
-const NavStyle = styled.nav`
+const NavStyle = styled.div`
   margin: 3em;
   border-style: solid;
   background-color: transparent;

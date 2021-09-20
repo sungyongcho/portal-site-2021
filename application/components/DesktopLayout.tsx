@@ -20,7 +20,7 @@ const DesktopLayout = ({ children }: Props) => {
   return (
     <>
       {(showMenu && router.pathname !== '/networking') && <Menu />}
-      <motion.div initial="initial"
+      <motion.div key={router.route} initial="initial"
         animate="animate"
         variants={{
           initial: {
