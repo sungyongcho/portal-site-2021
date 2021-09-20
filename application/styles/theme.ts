@@ -16,9 +16,9 @@ export const theme: DefaultTheme = {
   },
 };
 
-const customMediaQuery = (maxWidth: number): string => {
-  return (
-    `@media (max-width: ${maxWidth}px)`)
+const customMediaQuery = (minWidth: number): string => {
+  // return (`@media screen and (max-width: ${maxWidth}px)`)
+  return (`@media screen and (min-width: ${minWidth}px)`);
 };
 
 export const media = {
