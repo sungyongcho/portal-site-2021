@@ -1,24 +1,50 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from "next/router";
 import logoImage from '../public/logo.png'
 import styled from 'styled-components'
 import { media } from '../styles/theme'
-
+import { menuItems } from "./MenuItems";
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const DesktopMenu = () => {
+
+  const router = useRouter()
+  const [selected, changeSelected] = useState('');
+
+  const handleClick = (e, path) => {
+    if (router.pathname === '/' + path) {
+      router.push('/')
+      changeSelected('');
+    }
+    else {
+      console.log(path);
+      router.push(path);
+      changeSelected(path);
+    }
+  };
+
   return (
     <>
       <ImageContainer>
         <Image alt="Portal Site" src={logoImage}></Image>
       </ImageContainer>
-      <Nav>
-        <Link href="/member"><LinkStyle>Member</LinkStyle></Link>
-        <Link href="/interview"><LinkStyle>Interview</LinkStyle></Link>
-        <Link href="/exhibition"><LinkStyle>Exhibition</LinkStyle></Link>
-        <Link href="/texts"><LinkStyle>Texts</LinkStyle></Link>
-        <Link href="/networking"><LinkStyle>Networking</LinkStyle></Link>
-      </Nav>
+      <MenuWrapper>
+        {menuItems && menuItems.map((menuItem) => {
+          return (
+            <Nav key={menuItem.path}>
+              {(selected === menuItem.path || selected === '') &&
+                <MenuItem className={selected === menuItem.path ? "isClicked" : ""}>
+                  <a onClick={(e) => {
+                    handleClick(e, menuItem.path)
+                  }}>{menuItem.title}</a>
+                </MenuItem>
+              }
+            </Nav>
+          )
+        })}
+      </MenuWrapper>
     </>
   )
 }
@@ -34,6 +60,12 @@ const ImageContainer = styled.div`
 `
 
 const Nav = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center
+`;
+
+const MenuWrapper = styled.div`
   padding-top: 3%;
   display: flex;
   justify-content: center;
@@ -42,12 +74,14 @@ const Nav = styled.div`
   flex-direction:row;
 `;
 
-const LinkStyle = styled.a`
-  font-size: 2em;
+const MenuItem = styled.div`
+  font-size: 2.5em;
+  padding: 0.6em 1em;
   color: #EFEFEF;
-  flex-direction: row;
-  padding: 0 3%;
-`
+  &.isClicked {
+    font-size: 3em;
+  }
+`;
 const SubmenuWrapper = styled.div`
   display: flex;
   flex-direction: row;
