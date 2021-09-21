@@ -9,6 +9,7 @@ const ContentWrapper = styled.div`
   box-sizing: "border-box";
   ${media.tablet} {
     padding: 4%;
+
   }
 `;
 export default ContentWrapper;

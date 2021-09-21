@@ -24,28 +24,30 @@ const DesktopMenu = () => {
 }
 
 const ImageContainer = styled.div`
-${media.desktop} {
-width: 40em;
-}
-${media.mobile} {
-  width:10em;
-}
+  padding-top: 50%;
+  width:50%;
+  align-self: center;
 `
 
 const Nav = styled.div`
+  padding-top: 3%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background: #686868;
-   ${media.mobile} {
-   flex-direction:column;
-}
+  background: transparent;
+  flex-direction:row;
 `;
 
 const LinkStyle = styled.a`
-  font-size: 1.5em;
+  font-size: 2em;
   color: #EFEFEF;
   flex-direction: row;
+  padding: 0 3%;
+`
+const SubmenuWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  text-align: center;
 `
 
 export default DesktopMenu

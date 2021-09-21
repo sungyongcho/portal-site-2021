@@ -73,6 +73,12 @@ const Wrapper = styled(motion.div)`
   align-self: center;
   background: rgb(236,67,36);
   background: linear-gradient(180deg, rgba(236,67,36,0.95) 0%, rgba(103,43,135,0.95) 15%, rgba(111,45,129,0.95) 85%, rgba(236,67,36,0.9500175070028011) 100%);
+  ${media.tablet}
+  {
+    margin: 2%;
+    width: 96vw;
+    height: 96vh;
+  }
 `;
 
 export default MyApp;

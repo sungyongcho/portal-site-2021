@@ -21,15 +21,29 @@ const DesktopLayout = ({ children }: Props) => {
 
   return (
     <>
-      {(showMenu && router.pathname !== '/networking') && <DesktopMenu />}
       <DesktopBody>
-        {children}
+        {(showMenu && router.pathname !== '/networking') && <DesktopMenu />}
+        <DesktopSubmenu>
+          {children}
+        </DesktopSubmenu>
       </DesktopBody>
     </>
   )
 }
 
 const DesktopBody = styled.div`
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+`;
+
+const DesktopSubmenu = styled.div`
+  padding-top: 3%;
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-between;
 `;
 
 export default DesktopLayout;
