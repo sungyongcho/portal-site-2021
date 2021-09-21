@@ -69,7 +69,7 @@ const MobileMenu = ({ children }: Props) => {
                   handleClick(e, menuItem.path)
                 }}>{menuItem.title}</a>
               </MenuItem>
-              {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <BodyLayout> {children} </BodyLayout> : ''}
+              {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <SubmenuWrapper> {children} </SubmenuWrapper> : ''}
             </>
           )
         })}
@@ -96,7 +96,7 @@ const MenuItem = styled.div`
   color: #EFEFEF;
 ;
 `
-const BodyLayout = styled.div`
+const SubmenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
