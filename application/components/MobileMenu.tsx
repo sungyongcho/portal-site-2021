@@ -1,10 +1,8 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import logoImage from '../public/logo.png'
 import styled from 'styled-components'
-import { media } from '../styles/theme'
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { menuItems } from './MenuItems'
 
 type Props = {
   children: any
@@ -23,58 +21,45 @@ const MobileMenu = ({ children }: Props) => {
 
   return (
     <>
-      <ImageContainer>
-        <Image alt="Portal Site" src={logoImage}></Image>
-      </ImageContainer>
-      <Nav>
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'member')
-        }}>Member</a></LinkStyle>
-        {router.pathname === '/member' ? <BodyLayout> {children} </BodyLayout> : ''}
-
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'interview')
-        }}>Interview</a></LinkStyle>
-        {router.pathname === '/interview' ? <BodyLayout> {children} </BodyLayout> : ''}
-
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'exhibition')
-        }}>Exhibition</a></LinkStyle>
-        {router.pathname === '/exhibition' ? <BodyLayout> {children} </BodyLayout> : ''}
-
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'texts')
-        }}>Text</a></LinkStyle>
-        {router.pathname === '/texts' ? <BodyLayout> {children} </BodyLayout> : ''}
-        <LinkStyle><Link href='/networking'>
-          Networking</Link></LinkStyle>
-      </Nav >
+      {menuItems && menuItems.map((menuItem) => {
+        return (
+          <Nav key={menuItem.path}>
+            <MenuItem>
+              <a onClick={(e) => {
+                handleClick(e, menuItem.path)
+              }}>{menuItem.title}</a>
+            </MenuItem>
+            {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <SubmenuWrapper> {children} </SubmenuWrapper> : ''}
+          </Nav>
+        )
+      })}
     </>
   )
 }
-
-const ImageContainer = styled.div`
-  padding-top: 30%;
-  width:25em;
-`
 
 const Nav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: black;
 `;
 
-const LinkStyle = styled.a`
-  font-size: 1.5em;
-  padding: 20%;
+const MenuItem = styled.div`
+  font-size: 2em;
+  padding: 0.6em 1em;
   color: #EFEFEF;
-;
 `
-const BodyLayout = styled.div`
+
+const SubmenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: center;
+  padding: 1.2em 1.4em;
+  align-items: center;
+  line-height: 1.6;
+  font-size: 0.8em;
+  font-weight: normal;
+  min-width: 20vw;
+  border: 1px solid white;
+  border-radius: 2em;
 `
 
 export default MobileMenu

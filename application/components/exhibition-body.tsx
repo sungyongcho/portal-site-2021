@@ -32,10 +32,6 @@ const ExhibitionFrame = styled.iframe`
 	left : 0;
   width: 100%; /* 부모에 맞게 꽉 채운다. */
   height: 100%;
-  ${media.mobile} {
-    width: 34rem;
-    height: 45rem;
-  }
 `
 
 export default ExhibitionBody

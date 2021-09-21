@@ -27,7 +27,6 @@ const components = {
 
 
 const MemberPage = ({ source, frontMatter }: Props) => {
-  console.log(source);
   return (
     <ContentLayout>
       <ContentHeaderWrapper>
