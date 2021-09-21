@@ -64,11 +64,11 @@ const MobileMenu = ({ children }: Props) => {
         {menuItems && menuItems.map((menuItem) => {
           return (
             <>
-              <LinkStyle>
+              <MenuItem>
                 <a onClick={(e) => {
                   handleClick(e, menuItem.path)
                 }}>{menuItem.title}</a>
-              </LinkStyle>
+              </MenuItem>
               {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <BodyLayout> {children} </BodyLayout> : ''}
             </>
           )
@@ -90,7 +90,7 @@ const Nav = styled.div`
   background: black;
 `;
 
-const LinkStyle = styled.div`
+const MenuItem = styled.div`
   font-size: 1.5em;
   padding: 0.6em 1em;
   color: #EFEFEF;
