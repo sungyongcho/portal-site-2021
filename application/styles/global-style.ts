@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar {
         display: none;
     }
-
     html{
         height: 100%;
         width: 100%;
@@ -36,7 +35,31 @@ export const GlobalStyle = createGlobalStyle`
             fill: #f2f3f4;
         }
     }
-
+    // ----------MDX----------
+    //mdx 보더라인 색상, 굵기
+    hr {
+      background-color: black;
+      height: 1px;
+      border: 0;
+    }
+    //mdx 헤더
+    h1 {
+      font-size: 1.5em;
+      padding-bottom: 3%;
+    }
+    h2 {
+      font-size: 1.5em;
+      padding-bottom: 3%;
+    }
+    h3 {
+      font-size: 1.2em;
+      padding-bottom: 3%;
+    }
+    li {
+      list-style-position: inside;
+      margin:0px; padding:0px;
+    }
+    // ---------MDX------------
     .desktop-tablet-only {
         display: flex;
         ${media.mobile} {
