@@ -10,6 +10,7 @@ import MemberWorklist from '../../components/member-worklist'
 
 import styled from 'styled-components'
 import { media } from "../../styles/theme";
+import ContentLayout from '../../styles/content-layout'
 
 type Props = {
   source: MDXRemoteSerializeResult;
@@ -26,7 +27,7 @@ const components = {
 const MemberPage = ({ source, frontMatter }: Props) => {
   console.log(source);
   return (
-    <MemberLayout>
+    <ContentLayout>
       <MemberHeaderWrapper>
         <MemberName> {frontMatter.memberName}</MemberName>
         <MemberGenre>{frontMatter.genre}</MemberGenre>
@@ -34,27 +35,11 @@ const MemberPage = ({ source, frontMatter }: Props) => {
       <MemberContentWrapper>
         <MDXRemote {...source} components={components} />
       </MemberContentWrapper>
-    </MemberLayout >
+    </ContentLayout >
   )
 }
 
 export default MemberPage
-
-const MemberLayout = styled.div`
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  margin-top: 15%;
-  margin-left: 6%;
-  margin-right: 6%;
-  padding-bottom: 3em;
-  font-size: 1.2em;
-  ${media.tablet} {
-    margin-top: 10%;
-    margin-left: 4%;
-    margin-right: 4%;
-    padding-bottom: 0;
-  }
-`
 
 const MemberHeaderWrapper = styled.div`
   display: flex;

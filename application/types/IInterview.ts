@@ -3,5 +3,4 @@ export interface IInterview {
   artistName: string;
   interviewTitle: string;
   interviewVideo: string;
-  interviewText: string;
 }
