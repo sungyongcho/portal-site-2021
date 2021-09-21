@@ -23,16 +23,16 @@ const DesktopLayout = ({ children }: Props) => {
   return (
     <>
       <DesktopBody>
-        <CurvedCourner className={"topLeft"} />
+        {/* <CurvedCourner className={"topLeft"} />
         <HalfCircle className={"Left"} />
-        <CurvedCourner className={"topRight"} />
+        <CurvedCourner className={"topRight"} /> */}
         {(showMenu && router.pathname !== '/networking') && <DesktopMenu />}
         <DesktopSubmenu>
           {children}
         </DesktopSubmenu>
-        <CurvedCourner className={"BottomLeft"} />
+        {/* <CurvedCourner className={"BottomLeft"} />
         <HalfCircle className={"Right"} />
-        <CurvedCourner className={"BottomRight"} />
+        <CurvedCourner className={"BottomRight"} /> */}
       </DesktopBody>
     </>
   )
