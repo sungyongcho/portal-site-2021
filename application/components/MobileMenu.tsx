@@ -65,9 +65,9 @@ const Nav = styled.div`
   background: black;
 `;
 
-const LinkStyle = styled.a`
+const LinkStyle = styled.div`
   font-size: 1.5em;
-  padding: 20%;
+  padding: 0.6em 1em;
   color: #EFEFEF;
 ;
 `
