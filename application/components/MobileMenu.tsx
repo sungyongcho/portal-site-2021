@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import logoImage from '../public/logo.png'
+import MobileLogo from './MobileLogo'
 import styled from 'styled-components'
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -23,9 +22,7 @@ const MobileMenu = ({ children }: Props) => {
 
   return (
     <>
-      <ImageContainer>
-        <Image alt="Portal Site" src={logoImage}></Image>
-      </ImageContainer>
+      <MobileLogo />
       <Nav>
         {menuItems && menuItems.map((menuItem) => {
           return (
@@ -43,11 +40,6 @@ const MobileMenu = ({ children }: Props) => {
     </>
   )
 }
-
-const ImageContainer = styled.div`
-  padding-top: 30%;
-  width:25em;
-`
 
 const Nav = styled.div`
   display: flex;
