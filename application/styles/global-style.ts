@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
         display: none;
     }
     html{
+        color: #EFEFEF;
         height: 100%;
         width: 100%;
         background-color: gray;
@@ -38,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
     // ----------MDX----------
     //mdx 보더라인 색상, 굵기
     hr {
-      background-color: black;
+      background-color: #EFEFEF;
       height: 1px;
       border: 0;
     }
@@ -60,6 +61,12 @@ export const GlobalStyle = createGlobalStyle`
       margin:0px; padding:0px;
     }
     // ---------MDX------------
+
+    // 링크 색상
+    a, a:hover, a:visited, a:active {
+      color: inherit;
+      text-decoration: none;
+    }
     .desktop-tablet-only {
         display: flex;
         ${media.mobile} {

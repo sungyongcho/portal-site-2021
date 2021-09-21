@@ -44,7 +44,7 @@ const Nav = styled.div`
 
 const LinkStyle = styled.a`
   font-size: 1.5em;
-  color: black;
+  color: #EFEFEF;
   flex-direction: row;
 `
 

@@ -7,6 +7,7 @@ import { getAllInterviews } from '../../utils/mdxUtils';
 
 import styled from 'styled-components'
 import { motion } from 'framer-motion';
+import Item from '../../styles/item'
 
 type InterviewProps = {
   interviews: IInterview[];
@@ -14,22 +15,22 @@ type InterviewProps = {
 
 const InterviewNav = ({ interviews }: InterviewProps) => {
   return (
-    <InterviewList>
-      {interviews.map((interviews) => (
-        <InterviewItem key={interviews.slug}>
-          <Link href={`interview/${interviews.slug}`}><a>{interviews.artistName}</a></Link>
-        </InterviewItem>
-      ))}
-    </InterviewList>
+    <>
+      {
+        interviews.map((interviews) => (
+          <Item key={interviews.slug}>
+            <Link href={`interview/${interviews.slug}`}><a>{interviews.artistName}</a></Link>
+          </Item>
+        ))
+      }
+    </>
   )
 }
 
-const InterviewList = styled(motion.div)`
-`
 
 const InterviewItem = styled(motion.div)`
   font-size: 1.8em;
-  padding: 0 0.5em;
+  margin-bottom: 0.5em;
 `
 
 export default InterviewNav

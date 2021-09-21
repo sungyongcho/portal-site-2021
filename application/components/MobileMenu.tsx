@@ -12,10 +12,7 @@ type Props = {
 
 const MobileMenu = ({ children }: Props) => {
 
-  const [isOpen, setMenu] = useState(false);
   const router = useRouter();
-
-  console.log(router.pathname);
 
   const handleClick = (e, path) => {
     if (router.pathname === '/' + path)
@@ -62,23 +59,22 @@ const ImageContainer = styled.div`
 `
 
 const Nav = styled.div`
-  padding: 0 2rem;
   display: flex;
-  flex-direction:column;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  background: #b6b1b1;
+  background: black;
 `;
 
 const LinkStyle = styled.a`
   font-size: 1.5em;
   padding: 20%;
-  color: black;
+  color: #EFEFEF;
+;
 `
 const BodyLayout = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-
 `
+
 export default MobileMenu

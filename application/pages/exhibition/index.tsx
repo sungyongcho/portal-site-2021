@@ -5,6 +5,7 @@ import { IExhibition } from '../../types/IExhibition';
 import styled from 'styled-components'
 import { getAllExhibitions } from '../../utils/mdxUtils';
 import { AnimatePresence, motion } from 'framer-motion';
+import Item from '../../styles/item'
 
 type ExhibitionProps = {
   exhibitions: IExhibition[];
@@ -22,29 +23,15 @@ const ExhibitionNav = ({ exhibitions }: ExhibitionProps) => {
           opacity: 1,
         },
       }}>
-      <ExhibitionList>
-        {exhibitions.map((exhibitions) => (
-          <ExhibitionItem key={exhibitions.slug}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}>
-            <Link href={`exhibition/${exhibitions.slug}`}><a>{exhibitions.artistName}</a></Link>
-          </ExhibitionItem>
-        ))}
-      </ExhibitionList>
+      {exhibitions.map((exhibitions) => (
+        <Item key={exhibitions.slug}>
+          <Link href={`exhibition/${exhibitions.slug}`}><a>{exhibitions.artistName}</a></Link>
+        </Item>
+      ))}
     </motion.div>
   )
 }
 
-const ExhibitionList = styled(motion.div)`
-  align-items: center;
-  align-content: center;
-`
-
-const ExhibitionItem = styled(motion.li)`
-   list-style:none;
-  font-size: 1.8em;
-  padding: 0 0.5em;
-`
 
 export default ExhibitionNav
 

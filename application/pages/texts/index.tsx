@@ -8,7 +8,7 @@ import { getAllTexts } from '../../utils/mdxUtils';
 
 import styled from 'styled-components'
 import { motion } from 'framer-motion';
-
+import Item from '../../styles/item'
 
 type TextProps = {
   texts: IText[];
@@ -16,23 +16,18 @@ type TextProps = {
 
 const TextNav = ({ texts }: TextProps) => {
   return (
-    <TextList>
-      {texts.map((texts) => (
-        <TextItem key={texts.slug}>
-          <Link href={`texts/${texts.slug}`}><a>{texts.criticName}</a></Link>
-        </TextItem>
-      ))}
-    </TextList>
+    <>
+      {
+        texts.map((texts) => (
+          <Item key={texts.slug}>
+            <Link href={`texts/${texts.slug}`}><a>{texts.criticName}</a></Link>
+          </Item>
+        ))
+      }
+    </>
   )
 }
 
-const TextList = styled(motion.div)`
-`
-
-const TextItem = styled(motion.div)`
-  font-size: 1.8em;
-  padding: 0 0.5em;
-`
 
 export default TextNav
 

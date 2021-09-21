@@ -6,8 +6,7 @@ import router from 'next/router'
 import { IMember } from '../../types/IMember'
 import { getAllMemberPosts } from '../../utils/mdxUtils';
 
-import styled from 'styled-components'
-import { motion } from 'framer-motion';
+import Item from '../../styles/item'
 
 type MemberProps = {
   members: IMember[];
@@ -15,23 +14,18 @@ type MemberProps = {
 
 const MemberNav = ({ members }: MemberProps) => {
   return (
-    <ExhibitionList>
-      {members.map((members) => (
-        <ExhibitionItem key={members.slug}>
-          <Link href={`member/${members.slug}`}><a>{members.memberName}</a></Link>
-        </ExhibitionItem>
-      ))}
-    </ExhibitionList>
+    <>
+      {
+        members.map((members) => (
+          <Item key={members.slug}>
+            <Link href={`member/${members.slug}`}><a>{members.memberName}</a></Link>
+          </Item>
+        ))
+      }
+    </>
   )
 }
 
-const ExhibitionList = styled(motion.div)`
-`
-
-const ExhibitionItem = styled(motion.div)`
-  font-size: 1.8em;
-  padding: 0 0.5em;
-`
 export default MemberNav
 
 export const getStaticProps: GetStaticProps = async () => {
