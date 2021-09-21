@@ -5,10 +5,15 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { getAllExhibitions, getExhibitionPost } from '../../utils/mdxUtils';
 import { IExhibition } from '../../types/IExhibition';
 import ExhibitionBody from '../../components/exhibition-body';
-import styled from 'styled-components';
-import { media } from "../../styles/theme";
 
 import { AnimatePresence, motion } from 'framer-motion'
+
+import styled from 'styled-components'
+import { media } from "../../styles/theme";
+import ContentLayout from '../../styles/content-layout'
+import ContentHeaderWrapper from '../../styles/content-header-wrapper'
+import ContentWrapper from '../../styles/content-wrapper'
+
 
 type Props = {
   source: MDXRemoteSerializeResult;
@@ -22,59 +27,88 @@ const components = {
 
 const ExhibitionPage = ({ source, frontMatter }: Props) => {
   return (
-    <motion.div initial="initial"
-      animate="animate"
-      variants={{
-        initial: {
-          opacity: 0,
-        },
-        animate: {
-          opacity: 1,
-        },
-      }}>
-      <ExhibitionWrapper>
-        <ArtistName>{frontMatter.artistName}</ArtistName>
-        <ExhibitionTitle> {frontMatter.exhibitionTitle}</ExhibitionTitle>
-      </ExhibitionWrapper>
+    <>
       <ExhibitionLayout>
-        <MDXRemote {...source} components={components} />
+        <ExhibitionHeaderWrapper>
+          <ArtistName>{frontMatter.artistName}</ArtistName>
+          <ExhibitionTitle> {frontMatter.exhibitionTitle}</ExhibitionTitle>
+        </ExhibitionHeaderWrapper>
+        <ExhibitionWrapper>
+          <MDXRemote {...source} components={components} />
+        </ExhibitionWrapper>
       </ExhibitionLayout>
-    </motion.div>
+    </>
   )
 }
 
 export default ExhibitionPage
 
 const ExhibitionLayout = styled.div`
-  box-sizing: "border-box";
-  padding-left: 0;
-  padding-right: 0;
-  width: 90em;
-  ${media.desktop} {
-    width: 80em;
-  }
+  height: 100%;
+  margin-top: 20%;
+  margin-left: 0%;
+  margin-right: 0%;
+  font-size: 1.2em;
   ${media.tablet} {
-    width: 60em;
+    margin-top: 6%;
+    margin-left: 0%;
+    margin-right: 0%;
+    font-size: 2em;
   }
-  ${media.mobile} {
-    width: 34rem;
-    height: 45rem;
+  ${media.desktop}{
+    margin-top: 12%;
+    margin-left: 0%;
+    margin-right: 0%;
+    font-size: 2em;
+  }
+  `;
+
+const ExhibitionHeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  align-items: flex-end;
+  justify-content: left;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  ${media.tablet} {
+    padding-top: 10%;
+    margin-bottom: 4%;
+    margin-left: 4%;
+  }
+  ${media.desktop} {
+    padding-top: 1%;
+    margin-bottom: 2%;
+    margin-left: 4%;
   }
 `;
 
 
-const ExhibitionWrapper = styled(motion.div)`
+const ExhibitionWrapper = styled.div`
+  border: 0.1em solid #EFEFEF;
+  width: 85vw;
+  height: 80vh;
+  border-radius: 20px;
+  padding: 0;
+  margin: 0;
   overflow: scroll;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  box-sizing: "border-box";
+  ${media.tablet}{
+    width: 75vw;
+    height: 70vh;
+  }
+  ${media.desktop}{
+    width: 70vw;
+    height: 76vh;
+  }
 `;
 
 const ArtistName = styled.p`
-font-size: 2.5em;
+font-size: 1.2em;
 `;
 const ExhibitionTitle = styled.p`
-font-size: 2.5em;
+font-size: 1.2em;
 `;
 
 

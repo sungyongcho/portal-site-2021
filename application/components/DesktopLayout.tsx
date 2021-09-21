@@ -46,9 +46,12 @@ const DesktopSubmenu = styled.div`
   flex-direction: row;
   align-items:center;
   justify-content: space-between;
-  ${media.desktop}{
+  align-self: center;
+  ${media.tablet}{
     padding-top: 2%;
-    font-size: 1.4em;
+  }
+  ${media.desktop}{
+    padding-top: 0%;
   }
 `;
 

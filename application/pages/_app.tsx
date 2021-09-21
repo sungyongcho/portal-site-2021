@@ -49,6 +49,10 @@ const NavWrapper = styled(motion.div)`
   position:fixed;
   top: 3%;
   left: 4.5%;
+  ${media.tabletRotate}{
+    top: 5%;
+    left: 4%;
+  }
   ${media.desktop}{
     top: 4%;
     left: 2.5%;
