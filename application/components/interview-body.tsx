@@ -25,13 +25,30 @@ const InterviewBody = ({ artistName, interviewTitle, video, text }: Props) => {
           </VideoArea>
           <InterviewContent>
             <InterviewName> {artistName} 인터뷰 </InterviewName>
-            <TextContent content={text} textSize={'1.3em'} />
+            <InterviewText>
+              <TextContent content={text} textSize={'1.3em'} />
+            </InterviewText>
           </InterviewContent>
         </InterviewWrapper>
       </InterviewLayout>
     </>
   )
 }
+
+const InterviewLayout = styled.div`
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 15%;
+  margin-left: 6%;
+  margin-right: 6%;
+  padding-bottom: 3em;
+  ${media.tablet} {
+    margin-top: 10%;
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-bottom: 0;
+  }
+`;
 
 const InterviewHeaderWrapper = styled.div`
   display: flex;
@@ -41,7 +58,7 @@ const InterviewHeaderWrapper = styled.div`
   padding-bottom: 3%;
   ${media.tablet} {
     padding-bottom: 1.5%;
-    padding-left: 3%;
+    padding-left: 4%;
   }
 `;
 
@@ -50,15 +67,6 @@ const InterviewTitle = styled.p`
   ${media.tablet} {
     font-size: 2.5rem;
   }
-`;
-
-const InterviewLayout = styled.div`
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  margin-top: 15%;
-  margin-left: 6%;
-  margin-right: 6%;
-  padding-bottom: 3em;
 `;
 
 const InterviewWrapper = styled.div`
@@ -87,14 +95,32 @@ const VideoFrame = styled.iframe`
   height: 100%;
 
 `
-const InterviewName = styled.p`
-  font-size: 1.8em;
-  padding-bottom: 3%;
-`;
+
 const InterviewContent = styled.div`
-  padding-top: 5%;
+  margin-top: 5%;
   text-align: left;
   line-height: 1.6em;
+  ${media.tablet}{
+    margin-top: 3%;
+  }
 `
+
+const InterviewName = styled.p`
+  font-size: 1.8em;
+  width: 100%;
+  border-bottom: 1px solid black;
+  padding-bottom: 3%;
+  ${media.tablet}{
+    padding-bottom: 2%;
+  }
+`;
+
+const InterviewText = styled.div`
+  padding-top: 3%;
+  ${media.tablet}{
+    padding-top: 2%;
+  }
+`;
+
 
 export default InterviewBody
