@@ -3,6 +3,8 @@ import Image from 'next/image'
 import logoImage from '../public/logo.png'
 import styled from 'styled-components'
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { menuItems } from './MenuItems'
 
 type Props = {
   children: any
@@ -25,27 +27,18 @@ const MobileMenu = ({ children }: Props) => {
         <Image alt="Portal Site" src={logoImage}></Image>
       </ImageContainer>
       <Nav>
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'member')
-        }}>Member</a></LinkStyle>
-        {router.pathname === '/member' ? <BodyLayout> {children} </BodyLayout> : ''}
-
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'interview')
-        }}>Interview</a></LinkStyle>
-        {router.pathname === '/interview' ? <BodyLayout> {children} </BodyLayout> : ''}
-
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'exhibition')
-        }}>Exhibition</a></LinkStyle>
-        {router.pathname === '/exhibition' ? <BodyLayout> {children} </BodyLayout> : ''}
-
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'texts')
-        }}>Text</a></LinkStyle>
-        {router.pathname === '/texts' ? <BodyLayout> {children} </BodyLayout> : ''}
-        <LinkStyle><Link href='/networking'>
-          Networking</Link></LinkStyle>
+        {menuItems && menuItems.map((menuItem) => {
+          return (
+            <>
+              <MenuItem>
+                <a onClick={(e) => {
+                  handleClick(e, menuItem.path)
+                }}>{menuItem.title}</a>
+              </MenuItem>
+              {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <SubmenuWrapper> {children} </SubmenuWrapper> : ''}
+            </>
+          )
+        })}
       </Nav >
     </>
   )
@@ -63,13 +56,13 @@ const Nav = styled.div`
   background: black;
 `;
 
-const LinkStyle = styled.a`
+const MenuItem = styled.div`
   font-size: 1.5em;
-  padding: 20%;
+  padding: 0.6em 1em;
   color: #EFEFEF;
 ;
 `
-const BodyLayout = styled.div`
+const SubmenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;

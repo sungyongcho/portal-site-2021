@@ -1,22 +1,33 @@
-export const MenuItems = [
+type MenuItem = {
+  title: string;
+  path: string;
+  hasSubmenu: boolean;
+}
+
+export const menuItems: MenuItem[] = [
   {
-    title: 'Marketing',
-    path: '/marketing',
-    cName: 'dropdown-link'
+    title: "Member",
+    path: "member",
+    hasSubmenu: true,
   },
   {
-    title: 'Consulting',
-    path: '/consulting',
-    cName: 'dropdown-link'
+    title: "Interview",
+    path: "interview",
+    hasSubmenu: true,
   },
   {
-    title: 'Design',
-    path: '/design',
-    cName: 'dropdown-link'
+    title: "Exhibition",
+    path: "exhibition",
+    hasSubmenu: true,
   },
   {
-    title: 'Development',
-    path: '/development',
-    cName: 'dropdown-link'
-  }
+    title: "Text",
+    path: "texts",
+    hasSubmenu: true,
+  },
+  {
+    title: "Networking",
+    path: "networking",
+    hasSubmenu: false,
+  },
 ];
