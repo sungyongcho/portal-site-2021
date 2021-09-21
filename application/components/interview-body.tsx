@@ -53,11 +53,12 @@ const InterviewTitle = styled.p`
 `;
 
 const InterviewLayout = styled.div`
-  padding-top: 7%;
-  padding-left: 6%;
-  padding-right: 6%;
-  overflow: scroll;
-  box-sizing: "border-box";
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 15%;
+  margin-left: 6%;
+  margin-right: 6%;
+  padding-bottom: 3em;
 `;
 
 const InterviewWrapper = styled.div`

@@ -20,17 +20,12 @@ const components = {
 const interviewPage = ({ source, frontMatter }: Props) => {
   return (
     <>
-      <div>
-        <MDXRemote {...source} components={components} />
-      </div>
+      <MDXRemote {...source} components={components} />
     </>
   )
 }
 
 export default interviewPage
-
-
-
 
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

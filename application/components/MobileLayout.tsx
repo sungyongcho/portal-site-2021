@@ -29,11 +29,12 @@ const MobileLayout = ({ children }: Props) => {
 }
 
 const MobileWrapper = styled.div`
-  position: fixed;
   top: 8%;
-  width: 95%;
+  width: 100%;
   display:flex;
   flex-direction: column;
   align-items:center;
+  overflow: auto;
+
 `;
 export default MobileLayout;
