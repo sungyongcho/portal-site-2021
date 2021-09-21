@@ -48,6 +48,7 @@ const DesktopSubmenu = styled.div`
   justify-content: space-between;
   ${media.desktop}{
     padding-top: 2%;
+    font-size: 1.4em;
   }
 `;
 
