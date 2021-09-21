@@ -4,12 +4,15 @@ import { media } from './theme';
 const ContentHeaderWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  align-items: flex-end;
   justify-content: left;
-  padding-left: 3%;
-  padding-bottom: 3%;
+  margin-left: 3%;
+  margin-bottom: 3%;
   ${media.tablet} {
-    padding-bottom: 1.5%;
-    padding-left: 4%;
+    margin-bottom: 1.5%;
+    margin-left: 4%;
   }
 `;
 

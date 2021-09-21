@@ -10,6 +10,7 @@ import styled from 'styled-components'
 import { media } from "../../styles/theme";
 import ContentLayout from '../../styles/content-layout'
 import ContentHeaderWrapper from '../../styles/content-header-wrapper'
+import ContentWrapper from 'styles/content-wrapper';
 
 type Props = {
   source: MDXRemoteSerializeResult;
@@ -27,10 +28,9 @@ const interviewPage = ({ source, frontMatter }: Props) => {
       <ContentHeaderWrapper>
         <InterviewTitle> {frontMatter.interviewTitle}</InterviewTitle>
       </ContentHeaderWrapper>
-      <InterviewWrapper>
+      <ContentWrapper>
         <MDXRemote {...source} components={components} />
-      </InterviewWrapper >
-
+      </ContentWrapper>
     </ContentLayout>
   )
 }

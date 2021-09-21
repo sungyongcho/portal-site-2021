@@ -11,6 +11,8 @@ import MemberWorklist from '../../components/member-worklist'
 import styled from 'styled-components'
 import { media } from "../../styles/theme";
 import ContentLayout from '../../styles/content-layout'
+import ContentHeaderWrapper from '../../styles/content-header-wrapper'
+import ContentWrapper from '../../styles/content-wrapper'
 
 type Props = {
   source: MDXRemoteSerializeResult;
@@ -28,56 +30,35 @@ const MemberPage = ({ source, frontMatter }: Props) => {
   console.log(source);
   return (
     <ContentLayout>
-      <MemberHeaderWrapper>
+      <ContentHeaderWrapper>
         <MemberName> {frontMatter.memberName}</MemberName>
         <MemberGenre>{frontMatter.genre}</MemberGenre>
-      </MemberHeaderWrapper>
-      <MemberContentWrapper>
+      </ContentHeaderWrapper>
+      <ContentWrapper>
         <MDXRemote {...source} components={components} />
-      </MemberContentWrapper>
+      </ContentWrapper>
     </ContentLayout >
   )
 }
 
 export default MemberPage
 
-const MemberHeaderWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  padding-left: 3%;
-  padding-bottom: 3%;
-  ${media.tablet} {
-    padding-bottom: 1.5%;
-    padding-left: 4%;
-  }
-`;
-
 const MemberName = styled.p`
   font-size: 2rem;
+  margin-right: 1%;
   ${media.tablet} {
     font-size: 2.5rem;
   }
 `;
-
 
 const MemberGenre = styled.p`
-  font-size: 2rem;
+  font-size: 1.7rem;
   ${media.tablet} {
     font-size: 2.5rem;
   }
 `;
 
-const MemberContentWrapper = styled.div`
-  border: 0.15em solid black;
-  border-radius: 20px;
-  padding: 5%;
-  overflow: scroll;
-  box-sizing: "border-box";
-  ${media.tablet} {
-    padding: 4%;
-  }
-`;
+
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = getMemberPost(params?.slug as string);
