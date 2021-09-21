@@ -13,6 +13,7 @@ const DesktopMenu = () => {
   const router = useRouter()
   const [selected, changeSelected] = useState('');
 
+
   const handleClick = (e, path) => {
     if (router.pathname === '/' + path) {
       router.push('/')
@@ -35,6 +36,7 @@ const DesktopMenu = () => {
           return (
             <Nav key={menuItem.path}>
               {(selected === menuItem.path || selected === '') &&
+                (router.pathname === '/' || router.pathname === '/' || menuItem.path) &&
                 <MenuItem className={selected === menuItem.path ? "isClicked" : ""}>
                   <a onClick={(e) => {
                     handleClick(e, menuItem.path)

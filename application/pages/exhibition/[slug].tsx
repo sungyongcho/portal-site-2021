@@ -78,7 +78,7 @@ const ExhibitionHeaderWrapper = styled.div`
     margin-left: 4%;
   }
   ${media.desktop} {
-    padding-top: 1%;
+    padding-top: 0;
     margin-bottom: 2%;
     margin-left: 4%;
   }
