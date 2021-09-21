@@ -6,7 +6,7 @@ import { media } from '../styles/theme'
 
 import { AnimatePresence, motion } from 'framer-motion';
 
-const Menu = () => {
+const DesktopMenu = () => {
   return (
     <>
       <ImageContainer>
@@ -48,4 +48,4 @@ const LinkStyle = styled.a`
   flex-direction: row;
 `
 
-export default Menu
+export default DesktopMenu

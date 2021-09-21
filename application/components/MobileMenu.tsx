@@ -2,9 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import logoImage from '../public/logo.png'
 import styled from 'styled-components'
-import { media } from '../styles/theme'
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 type Props = {
   children: any

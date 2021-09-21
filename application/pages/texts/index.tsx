@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import HeadInfo from '../../components/HeadInfo';
 
 import Link from 'next/link'
 import router from 'next/router'
@@ -17,6 +18,7 @@ type TextProps = {
 const TextNav = ({ texts }: TextProps) => {
   return (
     <>
+      <HeadInfo title="Texts"></HeadInfo>
       {
         texts.map((texts) => (
           <Item key={texts.slug}>

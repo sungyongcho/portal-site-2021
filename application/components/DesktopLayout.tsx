@@ -1,7 +1,8 @@
-import Menu from './Menu'
+import Menu from './DesktopMenu'
 import { useRouter } from "next/router";
 import styled from 'styled-components'
 import { AnimatePresence, motion } from 'framer-motion';
+import DesktopMenu from './DesktopMenu';
 type Props = {
   children: any
 }
@@ -20,7 +21,7 @@ const DesktopLayout = ({ children }: Props) => {
 
   return (
     <>
-      {(showMenu && router.pathname !== '/networking') && <Menu />}
+      {(showMenu && router.pathname !== '/networking') && <DesktopMenu />}
       <DesktopBody>
         {children}
       </DesktopBody>

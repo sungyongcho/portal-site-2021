@@ -4,7 +4,6 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { getAllTexts, getTextPost } from '../../utils/mdxUtils';
 import { IText } from '../../types/IText';
-import TextBody from '../../components/text-body';
 
 import styled from 'styled-components'
 import { media } from "../../styles/theme";
@@ -20,7 +19,6 @@ type Props = {
 };
 
 const components = {
-  TextBody,
 };
 
 const TextPage = ({ source, frontMatter }: Props) => {
