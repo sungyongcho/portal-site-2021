@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import MobileLogo from './MobileLogo'
 import styled from 'styled-components'
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -21,23 +20,20 @@ const MobileMenu = ({ children }: Props) => {
   };
 
   return (
-    <>
-      <MobileLogo />
-      <Nav>
-        {menuItems && menuItems.map((menuItem) => {
-          return (
-            <>
-              <MenuItem>
-                <a onClick={(e) => {
-                  handleClick(e, menuItem.path)
-                }}>{menuItem.title}</a>
-              </MenuItem>
-              {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <SubmenuWrapper> {children} </SubmenuWrapper> : ''}
-            </>
-          )
-        })}
-      </Nav >
-    </>
+    <Nav>
+      {menuItems && menuItems.map((menuItem) => {
+        return (
+          <>
+            <MenuItem>
+              <a onClick={(e) => {
+                handleClick(e, menuItem.path)
+              }}>{menuItem.title}</a>
+            </MenuItem>
+            {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <SubmenuWrapper> {children} </SubmenuWrapper> : ''}
+          </>
+        )
+      })}
+    </Nav >
   )
 }
 
@@ -52,8 +48,8 @@ const MenuItem = styled.div`
   font-size: 1.5em;
   padding: 0.6em 1em;
   color: #EFEFEF;
-;
 `
+
 const SubmenuWrapper = styled.div`
   display: flex;
   flex-direction: column;

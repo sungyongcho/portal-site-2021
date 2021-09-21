@@ -9,7 +9,6 @@ const MobileLogo = () => (
 );
 
 const ImageContainer = styled.div`
-  padding-top: 30%;
   width: 25em;
 `;
 
