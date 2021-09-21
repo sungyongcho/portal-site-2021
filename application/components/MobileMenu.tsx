@@ -5,12 +5,7 @@ import styled from 'styled-components'
 import { media } from '../styles/theme'
 import { useRouter } from "next/router";
 import { useState } from "react";
-
-type MenuItem = {
-  title: string;
-  path: string;
-  hasSubmenu: boolean;
-}
+import { menuItems } from './MenuItems'
 
 type Props = {
   children: any
@@ -26,34 +21,6 @@ const MobileMenu = ({ children }: Props) => {
     else
       router.push(path);
   };
-
-  const menuItems: MenuItem[] = [
-    {
-      title: "Member",
-      path: "member",
-      hasSubmenu: true,
-    },
-    {
-      title: "Interview",
-      path: "interview",
-      hasSubmenu: true,
-    },
-    {
-      title: "Exhibition",
-      path: "exhibition",
-      hasSubmenu: true,
-    },
-    {
-      title: "Text",
-      path: "texts",
-      hasSubmenu: true,
-    },
-    {
-      title: "Networking",
-      path: "networking",
-      hasSubmenu: false,
-    },
-];
 
   return (
     <>
