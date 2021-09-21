@@ -27,11 +27,6 @@ const TextNav = ({ texts }: TextProps) => {
 }
 
 const TextList = styled(motion.div)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
-  justify-content: space-around;
 `
 
 const TextItem = styled(motion.div)`

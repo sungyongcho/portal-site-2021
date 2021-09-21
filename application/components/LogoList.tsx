@@ -25,14 +25,22 @@ const LogoList = () => {
 }
 
 const Container = styled.div`
+ display: block;
+  bottom:0;
+  height: auto;
   position: relative;
-  display: flex;
-  flex-direction: row;
+  overflow: hidden;
+  padding: 34.37% 0 0 0;
 `
 const ImageContainer = styled.div`
-  width: 10em;
-  height: 7em;
-  padding : 0;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `
 
 

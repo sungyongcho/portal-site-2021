@@ -11,7 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar {
         display: none;
     }
+
     html{
+        height: 100%;
+        width: 100%;
         background-color: gray;
         font-size: 11px;
         -webkit-text-size-adjust: none;
@@ -35,7 +38,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .desktop-tablet-only {
-        display: block;
+        display: flex;
         ${media.mobile} {
             display: none;
         }

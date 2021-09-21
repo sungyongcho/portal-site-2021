@@ -2,6 +2,8 @@ import MobileMenu from './MobileMenu'
 import Nav from './Nav'
 import { useRouter } from "next/router";
 import styled from 'styled-components'
+import InterviewLayout from './interview-body'
+
 type Props = {
   children: any
 }
@@ -17,10 +19,21 @@ const MobileLayout = ({ children }: Props) => {
 
   return (
     <>
-      {showMenu && <MobileMenu children={children} />}
-      {showContent && children}
+      <MobileWrapper>
+        {showMenu && router.pathname !== '/networking' && <MobileMenu children={children} />}
+        {(showContent || router.pathname === '/networking') && children}
+      </MobileWrapper>
+
     </>
   )
 }
 
+const MobileWrapper = styled.div`
+  position: fixed;
+  top: 8%;
+  width: 95%;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+`;
 export default MobileLayout;

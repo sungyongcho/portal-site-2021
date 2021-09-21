@@ -25,11 +25,6 @@ const InterviewNav = ({ interviews }: InterviewProps) => {
 }
 
 const InterviewList = styled(motion.div)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
-  justify-content: space-around;
 `
 
 const InterviewItem = styled(motion.div)`

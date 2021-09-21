@@ -29,8 +29,6 @@ const DesktopLayout = ({ children }: Props) => {
 }
 
 const DesktopBody = styled.div`
-top:0;
-left:0;
 `;
 
 export default DesktopLayout;

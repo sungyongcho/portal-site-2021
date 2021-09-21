@@ -26,11 +26,6 @@ const MemberNav = ({ members }: MemberProps) => {
 }
 
 const ExhibitionList = styled(motion.div)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: center;
-  justify-content: space-around;
 `
 
 const ExhibitionItem = styled(motion.div)`

@@ -21,10 +21,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <HeadInfo />
       <GlobalStyle />
-      <NavWrapper>
-        <Nav />
-      </NavWrapper>
       <Wrapper>
+        <NavWrapper>
+          <Nav />
+        </NavWrapper>
         <ThemeProvider theme={theme}>
           {width > 376 ?
             <DesktopLayout>
@@ -47,24 +47,32 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 }
 
 const NavWrapper = styled(motion.div)`
-  position: fixed;
-  top: 0;
-  left: 0;
+  position:fixed;
+  top: 3%;
+  left: 4.5%;
 `;
 
 const LogoWrapper = styled.div`
   position: fixed;
+  display:flex;
+  flex-direction:row;
+  bottom: 1.5%;
+  left: 3%;
 `;
 
 const Wrapper = styled(motion.div)`
-      width:100%;
-      .title {
-        font-weight: 800;
-      }
-      margin: 10%;
-      align-self: center;
-      background: rgb(236,67,36);
-      background: linear-gradient(180deg, rgba(236,67,36,0.95) 0%, rgba(103,43,135,0.95) 15%, rgba(111,45,129,0.95) 85%, rgba(236,67,36,0.9500175070028011) 100%);
+  position:fixed;
+  display:flex;
+  flex-direction:column;
+  width: 94vw;
+  height: 97vh;
+  margin: 3%;
+  .title {
+    font-weight: 800;
+  }
+  align-self: center;
+  background: rgb(236,67,36);
+  background: linear-gradient(180deg, rgba(236,67,36,0.95) 0%, rgba(103,43,135,0.95) 15%, rgba(111,45,129,0.95) 85%, rgba(236,67,36,0.9500175070028011) 100%);
 `;
 
 export default MyApp;

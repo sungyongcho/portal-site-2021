@@ -20,10 +20,6 @@ const components = {
 const interviewPage = ({ source, frontMatter }: Props) => {
   return (
     <>
-      <InterviewHeaderWrapper>
-        <InterviewName>{frontMatter.artistName}</InterviewName>
-        <InterviewTitle> {frontMatter.interviewTitle}</InterviewTitle>
-      </InterviewHeaderWrapper>
       <div>
         <MDXRemote {...source} components={components} />
       </div>
@@ -33,20 +29,9 @@ const interviewPage = ({ source, frontMatter }: Props) => {
 
 export default interviewPage
 
-const InterviewHeaderWrapper = styled.div`
-  overflow: scroll;
-  padding-top: 20%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
 
-const InterviewName = styled.p`
-font-size: 2em;
-`;
-const InterviewTitle = styled.p`
-font-size: 2em;
-`;
+
+
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = getInterviewPost(params?.slug as string);

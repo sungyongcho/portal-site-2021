@@ -30,7 +30,6 @@ const MobileMenu = ({ children }: Props) => {
         <Image alt="Portal Site" src={logoImage}></Image>
       </ImageContainer>
       <Nav>
-
         <LinkStyle> <a onClick={(e) => {
           handleClick(e, 'member')
         }}>Member</a></LinkStyle>
@@ -50,35 +49,35 @@ const MobileMenu = ({ children }: Props) => {
           handleClick(e, 'texts')
         }}>Text</a></LinkStyle>
         {router.pathname === '/texts' ? <BodyLayout> {children} </BodyLayout> : ''}
-
+        <LinkStyle><Link href='/networking'>
+          Networking</Link></LinkStyle>
       </Nav >
     </>
   )
 }
 
 const ImageContainer = styled.div`
+  padding-top: 30%;
   width:25em;
 `
 
 const Nav = styled.div`
   padding: 0 2rem;
   display: flex;
+  flex-direction:column;
   justify-content: space-between;
   align-items: center;
   background: #b6b1b1;
-   flex-direction:column;
 `;
 
 const LinkStyle = styled.a`
   font-size: 1.5em;
-  padding: 2rem;
+  padding: 20%;
   color: black;
 `
 const BodyLayout = styled.div`
-  margin-left: 10%;
-  margin-right: 10%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   text-align: center;
 `
 export default MobileMenu
