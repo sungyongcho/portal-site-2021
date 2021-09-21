@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <HeadInfo />
       <GlobalStyle />
+
       <Wrapper>
         <NavWrapper>
           <Nav />
@@ -28,18 +29,16 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <ThemeProvider theme={theme}>
           {width > 376 ?
             <DesktopLayout>
-              <AnimatePresence exitBeforeEnter>
-                <Component {...pageProps} />
-              </AnimatePresence>
+              <Component {...pageProps} />
             </DesktopLayout>
             :
             <MobileLayout>
               <Component {...pageProps} />
             </MobileLayout>}
         </ThemeProvider>
-        {/* <LogoWrapper>
+        <LogoWrapper>
           <LogoList />
-        </LogoWrapper> */}
+        </LogoWrapper>
       </Wrapper>
 
     </>
@@ -50,12 +49,15 @@ const NavWrapper = styled(motion.div)`
   position:fixed;
   top: 3%;
   left: 4.5%;
+  ${media.desktop}{
+    top: 4%;
+    left: 2.5%;
+  }
 `;
 
 const LogoWrapper = styled.div`
   position: fixed;
-  display:flex;
-  flex-direction:row;
+  flex: nowrap;
   bottom: 1.5%;
   left: 3%;
 `;
@@ -77,7 +79,13 @@ const Wrapper = styled(motion.div)`
   {
     margin: 2%;
     width: 96vw;
-    height: 96vh;
+    height: 97vh;
+  }
+  ${media.tablet}
+  {
+    margin: 1%;
+    width: 98vw;
+    height: 97vh;
   }
 `;
 

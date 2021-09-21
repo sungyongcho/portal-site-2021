@@ -12,7 +12,7 @@ const Nav = () => {
   const router = useRouter()
   return (
     <NavStyle>
-      <ToHomeButton type="button" onClick={() => router.push('/')} />
+      <ToHomeButton type="button" onClick={() => router.push('/')}></ToHomeButton>
       <ToUpButton type="button" onClick={() => {
         let temp = router.asPath;
         router.push((temp.slice(0, temp.lastIndexOf('/')) === '') ? '/' : temp.slice(0, temp.lastIndexOf('/')))

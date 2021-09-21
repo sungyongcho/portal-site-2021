@@ -25,12 +25,6 @@ const LogoList = () => {
 }
 
 const Container = styled.div`
- display: block;
-  bottom:0;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  padding: 34.37% 0 0 0;
 `
 const ImageContainer = styled.div`
   display: block;

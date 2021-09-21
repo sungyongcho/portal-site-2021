@@ -36,6 +36,7 @@ const DesktopBody = styled.div`
   display:flex;
   flex-direction: column;
   align-items:center;
+  overflow: auto;
 `;
 
 const DesktopSubmenu = styled.div`

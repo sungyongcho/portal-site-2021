@@ -27,6 +27,9 @@ const ImageContainer = styled.div`
   padding-top: 50%;
   width:50%;
   align-self: center;
+  ${media.desktop}{
+    padding-top: 20%;
+  }
 `
 
 const Nav = styled.div`

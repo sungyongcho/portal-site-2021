@@ -51,10 +51,16 @@ export const GlobalStyle = createGlobalStyle`
     h2 {
       font-size: 1.5em;
       padding-bottom: 3%;
+      ${media.tablet}{
+        padding-bottom: 1%;
+      }
     }
     h3 {
       font-size: 1.2em;
       padding-bottom: 3%;
+      ${media.tablet}{
+        padding-bottom: 1%;
+      }
     }
     li {
       list-style-position: inside;
