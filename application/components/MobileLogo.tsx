@@ -3,13 +3,16 @@ import styled from "styled-components";
 import logoImage from "../public/logo.png";
 
 const MobileLogo = () => (
-  <ImageContainer>
+  <LogoWrapper>
     <Image alt="Portal Site" src={logoImage}></Image>
-  </ImageContainer>
+  </LogoWrapper>
 );
 
-const ImageContainer = styled.div`
-  width: 25em;
+const LogoWrapper = styled.div`
+  padding-top: 20vh;
+  width: 72vw;
+  height: auto;
+  margin-bottom: 5.2em;
 `;
 
 export default MobileLogo;
