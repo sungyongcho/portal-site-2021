@@ -6,6 +6,12 @@ import { media } from '../styles/theme'
 import { useRouter } from "next/router";
 import { useState } from "react";
 
+type MenuItem = {
+  title: string;
+  path: string;
+  hasSubmenu: boolean;
+}
+
 type Props = {
   children: any
 }
@@ -21,33 +27,52 @@ const MobileMenu = ({ children }: Props) => {
       router.push(path);
   };
 
+  const menuItems: MenuItem[] = [
+    {
+      title: "Member",
+      path: "member",
+      hasSubmenu: true,
+    },
+    {
+      title: "Interview",
+      path: "interview",
+      hasSubmenu: true,
+    },
+    {
+      title: "Exhibition",
+      path: "exhibition",
+      hasSubmenu: true,
+    },
+    {
+      title: "Text",
+      path: "texts",
+      hasSubmenu: true,
+    },
+    {
+      title: "Networking",
+      path: "networking",
+      hasSubmenu: false,
+    },
+];
+
   return (
     <>
       <ImageContainer>
         <Image alt="Portal Site" src={logoImage}></Image>
       </ImageContainer>
       <Nav>
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'member')
-        }}>Member</a></LinkStyle>
-        {router.pathname === '/member' ? <BodyLayout> {children} </BodyLayout> : ''}
-
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'interview')
-        }}>Interview</a></LinkStyle>
-        {router.pathname === '/interview' ? <BodyLayout> {children} </BodyLayout> : ''}
-
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'exhibition')
-        }}>Exhibition</a></LinkStyle>
-        {router.pathname === '/exhibition' ? <BodyLayout> {children} </BodyLayout> : ''}
-
-        <LinkStyle> <a onClick={(e) => {
-          handleClick(e, 'texts')
-        }}>Text</a></LinkStyle>
-        {router.pathname === '/texts' ? <BodyLayout> {children} </BodyLayout> : ''}
-        <LinkStyle><Link href='/networking'>
-          Networking</Link></LinkStyle>
+        {menuItems && menuItems.map((menuItem) => {
+          return (
+            <>
+              <LinkStyle>
+                <a onClick={(e) => {
+                  handleClick(e, menuItem.path)
+                }}>{menuItem.title}</a>
+              </LinkStyle>
+              {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <BodyLayout> {children} </BodyLayout> : ''}
+            </>
+          )
+        })}
       </Nav >
     </>
   )
