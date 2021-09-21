@@ -1,28 +1,60 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { getAllTexts, getTextPost } from '../../utils/mdxUtils';
 import { IText } from '../../types/IText';
-import TextContent from '../../components/TextContent';
+import TextBody from '../../components/text-body';
+
+import styled from 'styled-components'
+import { media } from "../../styles/theme";
+import ContentLayout from '../../styles/content-layout'
+import ContentHeaderWrapper from '../../styles/content-header-wrapper'
+import ContentWrapper from '../../styles/content-wrapper'
+
+
 
 type Props = {
   source: MDXRemoteSerializeResult;
   frontMatter: Omit<IText, 'slug' | 'order'>;
 };
 
+const components = {
+  TextBody,
+};
 
 const TextPage = ({ source, frontMatter }: Props) => {
   return (
-    <div>
-      [비평가 이름 이름: {frontMatter.criticName}]
-      [텍스트 제목: {frontMatter.textTitle}]
-      <TextContent content={frontMatter.textContent} textSize={'2em'}></TextContent>
-    </div>
+    <>
+      <ContentLayout>
+        <ContentHeaderWrapper>
+          <CriticName> {frontMatter.criticName}</CriticName>
+          <TextTitle>{frontMatter.textTitle}</TextTitle>
+        </ContentHeaderWrapper>
+        <ContentWrapper>
+          <MDXRemote {...source} components={components} />
+        </ContentWrapper>
+      </ContentLayout >
+    </>
   )
 }
 
 export default TextPage
+
+const CriticName = styled.p`
+  font-size: 2rem;
+  margin-right: 1%;
+  ${media.tablet} {
+    font-size: 2.5rem;
+  }
+`;
+
+const TextTitle = styled.p`
+  font-size: 1.7rem;
+  ${media.tablet} {
+    font-size: 2.5rem;
+  }
+`;
 
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
