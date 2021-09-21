@@ -17,31 +17,20 @@ const DesktopLayout = ({ children }: Props) => {
     damping: 20,
     stiffness: 100
   };
+
   return (
     <>
       {(showMenu && router.pathname !== '/networking') && <Menu />}
-      <motion.div key={router.route} initial="initial"
-        animate="animate"
-        variants={{
-          initial: {
-            opacity: 0,
-          },
-          animate: {
-            opacity: 1,
-          },
-        }}>
-        <DesktopBody>
-          {children}
-        </DesktopBody>
-      </motion.div>
+      <DesktopBody>
+        {children}
+      </DesktopBody>
     </>
   )
 }
 
 const DesktopBody = styled.div`
-      flex-direction: row;
-      justify-content: center;
-      text-align: center;
-      `
+top:0;
+left:0;
+`;
 
 export default DesktopLayout;

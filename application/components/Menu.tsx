@@ -27,14 +27,12 @@ const ImageContainer = styled.div`
 ${media.desktop} {
 width: 40em;
 }
-left: 50%;
 ${media.mobile} {
-  width:25em;
+  width:10em;
 }
 `
 
 const Nav = styled.div`
-  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +44,6 @@ const Nav = styled.div`
 
 const LinkStyle = styled.a`
   font-size: 1.5em;
-  padding: 2rem;
   color: black;
   flex-direction: row;
 `

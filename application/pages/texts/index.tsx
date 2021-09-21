@@ -18,9 +18,9 @@ const TextNav = ({ texts }: TextProps) => {
   return (
     <TextList>
       {texts.map((texts) => (
-        <ExhibitionItem key={texts.slug}>
+        <TextItem key={texts.slug}>
           <Link href={`texts/${texts.slug}`}><a>{texts.criticName}</a></Link>
-        </ExhibitionItem>
+        </TextItem>
       ))}
     </TextList>
   )
@@ -34,7 +34,7 @@ const TextList = styled(motion.div)`
   justify-content: space-around;
 `
 
-const ExhibitionItem = styled(motion.div)`
+const TextItem = styled(motion.div)`
   font-size: 1.8em;
   padding: 0 0.5em;
 `

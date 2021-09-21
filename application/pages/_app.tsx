@@ -31,56 +31,40 @@ function MyApp({ Component, pageProps, router }: AppProps) {
               <AnimatePresence exitBeforeEnter>
                 <Component {...pageProps} />
               </AnimatePresence>
-            </DesktopLayout> :
+            </DesktopLayout>
+            :
             <MobileLayout>
               <Component {...pageProps} />
             </MobileLayout>}
         </ThemeProvider>
+        {/* <LogoWrapper>
+          <LogoList />
+        </LogoWrapper> */}
       </Wrapper>
-      <LogoWrapper>
-        <LogoList />
-      </LogoWrapper>
+
     </>
   );
 }
 
 const NavWrapper = styled(motion.div)`
-      position: fixed;
-      top: 1em;
-      left: 3em;
-      ${media.mobile} {
-        top: 0.2em;
-      left: 0.5em;
-  }
-      `;
+  position: fixed;
+  top: 0;
+  left: 0;
+`;
 
 const LogoWrapper = styled.div`
-      position: fixed;
-      bottom: 2em;
-      right: 5em;
-      ${media.mobile} {
-        bottom: 1em;
-      right: 1em;
-  }
-      `;
+  position: fixed;
+`;
 
 const Wrapper = styled(motion.div)`
-      width:95vw;
-      height:95vh;
+      width:100%;
       .title {
         font-weight: 800;
       }
-      margin: 2em;
+      margin: 10%;
       align-self: center;
-      flex-direction: column;
       background: rgb(236,67,36);
       background: linear-gradient(180deg, rgba(236,67,36,0.95) 0%, rgba(103,43,135,0.95) 15%, rgba(111,45,129,0.95) 85%, rgba(236,67,36,0.9500175070028011) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      ${media.mobile} {
-        overflow: scroll;
-      }
 `;
 
 export default MyApp;

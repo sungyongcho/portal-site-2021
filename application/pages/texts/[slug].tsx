@@ -12,7 +12,7 @@ type Props = {
 };
 
 
-const interviewPage = ({ source, frontMatter }: Props) => {
+const TextPage = ({ source, frontMatter }: Props) => {
   return (
     <div>
       [비평가 이름 이름: {frontMatter.criticName}]
@@ -22,7 +22,7 @@ const interviewPage = ({ source, frontMatter }: Props) => {
   )
 }
 
-export default interviewPage
+export default TextPage
 
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

@@ -20,10 +20,10 @@ const components = {
 const interviewPage = ({ source, frontMatter }: Props) => {
   return (
     <>
-      <InterviewWrapper>
+      <InterviewHeaderWrapper>
         <InterviewName>{frontMatter.artistName}</InterviewName>
         <InterviewTitle> {frontMatter.interviewTitle}</InterviewTitle>
-      </InterviewWrapper>
+      </InterviewHeaderWrapper>
       <div>
         <MDXRemote {...source} components={components} />
       </div>
@@ -33,7 +33,7 @@ const interviewPage = ({ source, frontMatter }: Props) => {
 
 export default interviewPage
 
-const InterviewWrapper = styled.div`
+const InterviewHeaderWrapper = styled.div`
   overflow: scroll;
   padding-top: 20%;
   display: flex;
