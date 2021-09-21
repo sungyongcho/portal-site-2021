@@ -14,7 +14,7 @@ const MemberProfile = ({ name, picture, content }: Props) => {
   const { height, width } = useWindowSize();
   return (
     <ProfileLayout>
-      <Wrap>
+      <PhotoWrapper>
         {width > 376 ? <ProfilePhotoFrame
           src={picture}
           width='200px'
@@ -27,8 +27,10 @@ const MemberProfile = ({ name, picture, content }: Props) => {
             height='100px'
             objectFit={'contain'}
             alt={name} />}
-      </Wrap>
-      <TextContent content={content} textSize={'1em'} />
+      </PhotoWrapper>
+      <IntroWrapper>
+        <TextContent content={content} textSize={'1em'} />
+      </IntroWrapper>
     </ProfileLayout>
   )
 }
@@ -42,14 +44,34 @@ const ProfileLayout = styled.div`
     flex-direction: row;
     line-height: 1.3em;
   }
+  ${media.desktop} {
+    font-size: 1.0em;
+    flex-direction: row;
+    line-height: 1.5em;
+  }
 `
-const Wrap = styled.div`
+const PhotoWrapper = styled.div`
   position: relative;
   justify-content: center;
   margin-bottom: 3%;
   ${media.tablet}{
-    width: 150%;
-    height:100%;
+    width: 100%;
+    margin-bottom:0;
+  }
+  ${media.desktop}{
+    width: 120%;
+    margin-bottom:0;
+  }
+`;
+
+const IntroWrapper = styled.div`
+  position: relative;
+  margin-bottom: 3%;
+  ${media.tablet}{
+    margin-bottom:0;
+  }
+  ${media.desktop}{
+    margin-bottom:0;
   }
 `;
 

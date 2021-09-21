@@ -28,7 +28,8 @@ const ImageContainer = styled.div`
   width:50%;
   align-self: center;
   ${media.desktop}{
-    padding-top: 20%;
+    padding-top: 15%;
+    width: 45%;
   }
 `
 

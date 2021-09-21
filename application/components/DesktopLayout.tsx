@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styled from 'styled-components'
 import { AnimatePresence, motion } from 'framer-motion';
 import DesktopMenu from './DesktopMenu';
+import { media } from '../styles/theme'
 type Props = {
   children: any
 }
@@ -45,6 +46,9 @@ const DesktopSubmenu = styled.div`
   flex-direction: row;
   align-items:center;
   justify-content: space-between;
+  ${media.desktop}{
+    padding-top: 2%;
+  }
 `;
 
 export default DesktopLayout;

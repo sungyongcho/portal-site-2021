@@ -47,6 +47,12 @@ export const GlobalStyle = createGlobalStyle`
     h1 {
       font-size: 1.5em;
       padding-bottom: 3%;
+      ${media.tablet}{
+        padding-bottom: 2%;
+      }
+      ${media.desktop}{
+        padding-bottom: 1%;
+      }
     }
     h2 {
       font-size: 1.5em;
@@ -61,10 +67,21 @@ export const GlobalStyle = createGlobalStyle`
       ${media.tablet}{
         padding-bottom: 1%;
       }
+      ${media.desktop}{
+        padding-bottom: 1%;
+      }
     }
     li {
       list-style-position: inside;
       margin:0px; padding:0px;
+      ${media.tablet}{
+        line-height: -1%;
+        padding-bottom: 1%;
+      }
+      ${media.desktop}{
+        line-height: -1%;
+        padding-bottom: 1%;
+      }
     }
     // ---------MDX------------
 

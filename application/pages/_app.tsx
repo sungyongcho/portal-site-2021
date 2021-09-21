@@ -81,11 +81,11 @@ const Wrapper = styled(motion.div)`
     width: 96vw;
     height: 97vh;
   }
-  ${media.tablet}
+  ${media.desktop}
   {
     margin: 1%;
     width: 98vw;
-    height: 97vh;
+    height: 96vh;
   }
 `;
 

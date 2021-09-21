@@ -14,6 +14,13 @@ const ContentLayout = styled.div`
     padding-bottom: 2em;
     font-size: 2em;
   }
+  ${media.desktop}{
+    margin-top: 3%;
+    margin-left: 18%;
+    margin-right: 18%;
+    padding-bottom: 2em;
+    font-size: 2em;
+  }
   `;
 
 export default ContentLayout;

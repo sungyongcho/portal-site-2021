@@ -11,5 +11,8 @@ const ContentWrapper = styled.div`
   ${media.tablet} {
     padding: 4%;
   }
+  ${media.desktop}{
+    padding: 3%;
+  }
 `;
 export default ContentWrapper;
