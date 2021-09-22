@@ -51,11 +51,11 @@ const MobileLayout = ({ children }: Props) => {
       <TemporaryStyledComponent>
         <HorizontalImages images={images} gap={"0.4em"}/>
       </TemporaryStyledComponent>
-      <MobileWrapper>
+      <MobileContentWrapper>
         {isMenuPage && <MobileLogo />}
         {isMenuPage && showMenu && <MobileMenu children={children} />}
         {(showContent || router.pathname === "/networking") && children}
-      </MobileWrapper>
+      </MobileContentWrapper>
     </>
   );
 };
@@ -67,7 +67,7 @@ const TemporaryStyledComponent = styled.div`
   width: 60vw;
 `;
 
-const MobileWrapper = styled.div`
+const MobileContentWrapper = styled.div`
   position: relative;
   width: 100%;
   display: flex;
