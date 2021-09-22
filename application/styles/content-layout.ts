@@ -15,7 +15,7 @@ const ContentLayout = styled.div`
     font-size: 2em;
   }
   ${media.desktop}{
-    margin-top: 3%;
+    margin-top: 6%;
     margin-left: 18%;
     margin-right: 18%;
     padding-bottom: 2em;

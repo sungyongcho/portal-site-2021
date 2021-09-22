@@ -84,6 +84,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     li {
       list-style-position: inside;
+      text-indent: 1em;
       margin:0px; padding:0px;
       ${media.tablet}{
         line-height: -1%;
