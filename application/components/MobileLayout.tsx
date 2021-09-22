@@ -48,9 +48,9 @@ const MobileLayout = ({ children }: Props) => {
 
   return (
     <>
-      <TemporaryStyledComponent>
+      <MobileFooter>
         <HorizontalImages images={images} gap={"0.4em"}/>
-      </TemporaryStyledComponent>
+      </MobileFooter>
       <MobileContentWrapper>
         {isMenuPage && <MobileLogo />}
         {isMenuPage && showMenu && <MobileMenu children={children} />}
@@ -60,7 +60,7 @@ const MobileLayout = ({ children }: Props) => {
   );
 };
 
-const TemporaryStyledComponent = styled.div`
+const MobileFooter = styled.div`
   position: absolute;
   top: 0.4rem;
   right: 0.4rem;
