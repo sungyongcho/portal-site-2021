@@ -27,7 +27,7 @@ const MobileLayout = ({ children }: Props) => {
         `/${menuItem.path}` === router.pathname
       );
     }).length > 0;
-  
+
   const images = [
     {
       path: "/logos/arko_logo.png",
@@ -49,7 +49,7 @@ const MobileLayout = ({ children }: Props) => {
   return (
     <>
       <MobileFooter>
-        <HorizontalImages images={images} gap={"0.4em"}/>
+        <HorizontalImages images={images} gap={"0.4em"} />
       </MobileFooter>
       <MobileContentWrapper>
         {isMenuPage && <MobileLogo />}
@@ -68,6 +68,7 @@ const MobileFooter = styled.div`
 `;
 
 const MobileContentWrapper = styled.div`
+  margin-top: 10%;
   position: relative;
   width: 100%;
   display: flex;
