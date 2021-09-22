@@ -10,8 +10,7 @@ const HeadInfo = ({ title, keyword, contents }: Props) => {
   return (
     <Head>
       <title>Portal Site -- 포털사이트 {title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       {/* TODO: og 기본값 세팅 */}
       <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
       <meta property="og:title" content="" />
@@ -20,6 +19,10 @@ const HeadInfo = ({ title, keyword, contents }: Props) => {
       <meta property="og:url" content="//" />
       <meta name="description" content="" />
       <meta name="keywords" content="" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap"

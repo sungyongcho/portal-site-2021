@@ -21,7 +21,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <HeadInfo />
       <GlobalStyle />
-
       <Wrapper>
         <NavWrapper>
           <Nav />

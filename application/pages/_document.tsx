@@ -1,3 +1,4 @@
+import HeadInfo from "components/HeadInfo";
 import Document, {
   Html,
   Head,
@@ -36,6 +37,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
+        <Head />
         <body>
           <Main />
           <NextScript />
