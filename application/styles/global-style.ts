@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
         color: #EFEFEF;
         height: 100%;
         width: 100%;
-        background-color: gray;
+        background-color: #EFEFEF;
         font-size: 11px;
         -webkit-text-size-adjust: none;
         font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;
