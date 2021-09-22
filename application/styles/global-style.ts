@@ -37,6 +37,12 @@ export const GlobalStyle = createGlobalStyle`
         }
         -ms-overflow-style: none;
         scrollbar-width: none;
+        height: -webkit-fill-available;
+    }
+    body {
+     min-height: 100vh;
+     /* mobile viewport bug fix */
+     min-height: -webkit-fill-available;
     }
     button {
         background: none;
