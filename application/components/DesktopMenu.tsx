@@ -47,7 +47,7 @@ const DesktopMenu = () => {
           return (
             <Nav key={menuItem.path}>
               {isMenuPage && showMenu &&
-                <MenuItem className={selected === menuItem.path ? "isClicked" : "isNotClicked"}>
+                <MenuItem className={selected === menuItem.path ? "isClicked" : ""}>
                   <a onClick={(e) => {
                     handleClick(e, menuItem.path)
                   }}>{menuItem.title}</a>
