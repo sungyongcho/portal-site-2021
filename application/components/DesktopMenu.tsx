@@ -25,6 +25,17 @@ const DesktopMenu = () => {
       changeSelected(path);
     }
   };
+  const isMenuPage =
+    router.pathname === "/" ||
+    menuItems.filter((menuItem) => {
+      return (
+        router.pathname !== "/networking" &&
+        `/${menuItem.path}` === router.pathname
+      );
+    }).length > 0;
+
+  const showMenu =
+    (router.pathname.match(/\//g) || []).length === 2 ? false : true;
 
   return (
     <>
@@ -35,9 +46,8 @@ const DesktopMenu = () => {
         {menuItems && menuItems.map((menuItem) => {
           return (
             <Nav key={menuItem.path}>
-              {(selected === menuItem.path || selected === '') &&
-                (router.pathname === '/' || router.pathname === '/' || menuItem.path) &&
-                <MenuItem className={selected === menuItem.path ? "isClicked" : ""}>
+              {isMenuPage && showMenu &&
+                <MenuItem className={selected === menuItem.path ? "isClicked" : "isNotClicked"}>
                   <a onClick={(e) => {
                     handleClick(e, menuItem.path)
                   }}>{menuItem.title}</a>
@@ -82,6 +92,9 @@ const MenuItem = styled.div`
   color: #EFEFEF;
   &.isClicked {
     font-size: 3em;
+  }
+  &.isNotClicked {
+    display:none;
   }
 `;
 const SubmenuWrapper = styled.div`

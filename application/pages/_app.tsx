@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <Nav enableButton={true} />
         </NavWrapper>
         <ThemeProvider theme={theme}>
-          {width > 376 ?
+          {width > 768 ?
             <DesktopLayout>
               <Component {...pageProps} />
             </DesktopLayout>
