@@ -11,31 +11,21 @@ import { AnimatePresence, motion } from 'framer-motion';
 const DesktopMenu = () => {
 
   const router = useRouter()
-  const [selected, changeSelected] = useState('');
-
 
   const handleClick = (e, path) => {
     if (router.pathname === '/' + path) {
       router.push('/')
-      changeSelected('');
     }
     else {
       console.log(path);
       router.push(path);
-      changeSelected(path);
     }
   };
-  const isMenuPage =
-    router.pathname === "/" ||
-    menuItems.filter((menuItem) => {
-      return (
-        router.pathname !== "/networking" &&
-        `/${menuItem.path}` === router.pathname
-      );
-    }).length > 0;
+  const isCurrentURL = (url) => {
+    console.log(url);
+    return router.pathname === url;
+  }
 
-  const showMenu =
-    (router.pathname.match(/\//g) || []).length === 2 ? false : true;
 
   return (
     <>
@@ -46,12 +36,12 @@ const DesktopMenu = () => {
         {menuItems && menuItems.map((menuItem) => {
           return (
             <Nav key={menuItem.path}>
-              {isMenuPage && showMenu &&
-                <MenuItem className={selected === menuItem.path ? "isClicked" : ""}>
+              {(isCurrentURL(`/${menuItem.path}`) || router.pathname === '/') ?
+                <MenuItem className={isCurrentURL(`/${menuItem.path}`) ? "isClicked" : ""}>
                   <a onClick={(e) => {
                     handleClick(e, menuItem.path)
                   }}>{menuItem.title}</a>
-                </MenuItem>
+                </MenuItem> : null
               }
             </Nav>
           )
@@ -62,7 +52,7 @@ const DesktopMenu = () => {
 }
 
 const ImageContainer = styled.div`
-  margin-top: 20%;
+  margin-top: 15%;
   width:50%;
   align-self: center;
   ${media.desktop}{
