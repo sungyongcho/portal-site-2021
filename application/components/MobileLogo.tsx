@@ -9,7 +9,7 @@ const MobileLogo = () => (
 );
 
 const LogoWrapper = styled.div`
-  padding-top: 20vh;
+  padding-top: 18vh;
   width: 72vw;
   height: auto;
   margin-bottom: 5.2em;

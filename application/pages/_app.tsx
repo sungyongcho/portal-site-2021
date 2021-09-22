@@ -21,13 +21,12 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <HeadInfo />
       <GlobalStyle />
-
       <Wrapper>
         <NavWrapper>
-          <Nav />
+          <Nav enableButton={true} />
         </NavWrapper>
         <ThemeProvider theme={theme}>
-          {width > 376 ?
+          {width > 767 ?
             <DesktopLayout>
               <Component {...pageProps} />
             </DesktopLayout>
@@ -36,11 +35,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
               <Component {...pageProps} />
             </MobileLayout>}
         </ThemeProvider>
-        <LogoWrapper>
-          <LogoList />
-        </LogoWrapper>
       </Wrapper>
-
     </>
   );
 }
@@ -49,6 +44,10 @@ const NavWrapper = styled(motion.div)`
   position:fixed;
   top: 3%;
   left: 4.5%;
+  ${media.tabletRotate}{
+    top: 5%;
+    left: 4%;
+  }
   ${media.desktop}{
     top: 4%;
     left: 2.5%;

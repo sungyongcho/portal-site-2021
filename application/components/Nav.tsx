@@ -7,22 +7,37 @@ import { darken, lighten } from 'polished';
 import { media } from '../styles/theme';
 import { motion } from 'framer-motion';
 
+type Props = {
+  enableButton: boolean;
+}
 
-const Nav = () => {
+const Nav = ({ enableButton }: Props) => {
   const router = useRouter()
   return (
     <NavStyle>
-      <ToHomeButton type="button" onClick={() => router.push('/')}></ToHomeButton>
-      <ToUpButton type="button" onClick={() => {
-        let temp = router.asPath;
-        router.push((temp.slice(0, temp.lastIndexOf('/')) === '') ? '/' : temp.slice(0, temp.lastIndexOf('/')))
-      }} />
-      <GoBackButton type="button" onClick={() => router.back()} />
+      {enableButton ?
+        < ToHomeButton type="button" onClick={() => router.push('/')} /> :
+        <NavButton />
+      }
+      {enableButton ?
+        <ToUpButton type="button" onClick={() => {
+          let temp = router.asPath;
+          router.push((temp.slice(0, temp.lastIndexOf('/')) === '') ? '/' : temp.slice(0, temp.lastIndexOf('/')))
+        }} /> :
+        <NavButton />
+      }
+      {enableButton ?
+        <GoBackButton type="button" onClick={() => router.back()} /> :
+        <NavButton />
+      }
     </NavStyle>
   )
 }
 const NavStyle = styled.div`
-margin: 0;
+  height:100%;
+  display: inline-flex;
+  flex-direction: row;
+  margin: 0;
   border-style: solid;
   background-color: transparent;
 `;
@@ -32,29 +47,32 @@ const NavButton = styled.button`
   border: none;
   background-color: rgb(148, 148, 148);
   text-decoration: none;
-  display: inline-block;
   border-radius: 50%;
-    padding: 0.75em;
-    margin: 0.1em 0.2em;
-`
+  padding: 0.75em;
+  margin: 0.1em 0.2em;
+  pointer-events: none;
+`;
 
 const ToHomeButton = styled(NavButton)`
+  pointer-events: auto;
   &:hover {
-    background: ${lighten(0.2, 'red')};
+  background: ${lighten(0.2, 'red')};
   }
-`
+`;
 
 
 const ToUpButton = styled(NavButton)`
+  pointer-events: auto;
   &:hover {
     background: ${lighten(0.2, 'yellow')};
   }
-`
+`;
 
 const GoBackButton = styled(NavButton)`
+  pointer-events: auto;
   &:hover {
     background: ${lighten(0.2, 'green')};
   }
-`
+`;
 
 export default Nav
