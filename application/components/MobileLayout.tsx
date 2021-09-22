@@ -28,13 +28,11 @@ const MobileLayout = ({ children }: Props) => {
     }).length > 0;
 
   return (
-    <>
-      <MobileWrapper>
-        {isMenuPage && <MobileLogo />}
-        {isMenuPage && showMenu && <MobileMenu children={children} />}
-        {(showContent || router.pathname === "/networking") && children}
-      </MobileWrapper>
-    </>
+    <MobileWrapper>
+      {isMenuPage && <MobileLogo />}
+      {isMenuPage && showMenu && <MobileMenu children={children} />}
+      {(showContent || router.pathname === "/networking") && children}
+    </MobileWrapper>
   );
 };
 
