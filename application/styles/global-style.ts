@@ -3,6 +3,16 @@ import { reset } from "styled-reset";
 import { media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
+    @font-face {
+      font-family: 'Noto Sans KR';
+      src: url('../public/fonts/noto-sans-kr-v21-latin-regular.eot'); /* IE9 Compat Modes */
+      src: local(''),
+          url('../public/fonts/noto-sans-kr-v21-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+          url('../public/fonts/noto-sans-kr-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+          url('../public/fonts/noto-sans-kr-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
+          url('../public/fonts/noto-sans-kr-v21-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+          url('../public/fonts/noto-sans-kr-v21-latin-regular.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+    }
     ${reset}
     :focus {
         outline: none;
@@ -18,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #EFEFEF;
         font-size: 11px;
         -webkit-text-size-adjust: none;
-        font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;
+        font-family: "Noto Sans KR", sans-serif;
         font-display: fallback;
         ${media.tablet}{
             font-size: 10px;

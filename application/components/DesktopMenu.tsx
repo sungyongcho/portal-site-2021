@@ -52,11 +52,11 @@ const DesktopMenu = () => {
 }
 
 const ImageContainer = styled.div`
-  padding-top: 50%;
+  margin-top: 20%;
   width:50%;
   align-self: center;
   ${media.desktop}{
-    padding-top: 15%;
+    margin-top: 15%;
     width: 45%;
   }
 `

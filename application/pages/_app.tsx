@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <GlobalStyle />
       <Wrapper>
         <NavWrapper>
-          <Nav />
+          <Nav enableButton={true} />
         </NavWrapper>
         <ThemeProvider theme={theme}>
           {width > 376 ?
@@ -35,11 +35,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
               <Component {...pageProps} />
             </MobileLayout>}
         </ThemeProvider>
-        <LogoWrapper>
-          <LogoList />
-        </LogoWrapper>
       </Wrapper>
-
     </>
   );
 }

@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { AnimatePresence, motion } from 'framer-motion';
 import DesktopMenu from './DesktopMenu';
 import { media } from '../styles/theme'
+import HorizontalImages from './HorizontalImages';
+import Nav from './Nav'
 type Props = {
   children: any
 }
@@ -20,6 +22,24 @@ const DesktopLayout = ({ children }: Props) => {
     stiffness: 100
   };
 
+  const images = [
+    {
+      path: "/logos/arko_logo.png",
+      widthRatio: 9.2457142857,
+      altText: "arko_logo",
+    },
+    {
+      path: "/logos/archiving_babel_logo.png",
+      widthRatio: 3.9031007752,
+      altText: "archiving_babel_logo",
+    },
+    {
+      path: "/logos/saegonggan_logo.png",
+      widthRatio: 1.4175152749,
+      altText: "saegonggan_logo",
+    },
+  ]
+
   return (
     <>
       <DesktopBody>
@@ -33,10 +53,36 @@ const DesktopLayout = ({ children }: Props) => {
         {/* <CurvedCourner className={"BottomLeft"} />
         <HalfCircle className={"Right"} />
         <CurvedCourner className={"BottomRight"} /> */}
+        {(showMenu && router.pathname !== '/networking') &&
+          <DesktopDateFooter>
+            {"2021.10.04-10.24"}
+          </DesktopDateFooter>
+        }
+        <DesktopLogoFooter>
+          <HorizontalImages images={images} gap={"1.2em"} />
+          <Nav enableButton={false}></Nav>
+        </DesktopLogoFooter>
       </DesktopBody>
     </>
   )
 }
+
+const DesktopDateFooter = styled.div`
+  position: absolute;
+  bottom: 0.4rem;
+  left: 3rem;
+  font-size: 2.5em;
+`;
+
+const DesktopLogoFooter = styled.div`
+  align-items:center;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  bottom: 0.4rem;
+  right: 3rem;
+  width: 40%;
+`;
 
 const DesktopBody = styled.div`
   width: 100%;
