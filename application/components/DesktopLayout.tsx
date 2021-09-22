@@ -60,28 +60,53 @@ const DesktopLayout = ({ children }: Props) => {
         }
         <DesktopLogoFooter>
           <HorizontalImages images={images} gap={"1.2em"} />
-          <Nav enableButton={false}></Nav>
         </DesktopLogoFooter>
-      </DesktopBody>
+        <DesktopNavFooter>
+          <Nav enableButton={false}></Nav>
+        </DesktopNavFooter>
+      </DesktopBody >
     </>
   )
 }
 
 const DesktopDateFooter = styled.div`
   position: absolute;
-  bottom: 0.4rem;
-  left: 3rem;
+  bottom: 1%;
+  left: 2%;
   font-size: 2.5em;
+  ${media.desktop}
+  {
+    bottom: 1.5%;
+    left: 3rem;
+    font-size: 2.5em;
+  }
 `;
 
 const DesktopLogoFooter = styled.div`
-  align-items:center;
-  position: absolute;
-  display: flex;
+  position:absolute;
+  display:flex;
+  flex-wrap: nowrap;
   flex-direction: row;
-  bottom: 0.4rem;
-  right: 3rem;
-  width: 40%;
+  align-items: flex-end;
+  justify-content: space-around;
+  bottom: 0;
+  right: 10%;
+  width: 50%;
+  ${media.desktop}{
+    bottom: 0.25%;
+    right: 6%;
+    width: 30%;
+  }
+`;
+
+const DesktopNavFooter = styled.div`
+  position:absolute;
+  bottom:1%;
+  right:0.5%;
+  ${media.desktop}{
+    bottom: 2%;
+    right: 1%;
+  }
 `;
 
 const DesktopBody = styled.div`
