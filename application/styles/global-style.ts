@@ -14,26 +14,7 @@ export const GlobalStyle = createGlobalStyle`
           url('../public/fonts/noto-sans-kr-v21-latin-regular.svg#NotoSansKR') format('svg'); /* Legacy iOS */
     }
     ${reset}
-    constant(safe-area-inset-top)
-constant(safe-area-inset-right)
-constant(safe-area-inset-bottom)
-constant(safe-area-inset-left)
-// iOS 11.2 이상
-env(safe-area-inset-top)
-env(safe-area-inset-right)
-env(safe-area-inset-bottom)
-env(safe-area-inset-left)
 
-/* 위 속성만 넣어도 기본 padding 값이 있어서 늘어납니다. 값을 더 추가하면 기본값 + 더한값 표현 됩니다.*/
-
-.header {
-	padding: 0 0 calc(constant(safe-area-inset-top) + 5px);
-    padding: 0 0 calc(env(safe-area-inset-top) + 5px);
-}
-.footer {
-    padding: 0 0 calc(constant(safe-area-inset-bottom));
-    padding: 0 0 calc(env(safe-area-inset-bottom));
-}
     :focus {
         outline: none;
         border: none;
