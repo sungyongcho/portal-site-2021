@@ -24,6 +24,7 @@ const customMediaQuery = (minWidth: number): string => {
 export const media = {
   custom: customMediaQuery,
   desktop: customMediaQuery(1440),
+  tabletRotate: customMediaQuery(1024),
   tablet: customMediaQuery(768),
   mobile: customMediaQuery(375),
 };

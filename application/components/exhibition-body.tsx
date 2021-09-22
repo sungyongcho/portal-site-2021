@@ -10,19 +10,20 @@ type Props = {
 
 const ExhibitionBody = ({ vr }: Props) => {
   return (
-    <ExhibitionArea>
-      <ExhibitionFrame frameBorder="0" src={vr} sandbox="allow-scripts" allow="fullscreen" allowFullScreen />
-    </ExhibitionArea >
+    <>
+      <ExhibitionArea>
+        <ExhibitionFrame frameBorder="0" src={vr} sandbox="allow-scripts" allow="fullscreen" allowFullScreen />
+      </ExhibitionArea >
+    </>
   )
 }
 
-
-
 const ExhibitionArea = styled.div`
   position: relative;
+  margin: 0;
+  padding: 0;
 	width : 100%;
-	height : 0;
-  padding-bottom: 56.25%;
+  height: 100%;
 `;
 
 
