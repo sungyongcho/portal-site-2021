@@ -6,6 +6,7 @@ import DesktopMenu from './DesktopMenu';
 import { media } from '../styles/theme'
 import HorizontalImages from './HorizontalImages';
 import Nav from './Nav'
+
 type Props = {
   children: any
 }
@@ -43,8 +44,8 @@ const DesktopLayout = ({ children }: Props) => {
   return (
     <>
       <DesktopBody>
+
         {/* <CurvedCourner className={"topLeft"} />
-        <HalfCircle className={"Left"} />
         <CurvedCourner className={"topRight"} /> */}
         {(showMenu && router.pathname !== '/networking') && <DesktopMenu />}
         <DesktopSubmenu>
@@ -168,6 +169,10 @@ const HalfCircle = styled.div`
     bottom: 30.5%;
     right: 15%;
   }
+`;
+
+const LeftNotch = styled.div`
+  width: 10%;
 `;
 
 const DesktopSubmenu = styled.div`
