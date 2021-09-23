@@ -45,9 +45,9 @@ const ProfileLayout = styled.div`
     line-height: 1.3em;
   }
   ${media.desktop} {
-    font-size: 1.0em;
+    font-size: 0.98em;
     flex-direction: row;
-    line-height: 1.5em;
+    line-height: 2em;
   }
 `
 const PhotoWrapper = styled.div`

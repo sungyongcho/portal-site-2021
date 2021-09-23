@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
           url('../public/fonts/noto-sans-kr-v21-latin-regular.svg#NotoSansKR') format('svg'); /* Legacy iOS */
     }
     ${reset}
+
     :focus {
         outline: none;
         border: none;
@@ -36,6 +37,12 @@ export const GlobalStyle = createGlobalStyle`
         }
         -ms-overflow-style: none;
         scrollbar-width: none;
+        height: -webkit-fill-available;
+    }
+    body {
+     min-height: 100vh;
+     /* mobile viewport bug fix */
+     min-height: -webkit-fill-available;
     }
     button {
         background: none;
@@ -84,6 +91,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     li {
       list-style-position: inside;
+      text-indent: 1em;
       margin:0px; padding:0px;
       ${media.tablet}{
         line-height: -1%;

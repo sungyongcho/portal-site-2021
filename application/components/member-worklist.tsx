@@ -54,5 +54,7 @@ const MemberWorklist = ({ workList }: Props) => {
 const WorklistLayout = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+
 `
 export default MemberWorklist

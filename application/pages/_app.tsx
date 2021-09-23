@@ -14,6 +14,10 @@ import LogoList from '../components/LogoList';
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
 
 
+import Image from 'next/image';
+
+import NotchLeft from "../public/notch_left.png"
+
 function MyApp({ Component, pageProps, router }: AppProps) {
   const { height, width } = useWindowSize();
 
@@ -25,7 +29,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <NavWrapper>
           <Nav enableButton={true} />
         </NavWrapper>
+        <LeftNotch>
+          <Image src={NotchLeft} layout={"fill"} />
+        </LeftNotch>
         <ThemeProvider theme={theme}>
+
           {width > 767 ?
             <DesktopLayout>
               <Component {...pageProps} />
@@ -86,6 +94,15 @@ const Wrapper = styled(motion.div)`
     width: 98vw;
     height: 96vh;
   }
+`;
+
+const LeftNotch = styled.div`
+  position:absolute;
+  margin-left: auto; margin-right: auto; display: block;
+
+  top:50%;
+  left:0;
+  width:25%;
 `;
 
 export default MyApp;

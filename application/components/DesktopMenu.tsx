@@ -52,7 +52,7 @@ const DesktopMenu = () => {
 }
 
 const ImageContainer = styled.div`
-  margin-top: 15%;
+  margin-top: 50%;
   width:50%;
   align-self: center;
   ${media.desktop}{
@@ -68,23 +68,30 @@ const Nav = styled.div`
 `;
 
 const MenuWrapper = styled.div`
-  padding-top: 3%;
+  margin-top: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
   flex-direction:row;
+  ${media.desktop}{
+    margin-top: 3%;
+  }
 `;
 
 const MenuItem = styled.div`
-  font-size: 2.5em;
-  padding: 0.6em 1em;
+  font-size: 2.2em;
+  padding: 0.3em 0.5em;
   color: #EFEFEF;
   &.isClicked {
-    font-size: 3em;
+    font-size: 2.8em;
+    ${media.desktop}{
+      font-size: 3.5em;
+    }
   }
-  &.isNotClicked {
-    display:none;
+  ${media.desktop}{
+    font-size: 2.5em;
+    padding: 0.6em 1em;
   }
 `;
 const SubmenuWrapper = styled.div`
