@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import { useState } from 'react';
 import Modal from 'react-modal';
+import { media } from '../styles/theme'
 
 type Props = {
   workList: string[];
@@ -33,7 +34,7 @@ const MemberWorklist = ({ workList }: Props) => {
         <Image onClick={(e) => {
           openModal(e, workList)
         }}
-          src={`${workList}`} width='200' height='300px' alt="" />
+          src={`${workList}`} width='200' height='400px' alt="" />
       ))}
       {/* for modal popup*/}
       {
@@ -55,6 +56,9 @@ const WorklistLayout = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  ${media.desktop}{
+        margin-bottom: 2%;
+      }
 
 `
 export default MemberWorklist

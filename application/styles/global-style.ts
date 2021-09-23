@@ -60,6 +60,10 @@ export const GlobalStyle = createGlobalStyle`
       background-color: #EFEFEF;
       height: 1px;
       border: 0;
+      ${media.desktop}{
+        margin-bottom: 2.5%;
+      }
+
     }
     //mdx 헤더
     h1 {
@@ -69,7 +73,7 @@ export const GlobalStyle = createGlobalStyle`
         padding-bottom: 2%;
       }
       ${media.desktop}{
-        padding-bottom: 1%;
+        margin-bottom: 0.5%;
       }
     }
     h2 {
@@ -78,6 +82,10 @@ export const GlobalStyle = createGlobalStyle`
       ${media.tablet}{
         padding-bottom: 1%;
       }
+      ${media.desktop}{
+        margin-bottom: 0.5%;
+      }
+
     }
     h3 {
       font-size: 1.2em;
