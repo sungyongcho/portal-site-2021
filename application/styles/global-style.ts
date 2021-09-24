@@ -63,7 +63,6 @@ export const GlobalStyle = createGlobalStyle`
       ${media.desktop}{
         margin-bottom: 2.5%;
       }
-
     }
     //mdx 헤더
     h1 {
