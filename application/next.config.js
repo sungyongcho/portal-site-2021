@@ -55,13 +55,12 @@ module.exports = {
 };
 
 module.exports = {
-  devServer: {
-    proxy: {
-      '/exhibiton': {
-        target: 'https://portal-site-2021-vr.pages.dev/',
-        changeOrigin: true,
-        pathRewrite: { '^/api': '' },
-      },
-    }
+  async rewrites(){
+    return [
+      {
+        source: '/vr',
+        destination: 'https://vr.portalsite.xyz/'
+      }
+    ]
   }
 }
