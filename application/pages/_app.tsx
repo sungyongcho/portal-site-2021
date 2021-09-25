@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <GlobalStyle />
       <Wrapper>
         <NavWrapper>
-          <Nav enableButton={true} />
+          <Nav enableButton={false} />
         </NavWrapper>
         <ThemeProvider theme={theme}>
 

@@ -22,8 +22,8 @@ const LogoWrapper = styled.div`
   height: auto;
   ${media.desktop}{
     top:3%;
-    left:38%;
-    width:25%;
+    left:42.5%;
+    width:15%;
   }
 `;
 

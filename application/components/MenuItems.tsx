@@ -18,7 +18,7 @@ export const menuItems: MenuItem[] = [
   {
     title: "Exhibition",
     path: "exhibition",
-    hasSubmenu: true,
+    hasSubmenu: false,
   },
   {
     title: "Text",

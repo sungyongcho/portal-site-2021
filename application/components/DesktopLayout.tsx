@@ -48,20 +48,20 @@ const DesktopLayout = ({ children }: Props) => {
     <>
       <DesktopBody>
 
-        {showMenu && <LeftNotch>
+        {showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition') && <LeftNotch>
           <Image src={NotchLeft} />
         </LeftNotch>}
-        {showMenu && <RightNotch>
+        {showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition') && <RightNotch>
           <Image src={NotchRight} />
         </RightNotch>}
-        {(showMenu && router.pathname !== '/sns') && <DesktopMenu />}
+        {(showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition')) && <DesktopMenu />}
         <DesktopSubmenu>
           {children}
         </DesktopSubmenu>
         {/* <CurvedCourner className={"BottomLeft"} />
         <HalfCircle className={"Right"} />
         <CurvedCourner className={"BottomRight"} /> */}
-        {(showMenu && router.pathname !== '/sns') &&
+        {(showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition')) &&
           <DesktopDateFooter>
             {"2021.10.04-10.24"}
           </DesktopDateFooter>
@@ -199,7 +199,7 @@ const LeftNotch = styled.div`
   margin-left: auto; margin-right: auto; display: block;
   pointer-events: none;
   top:40%;
-  left:0;
+  left:0.9%;
   width:32%;
   ${media.desktop}{
     top:25%;
@@ -211,7 +211,7 @@ const RightNotch = styled.div`
   margin-left: auto; margin-right: auto; display: block;
   pointer-events: none;
   top:40%;
-  right:0;
+  right:0.9%;
   width:32%;
   ${media.desktop}{
     top:25%;

@@ -45,7 +45,7 @@ const NavStyle = styled.div`
 
 const NavButton = styled.button`
   border: none;
-  background-color: rgb(148, 148, 148);
+  background-color: #EFEFEF;
   text-decoration: none;
   border-radius: 50%;
   padding: 0.75em;
