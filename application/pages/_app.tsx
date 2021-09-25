@@ -27,11 +27,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <GlobalStyle />
       <Wrapper>
         <NavWrapper>
-          <Nav enableButton={true} />
+          <Nav enableButton={false} />
         </NavWrapper>
-        <LeftNotch>
-          <Image src={NotchLeft} layout={"fill"} />
-        </LeftNotch>
         <ThemeProvider theme={theme}>
 
           {width > 767 ?
@@ -97,7 +94,7 @@ const Wrapper = styled(motion.div)`
 `;
 
 const LeftNotch = styled.div`
-  position:absolute;
+  position:fixed;
   margin-left: auto; margin-right: auto; display: block;
 
   top:50%;

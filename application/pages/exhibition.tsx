@@ -2,39 +2,31 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { getAllExhibitions, getExhibitionPost } from '../../utils/mdxUtils';
-import { IExhibition } from '../../types/IExhibition';
-import ExhibitionBody from '../../components/exhibition-body';
+import { getAllExhibitions, getExhibitionPost } from '../utils/mdxUtils';
+import { IExhibition } from '../types/IExhibition';
+import ExhibitionBody from '../components/exhibition-body';
 
 import { AnimatePresence, motion } from 'framer-motion'
 
 import styled from 'styled-components'
-import { media } from "../../styles/theme";
-import ContentLayout from '../../styles/content-layout'
-import ContentHeaderWrapper from '../../styles/content-header-wrapper'
-import ContentWrapper from '../../styles/content-wrapper'
+import { media } from "../styles/theme";
+import ContentLayout from '../styles/content-layout'
+import ContentHeaderWrapper from '../styles/content-header-wrapper'
+import ContentWrapper from '../styles/content-wrapper'
+import ContentLogo from '../components/ContentLogo'
 
-
-type Props = {
-  source: MDXRemoteSerializeResult;
-  frontMatter: Omit<IExhibition, 'slug' | 'order'>;
-};
 
 const components = {
   ExhibitionBody,
 };
 
-
-const ExhibitionPage = ({ source, frontMatter }: Props) => {
+const ExhibitionPage = () => {
   return (
     <>
       <ExhibitionLayout>
-        <ExhibitionHeaderWrapper>
-          <ArtistName>{frontMatter.artistName}</ArtistName>
-          <ExhibitionTitle> {frontMatter.exhibitionTitle}</ExhibitionTitle>
-        </ExhibitionHeaderWrapper>
+        <ContentLogo />
         <ExhibitionWrapper>
-          <MDXRemote {...source} components={components} />
+          <ExhibitionBody vr={'https://portal-site-2021-vr.pages.dev'} />
         </ExhibitionWrapper>
       </ExhibitionLayout>
     </>
@@ -56,7 +48,7 @@ const ExhibitionLayout = styled.div`
     font-size: 2em;
   }
   ${media.desktop}{
-    margin-top: 12%;
+    margin-top: 20%;
     margin-left: 0%;
     margin-right: 0%;
     font-size: 2em;
@@ -100,7 +92,7 @@ const ExhibitionWrapper = styled.div`
   }
   ${media.desktop}{
     width: 70vw;
-    height: 76vh;
+    height: 70vh;
   }
 `;
 
@@ -113,33 +105,3 @@ font-size: 1.2em;
 
 
 
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { content, data } = getExhibitionPost(params?.slug as string);
-
-  const mdxSource = await serialize(content, { scope: data });
-
-  return {
-    props: {
-      source: mdxSource,
-      frontMatter: data,
-    },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllExhibitions(['slug']);
-
-  const paths = posts.map((post) => ({
-    params: {
-      slug: post.slug,
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-//ref: https://stackoverflow.com/questions/1125084/how-to-make-the-window-full-screen-with-javascript-stretching-all-over-the-scre/7525760#7525760

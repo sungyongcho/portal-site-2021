@@ -2,19 +2,58 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import { useState } from 'react';
 import Modal from 'react-modal';
+import { media } from '../styles/theme'
+
+import Slider from "react-slick";
 
 type Props = {
-  workList: string[];
+  workList: [{
+    address: string,
+    workTitle: string,
+    workYear: number,
+    workMedia: string,
+    workSize: string
+  }];
 }
+
+
+const settings = {
+  className: "slider variable-width",
+  infinite: false,
+  slidesToShow: 3,
+  variableWidth: true,
+  centerPadding: '50px'
+};
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import ImageOne from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_1.jpg'
+import ImageTwo from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_2.jpg'
+import ImageThree from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_3.jpg'
+import ImageFour from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_4.jpg'
+import ImageFive from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_5.jpg'
+import ImageSix from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_6.jpg'
+import ImageSeven from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_7.jpg'
+
 
 const MemberWorklist = ({ workList }: Props) => {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [imageAddress, setImageAddress] = useState('');
+  const [captionTitle, setCaptionTitle] = useState('');
+  const [captionYear, setCaptionYear] = useState(0);
+  const [captionMedia, setCaptionMedia] = useState('');
+  const [captionSize, setCaptionSize] = useState('');
+
 
   const openModal = (e, src) => {
     setIsOpen(true);
-    setImageAddress(src);
+    setImageAddress(src.address);
+    setCaptionTitle(src.workTitle);
+    setCaptionYear(src.workYear);
+    setCaptionMedia(src.workMedia);
+    setCaptionSize(src.workSize);
   }
 
   function afterOpenModal() {
@@ -24,37 +63,45 @@ const MemberWorklist = ({ workList }: Props) => {
   function closeModal() {
     setIsOpen(false);
     setImageAddress('');
+    setCaptionTitle('');
+    setCaptionYear(0);
+    setCaptionMedia('');
+    setCaptionSize('');
   }
 
   return (
-    <WorklistLayout>
-      {/* for listup */}
-      {workList.map((workList) => (
-        <Image onClick={(e) => {
-          openModal(e, workList)
-        }}
-          src={`${workList}`} width='200' height='300px' alt="" />
-      ))}
-      {/* for modal popup*/}
-      {
-        modalIsOpen && <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-        >
-          <Image onClick={closeModal}
-            src={imageAddress} layout="fill"
-            objectFit="contain" alt="" />
-        </Modal>
-      }
-
-    </WorklistLayout >
+    <Container>
+      <StyledSlider {...settings}>
+        <ImageContainer>
+          <Image src={ImageOne} />
+        </ImageContainer>
+        <ImageContainer>
+          <Image src={ImageTwo} />
+        </ImageContainer>
+        <ImageContainer>
+          <Image src={ImageTwo} />
+        </ImageContainer>
+      </StyledSlider>
+    </Container>
   )
 }
 
-const WorklistLayout = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+const Container = styled.div`
+width:50vw;
+  overflow:hidden;
+`;
 
-`
+const StyledSlider = styled(Slider)`
+    .slick-slide div{
+      outline: none;
+    }
+`;
+const ImageContainer = styled.div`
+  margin: 0 16px;
+`;
+
+
+
+
+
 export default MemberWorklist

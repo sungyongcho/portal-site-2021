@@ -6,6 +6,9 @@ import DesktopMenu from './DesktopMenu';
 import { media } from '../styles/theme'
 import HorizontalImages from './HorizontalImages';
 import Nav from './Nav'
+import NotchLeft from "../public/notch_left.png"
+import NotchRight from "../public/notch_right.png"
+import Image from 'next/image'
 
 type Props = {
   children: any
@@ -45,16 +48,20 @@ const DesktopLayout = ({ children }: Props) => {
     <>
       <DesktopBody>
 
-        {/* <CurvedCourner className={"topLeft"} />
-        <CurvedCourner className={"topRight"} /> */}
-        {(showMenu && router.pathname !== '/networking') && <DesktopMenu />}
+        {showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition') && <LeftNotch>
+          <Image src={NotchLeft} />
+        </LeftNotch>}
+        {showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition') && <RightNotch>
+          <Image src={NotchRight} />
+        </RightNotch>}
+        {(showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition')) && <DesktopMenu />}
         <DesktopSubmenu>
           {children}
         </DesktopSubmenu>
         {/* <CurvedCourner className={"BottomLeft"} />
         <HalfCircle className={"Right"} />
         <CurvedCourner className={"BottomRight"} /> */}
-        {(showMenu && router.pathname !== '/networking') &&
+        {(showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition')) &&
           <DesktopDateFooter>
             {"2021.10.04-10.24"}
           </DesktopDateFooter>
@@ -171,9 +178,6 @@ const HalfCircle = styled.div`
   }
 `;
 
-const LeftNotch = styled.div`
-  width: 10%;
-`;
 
 const DesktopSubmenu = styled.div`
   padding-top: 3%;
@@ -187,6 +191,30 @@ const DesktopSubmenu = styled.div`
   }
   ${media.desktop}{
     padding-top: 0%;
+  }
+`;
+
+const LeftNotch = styled.div`
+  position:fixed;
+  margin-left: auto; margin-right: auto; display: block;
+  pointer-events: none;
+  top:40%;
+  left:0.9%;
+  width:32%;
+  ${media.desktop}{
+    top:25%;
+  }
+`;
+
+const RightNotch = styled.div`
+  position:fixed;
+  margin-left: auto; margin-right: auto; display: block;
+  pointer-events: none;
+  top:40%;
+  right:0.9%;
+  width:32%;
+  ${media.desktop}{
+    top:25%;
   }
 `;
 

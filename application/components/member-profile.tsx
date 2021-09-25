@@ -67,6 +67,7 @@ const PhotoWrapper = styled.div`
 const IntroWrapper = styled.div`
   position: relative;
   margin-bottom: 3%;
+  margin-left: 5%;
   ${media.tablet}{
     margin-bottom:0;
   }

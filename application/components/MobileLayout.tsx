@@ -5,6 +5,9 @@ import styled from "styled-components";
 import InterviewLayout from "./interview-body";
 import HorizontalImages from "./HorizontalImages";
 import { menuItems } from "./MenuItems";
+import Image from 'next/image'
+import NotchLeft from "../public/notch_left.png"
+import NotchRight from "../public/notch_right.png"
 
 type Props = {
   children: any;
@@ -23,7 +26,7 @@ const MobileLayout = ({ children }: Props) => {
     router.pathname === "/" ||
     menuItems.filter((menuItem) => {
       return (
-        router.pathname !== "/networking" &&
+        router.pathname !== "/sns" &&
         `/${menuItem.path}` === router.pathname
       );
     }).length > 0;
@@ -48,13 +51,19 @@ const MobileLayout = ({ children }: Props) => {
 
   return (
     <>
-      <MobileFooter>
+      {isMenuPage && <LeftNotch>
+        <Image src={NotchLeft} />
+      </LeftNotch>}
+      {isMenuPage && <RightNotch>
+        <Image src={NotchRight} />
+      </RightNotch>}
+      {isMenuPage && <MobileFooter>
         <HorizontalImages images={images} gap={"0.4em"} />
-      </MobileFooter>
+      </MobileFooter>}
       <MobileContentWrapper>
         {isMenuPage && <MobileLogo />}
         {isMenuPage && showMenu && <MobileMenu children={children} />}
-        {(showContent || router.pathname === "/networking") && children}
+        {(showContent || router.pathname === "/sns") && children}
       </MobileContentWrapper>
     </>
   );
@@ -76,5 +85,24 @@ const MobileContentWrapper = styled.div`
   align-items: center;
   overflow: auto;
 `;
+
+const LeftNotch = styled.div`
+  position:fixed;
+  margin-left: auto; margin-right: auto; display: block;
+  pointer-events: none;
+  top:40%;
+  left:0;
+  width:32%;
+`;
+
+const RightNotch = styled.div`
+  position:fixed;
+  margin-left: auto; margin-right: auto; display: block;
+  pointer-events: none;
+  top:40%;
+  right:0;
+  width:32%;
+`;
+
 
 export default MobileLayout;

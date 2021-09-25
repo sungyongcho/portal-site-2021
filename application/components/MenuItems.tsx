@@ -18,7 +18,7 @@ export const menuItems: MenuItem[] = [
   {
     title: "Exhibition",
     path: "exhibition",
-    hasSubmenu: true,
+    hasSubmenu: false,
   },
   {
     title: "Text",
@@ -26,8 +26,8 @@ export const menuItems: MenuItem[] = [
     hasSubmenu: true,
   },
   {
-    title: "Networking",
-    path: "networking",
+    title: "SNS",
+    path: "sns",
     hasSubmenu: false,
   },
 ];

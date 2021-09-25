@@ -7,7 +7,6 @@ import { media } from '../styles/theme'
 import { menuItems } from "./MenuItems";
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-
 const DesktopMenu = () => {
 
   const router = useRouter()
@@ -26,11 +25,11 @@ const DesktopMenu = () => {
     return router.pathname === url;
   }
 
-
   return (
     <>
+
       <ImageContainer>
-        <Image alt="Portal Site" src={logoImage}></Image>
+        <Image alt="Portal Site" src={logoImage} onClick={() => router.push('/')}></Image>
       </ImageContainer>
       <MenuWrapper>
         {menuItems && menuItems.map((menuItem) => {
@@ -52,12 +51,13 @@ const DesktopMenu = () => {
 }
 
 const ImageContainer = styled.div`
-  margin-top: 50%;
-  width:50%;
+  margin-top: 40%;
+  width:65%;
   align-self: center;
   ${media.desktop}{
-    margin-top: 15%;
-    width: 45%;
+    margin-top: 6%;
+    padding:3%;
+    width: 60%;
   }
 `
 
@@ -68,14 +68,15 @@ const Nav = styled.div`
 `;
 
 const MenuWrapper = styled.div`
-  margin-top: 8%;
+  margin-top: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
   flex-direction:row;
   ${media.desktop}{
-    margin-top: 3%;
+    margin-top: 4%;
+    padding: 3%;
   }
 `;
 
