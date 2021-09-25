@@ -52,12 +52,12 @@ const DesktopMenu = () => {
 }
 
 const ImageContainer = styled.div`
-  margin-top: 50%;
-  width:50%;
+  margin-top: 48%;
+  width:65%;
   align-self: center;
   ${media.desktop}{
-    margin-top: 15%;
-    width: 45%;
+    margin-top: 12%;
+    width: 60%;
   }
 `
 
@@ -68,14 +68,14 @@ const Nav = styled.div`
 `;
 
 const MenuWrapper = styled.div`
-  margin-top: 8%;
+  margin-top: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
   flex-direction:row;
   ${media.desktop}{
-    margin-top: 3%;
+    margin-top: 12%;
   }
 `;
 

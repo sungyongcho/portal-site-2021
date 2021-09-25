@@ -6,6 +6,9 @@ import DesktopMenu from './DesktopMenu';
 import { media } from '../styles/theme'
 import HorizontalImages from './HorizontalImages';
 import Nav from './Nav'
+import NotchLeft from "../public/notch_left.png"
+import NotchRight from "../public/notch_right.png"
+import Image from 'next/image'
 
 type Props = {
   children: any
@@ -45,8 +48,12 @@ const DesktopLayout = ({ children }: Props) => {
     <>
       <DesktopBody>
 
-        {/* <CurvedCourner className={"topLeft"} />
-        <CurvedCourner className={"topRight"} /> */}
+        {showMenu && <LeftNotch>
+          <Image src={NotchLeft} />
+        </LeftNotch>}
+        {showMenu && <RightNotch>
+          <Image src={NotchRight} />
+        </RightNotch>}
         {(showMenu && router.pathname !== '/networking') && <DesktopMenu />}
         <DesktopSubmenu>
           {children}
@@ -171,9 +178,6 @@ const HalfCircle = styled.div`
   }
 `;
 
-const LeftNotch = styled.div`
-  width: 10%;
-`;
 
 const DesktopSubmenu = styled.div`
   padding-top: 3%;
@@ -187,6 +191,30 @@ const DesktopSubmenu = styled.div`
   }
   ${media.desktop}{
     padding-top: 0%;
+  }
+`;
+
+const LeftNotch = styled.div`
+  position:fixed;
+  margin-left: auto; margin-right: auto; display: block;
+
+  top:40%;
+  left:0;
+  width:32%;
+  ${media.desktop}{
+    top:25%;
+  }
+`;
+
+const RightNotch = styled.div`
+  position:fixed;
+  margin-left: auto; margin-right: auto; display: block;
+
+  top:40%;
+  right:0;
+  width:32%;
+  ${media.desktop}{
+    top:25%;
   }
 `;
 
