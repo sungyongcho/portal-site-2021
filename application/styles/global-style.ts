@@ -134,4 +134,17 @@ export const GlobalStyle = createGlobalStyle`
             display: flex;
         }
     }
+
+.slick-list {
+}
+
+.slick-slide img {
+  /* cursor: pointer; */
+}
+
+.slick-dots {
+}
+
+.slick-track {
+}
 `;

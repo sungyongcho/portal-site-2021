@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import { media } from '../styles/theme'
 
+import Slider from "react-slick";
+
 type Props = {
   workList: [{
     address: string,
@@ -13,6 +15,28 @@ type Props = {
     workSize: string
   }];
 }
+
+const settings = {
+  className: "slider variable-width",
+  arrows: false,
+  infinite: false,
+  slidesToShow: 3,
+  swipeToSlide: true,
+  variableWidth: true,
+  centerPadding: '50px'
+};
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import ImageOne from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_1.jpg'
+import ImageTwo from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_2.jpg'
+import ImageThree from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_3.jpg'
+import ImageFour from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_4.jpg'
+import ImageFive from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_5.jpg'
+import ImageSix from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_6.jpg'
+import ImageSeven from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_7.jpg'
+
 
 const MemberWorklist = ({ workList }: Props) => {
 
@@ -47,63 +71,41 @@ const MemberWorklist = ({ workList }: Props) => {
   }
 
   return (
-    <WorklistLayout>
-      {/* for listup */}
-      {workList.map((workList) => (
-        <Image onClick={(e) => {
-          openModal(e, workList)
-        }}
-          src={`${workList.address}`} width='200' height='400px' alt="" />
-      ))}
-      {/* for modal popup*/}
-      {
-        modalIsOpen && <Modal
-          className="_"
-          overlayClassName="_"
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          contentElemet={(props, children) => <ModalStyle {...props}>{children}</ModalStyle>}
-          overlayElement={(props, contentElement) => <OverlayStyle {...props}>{contentElement}</OverlayStyle>}
-        >
-          <Image onClick={closeModal}
-            src={imageAddress} layout="fill"
-            objectFit="contain" alt=""></Image>
-          {captionTitle !== '' && <div>{captionTitle}</div>}
-          {captionYear !== 0 && <div>{captionYear}</div>}
-          {captionMedia !== '' && <div>{captionMedia}</div>}
-          {captionSize !== '' && <div>{captionSize}</div>}
-        </Modal>
-      }
-
-    </WorklistLayout >
+    <Slider {...settings}>
+      <ImageFrame>
+        <Image src={ImageOne} />
+      </ImageFrame>
+      <ImageFrame>
+        <Image src={ImageTwo} />
+      </ImageFrame>
+    </Slider>
   )
 }
 
+const WorklistWrapper = styled.div`
+   overflow-y:hidden;
+   overflow-x:hidden;
+   width:100%;
+ `;
+
+const WorklistBody = styled.div`
+   width:500px;
+   margin: 0 auto;
+   height:200px;
+   border:1px solid blue;
+ `;
 const WorklistLayout = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  ${media.desktop}{
-        margin-bottom: 2%;
-      }
-
+   width:100vw;
+   margin-left: calc(-50vw + 50%);
+   height:200px;
+   border:1px solid green;
 `
 
-const ModalStyle = styled.div`
-  width:1em;
-  background-color: blue;
+const ImageFrame = styled.div`
+  width:auto;
+  margin-right: 40px;
 `;
 
-
-const OverlayStyle = styled.div`
-  background-color: black;
-`;
-
-const ImageFrame = styled(Image)`
-  display:inline-block;
-  width:15%;
-  height:10%;
-  background-color: gray;
-`;
 
 export default MemberWorklist
