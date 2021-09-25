@@ -16,12 +16,11 @@ type Props = {
   }];
 }
 
+
 const settings = {
   className: "slider variable-width",
-  arrows: false,
   infinite: false,
   slidesToShow: 3,
-  swipeToSlide: true,
   variableWidth: true,
   centerPadding: '50px'
 };
@@ -71,41 +70,38 @@ const MemberWorklist = ({ workList }: Props) => {
   }
 
   return (
-    <Slider {...settings}>
-      <ImageFrame>
-        <Image src={ImageOne} />
-      </ImageFrame>
-      <ImageFrame>
-        <Image src={ImageTwo} />
-      </ImageFrame>
-    </Slider>
+    <Container>
+      <StyledSlider {...settings}>
+        <ImageContainer>
+          <Image src={ImageOne} />
+        </ImageContainer>
+        <ImageContainer>
+          <Image src={ImageTwo} />
+        </ImageContainer>
+        <ImageContainer>
+          <Image src={ImageTwo} />
+        </ImageContainer>
+      </StyledSlider>
+    </Container>
   )
 }
 
-const WorklistWrapper = styled.div`
-   overflow-y:hidden;
-   overflow-x:hidden;
-   width:100%;
- `;
-
-const WorklistBody = styled.div`
-   width:500px;
-   margin: 0 auto;
-   height:200px;
-   border:1px solid blue;
- `;
-const WorklistLayout = styled.div`
-  display: flex;
-   width:100vw;
-   margin-left: calc(-50vw + 50%);
-   height:200px;
-   border:1px solid green;
-`
-
-const ImageFrame = styled.div`
-  width:auto;
-  margin-right: 40px;
+const Container = styled.div`
+width:50vw;
+  overflow:hidden;
 `;
+
+const StyledSlider = styled(Slider)`
+    .slick-slide div{
+      outline: none;
+    }
+`;
+const ImageContainer = styled.div`
+  margin: 0 16px;
+`;
+
+
+
 
 
 export default MemberWorklist

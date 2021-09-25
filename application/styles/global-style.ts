@@ -138,6 +138,10 @@ export const GlobalStyle = createGlobalStyle`
 .slick-list {
 }
 
+.slick-slide {
+  display:flex;
+  flex-direction: row;
+}
 .slick-slide img {
   /* cursor: pointer; */
 }
