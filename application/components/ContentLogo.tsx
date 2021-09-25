@@ -2,8 +2,9 @@ import Image from "next/image";
 import styled from "styled-components";
 import logoImage from "../public/logo.png";
 import { useRouter } from 'next/router'
+import { media } from "../styles/theme";
 
-const MobileLogo = () => {
+const ContentLogo = () => {
   const router = useRouter()
   return (
     <LogoWrapper>
@@ -12,10 +13,18 @@ const MobileLogo = () => {
 };
 
 const LogoWrapper = styled.div`
-  padding-top: 18vh;
-  width: 72vw;
+  position:fixed;
+  top:3%;
+  left:30%;
+  width: 40%;
+  margin:0;
+  padding:0;
   height: auto;
-  margin-bottom: 5.2em;
+  ${media.desktop}{
+    top:3%;
+    left:38%;
+    width:25%;
+  }
 `;
 
-export default MobileLogo;
+export default ContentLogo;

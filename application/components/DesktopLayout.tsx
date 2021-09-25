@@ -54,14 +54,14 @@ const DesktopLayout = ({ children }: Props) => {
         {showMenu && <RightNotch>
           <Image src={NotchRight} />
         </RightNotch>}
-        {(showMenu && router.pathname !== '/networking') && <DesktopMenu />}
+        {(showMenu && router.pathname !== '/sns') && <DesktopMenu />}
         <DesktopSubmenu>
           {children}
         </DesktopSubmenu>
         {/* <CurvedCourner className={"BottomLeft"} />
         <HalfCircle className={"Right"} />
         <CurvedCourner className={"BottomRight"} /> */}
-        {(showMenu && router.pathname !== '/networking') &&
+        {(showMenu && router.pathname !== '/sns') &&
           <DesktopDateFooter>
             {"2021.10.04-10.24"}
           </DesktopDateFooter>
@@ -197,7 +197,7 @@ const DesktopSubmenu = styled.div`
 const LeftNotch = styled.div`
   position:fixed;
   margin-left: auto; margin-right: auto; display: block;
-
+  pointer-events: none;
   top:40%;
   left:0;
   width:32%;
@@ -209,7 +209,7 @@ const LeftNotch = styled.div`
 const RightNotch = styled.div`
   position:fixed;
   margin-left: auto; margin-right: auto; display: block;
-
+  pointer-events: none;
   top:40%;
   right:0;
   width:32%;

@@ -11,7 +11,7 @@ import { media } from "../../styles/theme";
 import ContentLayout from '../../styles/content-layout'
 import ContentHeaderWrapper from '../../styles/content-header-wrapper'
 import ContentWrapper from 'styles/content-wrapper';
-
+import ContentLogo from '../../components/ContentLogo'
 type Props = {
   source: MDXRemoteSerializeResult;
   frontMatter: Omit<IInterview, 'slug' | 'order'>;
@@ -25,6 +25,7 @@ const components = {
 const interviewPage = ({ source, frontMatter }: Props) => {
   return (
     <ContentLayout>
+      <ContentLogo />
       <ContentHeaderWrapper>
         <InterviewTitle> {frontMatter.interviewTitle}</InterviewTitle>
       </ContentHeaderWrapper>

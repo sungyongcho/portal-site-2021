@@ -13,7 +13,7 @@ import { media } from "../../styles/theme";
 import ContentLayout from '../../styles/content-layout'
 import ContentHeaderWrapper from '../../styles/content-header-wrapper'
 import ContentWrapper from '../../styles/content-wrapper'
-
+import ContentLogo from '../../components/ContentLogo'
 
 type Props = {
   source: MDXRemoteSerializeResult;
@@ -24,15 +24,11 @@ const components = {
   ExhibitionBody,
 };
 
-
 const ExhibitionPage = ({ source, frontMatter }: Props) => {
   return (
     <>
       <ExhibitionLayout>
-        <ExhibitionHeaderWrapper>
-          <ArtistName>{frontMatter.artistName}</ArtistName>
-          <ExhibitionTitle> {frontMatter.exhibitionTitle}</ExhibitionTitle>
-        </ExhibitionHeaderWrapper>
+        <ContentLogo />
         <ExhibitionWrapper>
           <MDXRemote {...source} components={components} />
         </ExhibitionWrapper>

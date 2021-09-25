@@ -7,7 +7,6 @@ import { media } from '../styles/theme'
 import { menuItems } from "./MenuItems";
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-
 const DesktopMenu = () => {
 
   const router = useRouter()
@@ -26,11 +25,11 @@ const DesktopMenu = () => {
     return router.pathname === url;
   }
 
-
   return (
     <>
+
       <ImageContainer>
-        <Image alt="Portal Site" src={logoImage}></Image>
+        <Image alt="Portal Site" src={logoImage} onClick={() => router.push('/')}></Image>
       </ImageContainer>
       <MenuWrapper>
         {menuItems && menuItems.map((menuItem) => {

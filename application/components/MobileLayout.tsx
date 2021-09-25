@@ -26,7 +26,7 @@ const MobileLayout = ({ children }: Props) => {
     router.pathname === "/" ||
     menuItems.filter((menuItem) => {
       return (
-        router.pathname !== "/networking" &&
+        router.pathname !== "/sns" &&
         `/${menuItem.path}` === router.pathname
       );
     }).length > 0;
@@ -57,13 +57,13 @@ const MobileLayout = ({ children }: Props) => {
       {isMenuPage && <RightNotch>
         <Image src={NotchRight} />
       </RightNotch>}
-      <MobileFooter>
+      {isMenuPage && <MobileFooter>
         <HorizontalImages images={images} gap={"0.4em"} />
-      </MobileFooter>
+      </MobileFooter>}
       <MobileContentWrapper>
         {isMenuPage && <MobileLogo />}
         {isMenuPage && showMenu && <MobileMenu children={children} />}
-        {(showContent || router.pathname === "/networking") && children}
+        {(showContent || router.pathname === "/sns") && children}
       </MobileContentWrapper>
     </>
   );
@@ -89,7 +89,7 @@ const MobileContentWrapper = styled.div`
 const LeftNotch = styled.div`
   position:fixed;
   margin-left: auto; margin-right: auto; display: block;
-
+  pointer-events: none;
   top:40%;
   left:0;
   width:32%;
@@ -98,7 +98,7 @@ const LeftNotch = styled.div`
 const RightNotch = styled.div`
   position:fixed;
   margin-left: auto; margin-right: auto; display: block;
-
+  pointer-events: none;
   top:40%;
   right:0;
   width:32%;
