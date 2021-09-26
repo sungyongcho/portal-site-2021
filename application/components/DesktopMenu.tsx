@@ -76,7 +76,7 @@ const MenuWrapper = styled.div`
   flex-direction:row;
   ${media.desktop}{
     margin-top: 4%;
-    padding: 3%;
+    margin-bottom: 3%;
   }
 `;
 

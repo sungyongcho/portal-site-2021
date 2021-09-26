@@ -31,6 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       desktop: width - ((width * 0.01) * 2),
     },
   };
+
   const Wrapper = styled(motion.div)`
     position: fixed;
     display: flex;
@@ -41,29 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
     align-self: center;
     background: rgba(111, 45, 129, 0.95);
-    background-color: rgba(236, 67, 36, 0.9500175070028011) 100%;
-    background: linear-gradient(
-      180deg,
-      rgba(236, 67, 36, 0.95) 0%,
-      rgba(103, 43, 135, 0.95) 15%,
-      rgba(111, 45, 129, 0.95) 100%
-        // rgba(236, 67, 36, 0.9500175070028011) 100%
-    );
-    &:after {
-      position: fixed;
-      display: block;
-      content: " ";
-      bottom: ${wrapperSizes.inset.mobile}px;
-      width: ${wrapperSizes.insetWidth.mobile}px;
-      height: ${height * 0.15}px;
-      background-color: rgba(236, 67, 36, 0.9500175070028011) 100%;
-      background: linear-gradient(
-        180deg,
-        rgba(111, 45, 129, 0) 0%,
-        rgba(111, 45, 129, 0) 4%,
-        rgba(236, 67, 36, 0.7) 100%
-      );
-    }
+
     ${media.tablet} {
       inset: ${wrapperSizes.inset.tablet}px;
       &:after {
@@ -84,6 +63,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <HeadInfo />
       <GlobalStyle />
+
       <Wrapper>
         <NavWrapper>
           <Nav enableButton={false} />
@@ -99,6 +79,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             </MobileLayout>
           )}
         </ThemeProvider>
+        <GradientTop /> {/* 올리면 안가려짐, 내리면 가려짐, wrapper 바로 밑으로 */}
+        <GradientBottom />
       </Wrapper>
     </>
   );
@@ -125,5 +107,22 @@ const LogoWrapper = styled.div`
   left: 3%;
 `;
 
-
+const GradientTop = styled.div`
+  position: absolute;
+  display: block;
+  top: 0;
+  width:100%;
+  height:15%;
+  background: rgb(236,67,36);
+  background: linear-gradient(180deg, rgba(236,67,36,1) 0%, rgba(236,67,36,0) 100%);
+`;
+const GradientBottom = styled.div`
+  position: absolute;
+  display: block;
+  bottom: 0;
+  width:100%;
+  height:15%;
+  background: rgb(236,67,36);
+  background: linear-gradient(180deg, rgba(236,67,36,0) 0%, rgba(236,67,36,1) 100%);
+`;
 export default MyApp;

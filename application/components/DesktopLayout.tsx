@@ -9,7 +9,7 @@ import Nav from './Nav'
 import NotchLeft from "../public/notch_left.png"
 import NotchRight from "../public/notch_right.png"
 import Image from 'next/image'
-
+import { menuItems } from "./MenuItems";
 type Props = {
   children: any
 }
@@ -20,6 +20,16 @@ const DesktopLayout = ({ children }: Props) => {
 
   const showMenu = ((router.pathname.match(/\//g) || []).length === 2) ? false : true;
 
+  const showContent =
+    (router.pathname.match(/\//g) || []).length === 1 ? false : true;
+  const isMenuPage =
+    router.pathname === "/" ||
+    menuItems.filter((menuItem) => {
+      return (
+        !(router.pathname === "/sns" || router.pathname === "/exhibition") &&
+        `/${menuItem.path}` === router.pathname
+      );
+    }).length > 0;
   const config = {
     type: "spring",
     damping: 20,
@@ -55,9 +65,10 @@ const DesktopLayout = ({ children }: Props) => {
           <Image src={NotchRight} />
         </RightNotch>}
         {(showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition')) && <DesktopMenu />}
-        <DesktopSubmenu>
+        {/* <DesktopSubmenu>
           {children}
-        </DesktopSubmenu>
+        </DesktopSubmenu> */}
+        {(showContent || (router.pathname === "/exhibition" || router.pathname === "/sns")) && children}
         {/* <CurvedCourner className={"BottomLeft"} />
         <HalfCircle className={"Right"} />
         <CurvedCourner className={"BottomRight"} /> */}
@@ -78,6 +89,7 @@ const DesktopLayout = ({ children }: Props) => {
 }
 
 const DesktopDateFooter = styled.div`
+  z-index: 1;
   position: absolute;
   bottom: 1%;
   left: 2%;
@@ -91,6 +103,7 @@ const DesktopDateFooter = styled.div`
 `;
 
 const DesktopLogoFooter = styled.div`
+  z-index: 1;
   position:absolute;
   display:flex;
   flex-wrap: nowrap;
@@ -108,6 +121,7 @@ const DesktopLogoFooter = styled.div`
 `;
 
 const DesktopNavFooter = styled.div`
+  z-index: 1;
   position:absolute;
   bottom:1%;
   right:0.5%;
@@ -118,12 +132,14 @@ const DesktopNavFooter = styled.div`
 `;
 
 const DesktopBody = styled.div`
-  width: 100%;
+  align-self: center;
+  width:60%;
+  padding-top: 0;
   display:flex;
   flex-direction: column;
+  justify-content: center;
   align-items:center;
   overflow: auto;
-  padding-bottom: 15%;
 `;
 
 const CurvedCourner = styled.div`
