@@ -10,14 +10,12 @@ import DesktopLayout from "components/DesktopLayout";
 import MobileLayout from "../components/MobileLayout";
 import HeadInfo from "../components/HeadInfo";
 import LogoList from "../components/LogoList";
-
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 import Image from "next/image";
 
-import NotchLeft from "../public/notch_left.png";
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   const { height, width } = useWindowSize();
 
   // TODO: rename
@@ -43,6 +41,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     }
     align-self: center;
     background: rgba(111, 45, 129, 0.95);
+    background-color: rgba(236, 67, 36, 0.9500175070028011) 100%;
     background: linear-gradient(
       180deg,
       rgba(236, 67, 36, 0.95) 0%,
@@ -126,15 +125,5 @@ const LogoWrapper = styled.div`
   left: 3%;
 `;
 
-const LeftNotch = styled.div`
-  position: fixed;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-
-  top: 50%;
-  left: 0;
-  width: 25%;
-`;
 
 export default MyApp;

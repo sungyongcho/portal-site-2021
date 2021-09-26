@@ -123,7 +123,7 @@ const DesktopBody = styled.div`
   flex-direction: column;
   align-items:center;
   overflow: auto;
-  padding-bottom: 5%;
+  padding-bottom: 15%;
 `;
 
 const CurvedCourner = styled.div`
