@@ -23,8 +23,8 @@ const components = {
 const ExhibitionPage = () => {
   return (
     <>
+      <ContentLogo />
       <ExhibitionLayout>
-        <ContentLogo />
         <ExhibitionWrapper>
           <ExhibitionBody vr={'https://vr.portalsite.xyz/'} />
         </ExhibitionWrapper>
@@ -37,7 +37,7 @@ export default ExhibitionPage
 
 const ExhibitionLayout = styled.div`
   height: 100%;
-  margin-top: 20%;
+  margin-top: 15%;
   margin-left: 0%;
   margin-right: 0%;
   font-size: 1.2em;
@@ -48,9 +48,12 @@ const ExhibitionLayout = styled.div`
     font-size: 2em;
   }
   ${media.desktop}{
-    margin-top: 20%;
+    margin-top: 0%;
     margin-left: 0%;
     margin-right: 0%;
+    margin-bottom: 0;
+    overflow: visible;
+    padding:0;
     font-size: 2em;
   }
   `;
@@ -79,18 +82,20 @@ const ExhibitionHeaderWrapper = styled.div`
 
 const ExhibitionWrapper = styled.div`
   border: 0.1em solid #EFEFEF;
-  width: 85vw;
-  height: 80vh;
+  width: 80vw;
+  height: 75vh;
   border-radius: 20px;
   padding: 0;
   margin: 0;
   overflow: scroll;
   box-sizing: "border-box";
   ${media.tablet}{
+    margin-top: 18%;
     width: 75vw;
     height: 70vh;
   }
   ${media.desktop}{
+    margin-top: 10%;
     width: 70vw;
     height: 70vh;
   }

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { media } from './theme';
 
 const ContentLayout = styled.div`
+overflow: visible;
   margin-top: 10%;
   margin-left: 6%;
   margin-right: 6%;

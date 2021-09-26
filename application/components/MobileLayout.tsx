@@ -26,7 +26,7 @@ const MobileLayout = ({ children }: Props) => {
     router.pathname === "/" ||
     menuItems.filter((menuItem) => {
       return (
-        router.pathname !== "/sns" &&
+        !(router.pathname === "/sns" || router.pathname === "/exhibition") &&
         `/${menuItem.path}` === router.pathname
       );
     }).length > 0;
@@ -63,7 +63,7 @@ const MobileLayout = ({ children }: Props) => {
       <MobileContentWrapper>
         {isMenuPage && <MobileLogo />}
         {isMenuPage && showMenu && <MobileMenu children={children} />}
-        {(showContent || router.pathname === "/sns") && children}
+        {(showContent || (router.pathname === "/exhibition" || router.pathname === "/sns")) && children}
       </MobileContentWrapper>
     </>
   );
