@@ -71,37 +71,28 @@ const MemberWorklist = ({ workList }: Props) => {
 
   return (
     <Container>
-      <StyledSlider {...settings}>
-        <ImageContainer>
-          <Image src={ImageOne} />
-        </ImageContainer>
-        <ImageContainer>
-          <Image src={ImageTwo} />
-        </ImageContainer>
-        <ImageContainer>
-          <Image src={ImageTwo} />
-        </ImageContainer>
-      </StyledSlider>
-    </Container>
+      <Slider {...settings}>
+        <Image src={ImageOne} />
+        <Image src={ImageTwo} />
+        <Image src={ImageFour} />
+        <Image src={ImageOne} />
+        <Image src={ImageTwo} />
+        <Image src={ImageFour} />
+      </Slider>
+    </Container >
   )
 }
 
 const Container = styled.div`
-width:50vw;
+  width:1000px;
   overflow:hidden;
 `;
 
 const StyledSlider = styled(Slider)`
-    .slick-slide div{
-      outline: none;
-    }
+  .slick-slide div{
+    outline: none;
+  }
 `;
-const ImageContainer = styled.div`
-  margin: 0 16px;
-`;
-
-
-
 
 
 export default MemberWorklist

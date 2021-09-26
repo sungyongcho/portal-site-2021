@@ -139,10 +139,13 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 .slick-slide {
-  display:flex;
-  flex-direction: row;
+  margin-right: 0;
+  /* display:flex;
+  flex-direction: row; */
 }
 .slick-slide img {
+  height: 25vh;
+  width:100%;
   /* cursor: pointer; */
 }
 
