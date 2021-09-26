@@ -12,7 +12,7 @@ const ExhibitionBody = ({ vr }: Props) => {
   return (
     <>
       <ExhibitionArea>
-        <ExhibitionFrame frameBorder="0" src={vr} sandbox="allow-scripts" allow="fullscreen" allowFullScreen />
+        <ExhibitionFrame frameBorder="0" src={vr} sandbox="allow-scripts allow-same-origin allow-top-navigation allow-popups allow-forms" allow="fullscreen" allowFullScreen />
       </ExhibitionArea >
     </>
   )
