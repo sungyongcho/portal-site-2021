@@ -37,7 +37,7 @@ export default ExhibitionPage
 
 const ExhibitionLayout = styled.div`
   height: 100%;
-  margin-top: 15%;
+  margin-top: 10%;
   margin-left: 0%;
   margin-right: 0%;
   font-size: 1.2em;
@@ -82,8 +82,8 @@ const ExhibitionHeaderWrapper = styled.div`
 
 const ExhibitionWrapper = styled.div`
   border: 0.1em solid #EFEFEF;
-  width: 80vw;
-  height: 75vh;
+  width: 85vw;
+  height: 80vh;
   border-radius: 20px;
   padding: 0;
   margin: 0;
