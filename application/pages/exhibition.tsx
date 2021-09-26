@@ -26,7 +26,7 @@ const ExhibitionPage = () => {
       <ExhibitionLayout>
         <ContentLogo />
         <ExhibitionWrapper>
-          <ExhibitionBody vr={'/vr'} />
+          <ExhibitionBody vr={'https://vr.portalsite.xyz/'} />
         </ExhibitionWrapper>
       </ExhibitionLayout>
     </>
