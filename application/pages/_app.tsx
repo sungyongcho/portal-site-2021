@@ -56,7 +56,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       content: " ";
       bottom: ${wrapperSizes.inset.mobile}px;
       width: ${wrapperSizes.insetWidth.mobile}px;
-      height: ${height * 0.08}px;
+      height: ${height * 0.15}px;
       background-color: rgba(236, 67, 36, 0.9500175070028011) 100%;
       background: linear-gradient(
         180deg,
