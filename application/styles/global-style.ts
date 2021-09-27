@@ -140,7 +140,7 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 .slick-slider {
-  width: 200%;
+  width: 100%;
   overflow: hidden;
 }
 .slick-list {
@@ -165,7 +165,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 .unset-img {
-  width: 30%;
+  width: 50%;
 }
 .unset-img > div {
   position: unset !important;
