@@ -4,6 +4,10 @@ import { useState } from 'react';
 import Modal from './Modal';
 import { media } from '../styles/theme'
 
+
+import Slider from "react-slick";
+
+
 type Props = {
   workList: [{
     address: string,
@@ -13,6 +17,14 @@ type Props = {
     workSize: string
   }];
 }
+
+const sliderSettings = {
+  className: "slider variable-width",
+  infinite: true,
+  variableWidth: true,
+  slidesToShow: 3,
+  slideToScroll: 1
+};
 
 const MemberWorklist = ({ workList }: Props) => {
 
@@ -50,13 +62,20 @@ const MemberWorklist = ({ workList }: Props) => {
   }
 
   return (
-    <WorklistLayout>
+    <>
       {/* for listup */}
       {workList.map((workList) => (
-        <Image onClick={(e) => {
-          openModal(e, workList)
-        }}
-          src={`${workList.address}`} width='200' height='400px' alt="" />
+        <SliderContainer>
+
+          <Slider {...sliderSettings}>
+
+            <Image onClick={(e) => {
+              openModal(e, workList)
+            }}
+              src={`${workList.address}`} width='200' height='400px' alt="" />
+          </Slider>
+        </SliderContainer>
+
       ))}
       {/* for modal popup*/}
       {
@@ -81,7 +100,7 @@ const MemberWorklist = ({ workList }: Props) => {
         </Modal>
       }
 
-    </WorklistLayout >
+    </ >
   )
 }
 
@@ -92,29 +111,10 @@ const WorklistLayout = styled.div`
   ${media.desktop}{
         margin-bottom: 2%;
       }
-
 `
-
-const ModalStyle = styled.div`
-  width:1em;
-  background-color: blue;
-`;
-
-
-const OverlayStyle = styled.div`
-  background-color: black;
-`;
-
-const ImageFrame = styled.div`
-  width:100px;
-  height:100px;
-  background-color: gray;
-`;
-
-const Box = styled.div`
-  position: relative;
-  width: 50vw;
-  height: auto;
+const SliderContainer = styled.div`
+  width:100%;
+  overflow:hidden;
 `;
 
 

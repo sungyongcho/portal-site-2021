@@ -140,7 +140,7 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 .slick-slider {
-  width: 100%;
+  width: 200%;
   overflow: hidden;
 }
 .slick-list {

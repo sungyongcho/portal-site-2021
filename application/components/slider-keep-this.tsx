@@ -37,7 +37,7 @@ import ImageSix from '../public/assets/artists/parkdongjoon/worklists/parkdongjo
 import ImageSeven from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_7.jpg'
 
 
-const Hihi = ({ workList }: Props) => {
+const MemberWorklistTemp = ({ workList }: Props) => {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [imageAddress, setImageAddress] = useState('');
@@ -98,4 +98,4 @@ const StyledSlider = styled(Slider)`
 `;
 
 
-export default Hihi
+export default MemberWorklistTemp
