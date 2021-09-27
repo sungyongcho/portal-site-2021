@@ -20,9 +20,9 @@ type Props = {
 const settings = {
   className: "slider variable-width",
   infinite: false,
-  slidesToShow: 3,
   variableWidth: true,
-  centerPadding: '50px'
+  slidesToShow: 3,
+  slideToScroll: 1
 };
 
 import "slick-carousel/slick/slick.css";
@@ -78,6 +78,9 @@ const MemberWorklist = ({ workList }: Props) => {
         <Image src={ImageOne} />
         <Image src={ImageTwo} />
         <Image src={ImageFour} />
+        <Image src={ImageFour} />
+        <div />
+        <div />
       </Slider>
     </Container >
   )

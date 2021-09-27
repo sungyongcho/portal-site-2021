@@ -134,24 +134,22 @@ export const GlobalStyle = createGlobalStyle`
             display: flex;
         }
     }
-
-.slick-list {
+.slick-slider {
+  width: 100%;
+  overflow: hidden;
 }
-
-.slick-slide {
-  margin-right: 0;
-  /* display:flex;
-  flex-direction: row; */
+.slick-list {
+  position: relative;
+  display: block !important;
+  width: 150%;
+}
+.slick-slide div {
+  width: auto;
+  margin-right: 20px;
 }
 .slick-slide img {
-  height: 25vh;
-  width:100%;
-  /* cursor: pointer; */
+  width: calc(100% - 10px) !important;
+  height: 35vh;
 }
 
-.slick-dots {
-}
-
-.slick-track {
-}
 `;
