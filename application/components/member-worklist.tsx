@@ -134,5 +134,5 @@ const TitleStyle = styled.div`
   font-size: 1.8em;
 `;
 
-
+// https://github.com/akiran/react-slick/issues/848
 export default MemberWorklist
