@@ -165,7 +165,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 .unset-img {
-  width: 50%;
+  width: 30%;
 }
 .unset-img > div {
   position: unset !important;

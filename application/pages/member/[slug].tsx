@@ -6,7 +6,7 @@ import { IMember } from '../../types/IMember';
 import { getAllMemberPosts, getMemberPost } from '../../utils/mdxUtils';
 import MemberContact from '../../components/member-contact'
 import MemberProfile from '../../components/member-profile'
-import MemberWorklist from '../../components/slider-keep-this'
+import MemberWorklist from '../../components/member-worklist'
 
 import styled from 'styled-components'
 import { media } from "../../styles/theme";

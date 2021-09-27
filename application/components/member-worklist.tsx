@@ -5,6 +5,8 @@ import Modal from './Modal';
 import { media } from '../styles/theme'
 
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 type Props = {
   workList: [{
@@ -16,25 +18,22 @@ type Props = {
   }];
 }
 
-
 const settings = {
   className: "slider variable-width",
   infinite: false,
   variableWidth: true,
   slidesToShow: 3,
-  slideToScroll: 1
 };
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-import ImageOne from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_1.jpg'
-import ImageTwo from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_2.jpg'
-import ImageThree from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_3.jpg'
-import ImageFour from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_4.jpg'
-import ImageFive from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_5.jpg'
-import ImageSix from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_6.jpg'
-import ImageSeven from '../public/assets/artists/parkdongjoon/worklists/parkdongjoon_7.jpg'
+
+/**
+ * Threshold from which mouse movement with pressed mouse button
+ * is considered a drag instead of a click.
+ */
+const MoveDragThreshold = 10;
+
+
 
 
 const MemberWorklist = ({ workList }: Props) => {
@@ -72,15 +71,17 @@ const MemberWorklist = ({ workList }: Props) => {
     setCaptionSize('');
   }
 
+
   return (
     <>
       <Container>
         <Slider {...settings}>
           {workList.map((workList) => (
-            <Image onClick={(e) => {
-              openModal(e, workList)
-            }}
-              src={`${workList.address}`} width="100%" height="100%" alt="" />
+            <img
+              alt="" onClick={(e) => {
+                openModal(e, workList)
+              }}
+              src={`${workList.address}`} />
           ))}
           <div />
           <div />
@@ -92,11 +93,9 @@ const MemberWorklist = ({ workList }: Props) => {
           show={showModal} title={captionTitle}
         >
           <div className="unset-img">
-            <Image className="custom-img" onClick={closeModal}
+            <img className="custom-img" onClick={closeModal}
               src={imageAddress} width='100%'
               height='100%'
-              objectFit='contain'
-              layout='fill'
               alt="" />
           </div>
           <br />
