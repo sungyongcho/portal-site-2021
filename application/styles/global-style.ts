@@ -4,14 +4,14 @@ import { media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     @font-face {
-      font-family: 'Noto Sans KR';
+      font-family: "Noto Sans KR";
       src: url('../public/fonts/noto-sans-kr-v21-latin-regular.eot'); /* IE9 Compat Modes */
       src: local(''),
-          url('../public/fonts/noto-sans-kr-v21-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-          url('../public/fonts/noto-sans-kr-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-          url('../public/fonts/noto-sans-kr-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
-          url('../public/fonts/noto-sans-kr-v21-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-          url('../public/fonts/noto-sans-kr-v21-latin-regular.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+          url('./public/fonts/noto-sans-kr-v21-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+          url('./public/fonts/noto-sans-kr-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+          url('./public/fonts/noto-sans-kr-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
+          url('./public/fonts/noto-sans-kr-v21-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+          url('./public/fonts/noto-sans-kr-v21-latin-regular.svg#NotoSansKR') format('svg'); /* Legacy iOS */
     }
     ${reset}
 
@@ -30,8 +30,10 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #EFEFEF;
         font-size: 11px;
         -webkit-text-size-adjust: none;
-        font-family: "Noto Sans KR", sans-serif;
+        font-family: 'Noto Sans KR',  sans-serif;
         font-display: fallback;
+        /* font-weight: 300!important;
+      	letter-spacing: -0.01em!important; */
         ${media.tablet}{
             font-size: 10px;
         }
@@ -53,6 +55,9 @@ export const GlobalStyle = createGlobalStyle`
             cursor: default;
             fill: #f2f3f4;
         }
+    }
+    a:hover {
+      cursor:pointer;
     }
     // ----------MDX----------
     //mdx 보더라인 색상, 굵기
@@ -150,6 +155,20 @@ export const GlobalStyle = createGlobalStyle`
 .slick-slide img {
   width: calc(100% - 10px) !important;
   height: 35vh;
+}
+
+.custom-img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.unset-img {
+  width: 30%;
+}
+.unset-img > div {
+  position: unset !important;
 }
 
 `;

@@ -16,15 +16,15 @@ const Modal = ({ show, onClose, children, title }) => {
 
   const modalContent = show ? (
     <StyledModalOverlay>
-      <StyledModal>
-        <StyledModalHeader>
-          <a href="#" onClick={handleCloseClick}>
-            x
-          </a>
-        </StyledModalHeader>
-        {title && <StyledModalTitle>{title}</StyledModalTitle>}
-        <StyledModalBody>{children}</StyledModalBody>
-      </StyledModal>
+      {/* <StyledModalHeader>
+        <a href="#" onClick={handleCloseClick}>
+          x
+        </a>
+      </StyledModalHeader>
+      {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
+      {children}
+
+      {console.log(children[0])}
     </StyledModalOverlay>
   ) : null;
 
@@ -39,7 +39,10 @@ const Modal = ({ show, onClose, children, title }) => {
 };
 
 const StyledModalBody = styled.div`
-  padding-top: 10px;
+  display:inline-block;
+  width:100px;
+  height:100px;
+  background-color: gray;
 `;
 
 const StyledModalHeader = styled.div`
@@ -49,7 +52,8 @@ const StyledModalHeader = styled.div`
 `;
 
 const StyledModalTitle = styled.div`
-  font-size:2em;
+  background-color: black;
+  font-size:5em;
 `;
 
 const StyledModal = styled.div`
@@ -66,6 +70,7 @@ const StyledModalOverlay = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
