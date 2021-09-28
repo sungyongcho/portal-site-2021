@@ -74,20 +74,6 @@ const Wrapper = styled(motion.div)`
     }
     align-self: center;
     background: #601986;
-    /* ${media.tablet} {
-      inset: ${wrapperSizes.inset.tablet}px;
-      &:after {
-        bottom: ${wrapperSizes.inset.tablet}px;
-        width: ${wrapperSizes.insetWidth.tablet}px;
-      }
-    }
-    ${media.desktop} {
-      inset: ${wrapperSizes.inset.desktop}px;
-      &:after {
-        bottom: ${wrapperSizes.inset.desktop}px;
-        width: ${wrapperSizes.insetWidth.desktop}px;
-      } */
-    }
 `;
 
 const NavWrapper = styled(motion.div)`
