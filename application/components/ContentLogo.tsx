@@ -13,6 +13,7 @@ const ContentLogo = () => {
 };
 
 const LogoWrapper = styled.div`
+  z-index: 1;
   position:fixed;
   top:3%;
   left:30%;
