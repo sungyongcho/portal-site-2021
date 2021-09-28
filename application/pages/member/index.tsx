@@ -7,6 +7,8 @@ import { IMember } from '../../types/IMember'
 import { getAllMemberPosts } from '../../utils/mdxUtils';
 
 import Item from '../../styles/item'
+import { motion } from 'framer-motion';
+import StyledMotion from '../../styles/StyledMotion'
 
 type MemberProps = {
   members: IMember[];
@@ -14,7 +16,16 @@ type MemberProps = {
 
 const MemberNav = ({ members }: MemberProps) => {
   return (
-    <>
+    <StyledMotion initial="initial"
+      animate="animate"
+      variants={{
+        initial: {
+          opacity: 0,
+        },
+        animate: {
+          opacity: 1,
+        },
+      }}>
       {
         members.map((members) => (
           <Item key={members.slug}>
@@ -22,7 +33,7 @@ const MemberNav = ({ members }: MemberProps) => {
           </Item>
         ))
       }
-    </>
+    </StyledMotion>
   )
 }
 
@@ -39,3 +50,4 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return { props: { members } };
 };
+

@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { IInterview } from '../../types/IInterview'
 import { getAllInterviews } from '../../utils/mdxUtils';
 
-import styled from 'styled-components'
-import { motion } from 'framer-motion';
 import Item from '../../styles/item'
+
+import { motion } from 'framer-motion';
+import StyledMotion from '../../styles/StyledMotion'
 
 type InterviewProps = {
   interviews: IInterview[];
@@ -15,7 +16,16 @@ type InterviewProps = {
 
 const InterviewNav = ({ interviews }: InterviewProps) => {
   return (
-    <>
+    <StyledMotion initial="initial"
+      animate="animate"
+      variants={{
+        initial: {
+          opacity: 0,
+        },
+        animate: {
+          opacity: 1,
+        },
+      }}>
       {
         interviews.map((interviews) => (
           <Item key={interviews.slug}>
@@ -23,15 +33,10 @@ const InterviewNav = ({ interviews }: InterviewProps) => {
           </Item>
         ))
       }
-    </>
+    </StyledMotion>
   )
 }
 
-
-const InterviewItem = styled(motion.div)`
-  font-size: 1.8em;
-  margin-bottom: 0.5em;
-`
 
 export default InterviewNav
 
