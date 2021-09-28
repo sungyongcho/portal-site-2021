@@ -37,9 +37,10 @@ const DesktopMenu = () => {
             <Nav key={menuItem.path}>
               {(isCurrentURL(`/${menuItem.path}`) || router.pathname === '/') ?
                 <MenuItem className={isCurrentURL(`/${menuItem.path}`) ? "isClicked" : ""}>
-                  <a onClick={(e) => {
-                    handleClick(e, menuItem.path)
-                  }}>{menuItem.title}</a>
+                  {menuItem.title !== 'SNS' ?
+                    <a onClick={(e) => {
+                      handleClick(e, menuItem.path)
+                    }}>{menuItem.title}</a> : <a href="https://instagram.com/portalsite">{"SNS"}</a>}
                 </MenuItem> : null
               }
             </Nav>

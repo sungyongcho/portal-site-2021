@@ -101,7 +101,6 @@ const DesktopLogoFooter = styled.div`
   justify-content: space-around;
   bottom: 0;
   right: 10%;
-  height: 80%;
   ${media.desktop}{
     bottom: 0.25%;
     right: 6%;
