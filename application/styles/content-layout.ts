@@ -5,6 +5,7 @@ const ContentLayout = styled.div`
   margin-top: 10%;
   padding-bottom: 7.5em;
   font-size: 1.2em;
+  width:80%;
   ${media.tablet} {
     margin-top: 15%;
     margin-left: 4%;
@@ -13,6 +14,7 @@ const ContentLayout = styled.div`
     font-size: 2em;
   }
   ${media.desktop}{
+    width:80%;
     padding-top:60%;
     margin-top:0;
     padding-bottom: 2em;

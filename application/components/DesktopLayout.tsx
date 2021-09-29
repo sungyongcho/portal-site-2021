@@ -134,7 +134,7 @@ const DesktopNavFooter = styled.div`
 const DesktopBody = styled.div`
   align-self: center;
   width:60%;
-  padding-top: 0;
+  padding-top: 10vh;
   display:flex;
   flex-direction: column;
   justify-content: center;

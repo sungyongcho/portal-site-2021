@@ -139,7 +139,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 .slick-slide {
-  margin-right: 0;
+  margin-right: 2vw;
   /* display:flex;
   flex-direction: row; */
 }
