@@ -37,10 +37,11 @@ export default ExhibitionPage
 
 const ExhibitionLayout = styled.div`
   height: 100%;
-  margin-top: 10%;
-  margin-left: 0%;
-  margin-right: 0%;
+  margin-top: 10vh;
+  margin-left: 3%;
+  margin-right: 3%;
   font-size: 1.2em;
+  overflow: hidden;
   ${media.tablet} {
     margin-top: 6%;
     margin-left: 0%;
@@ -82,8 +83,8 @@ const ExhibitionHeaderWrapper = styled.div`
 
 const ExhibitionWrapper = styled.div`
   border: 0.1em solid #EFEFEF;
-  width: 85vw;
-  height: 80vh;
+  width: 80vw;
+  height: 65vh;
   border-radius: 20px;
   padding: 0;
   margin: 0;

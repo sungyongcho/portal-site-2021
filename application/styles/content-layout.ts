@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { media } from './theme';
 
 const ContentLayout = styled.div`
-overflow: visible;
-  margin-top: 10%;
+  overflow: visible;
+  margin-top: 20%;
   margin-left: 6%;
   margin-right: 6%;
-  padding-bottom: 7.5em;
+  /* padding-bottom: 7.5em; */
   font-size: 1.2em;
   ${media.tablet} {
     margin-top: 15%;

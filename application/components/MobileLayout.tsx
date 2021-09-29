@@ -74,6 +74,7 @@ const MobileFooter = styled.div`
   top: 0.4rem;
   right: 0.4rem;
   width: 60vw;
+  z-index:1;
 `;
 
 const MobileContentWrapper = styled.div`
