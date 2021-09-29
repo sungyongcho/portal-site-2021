@@ -24,7 +24,6 @@ const Modal = ({ show, onClose, children, title }) => {
       {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
       {children}
 
-      {console.log(children[0])}
     </StyledModalOverlay>
   ) : null;
 
@@ -74,6 +73,9 @@ const StyledModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+`;
+
+const ImageTest = styled.div`
 `;
 
 export default Modal;

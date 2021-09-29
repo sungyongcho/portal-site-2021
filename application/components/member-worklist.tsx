@@ -111,7 +111,7 @@ const MemberWorklist = ({ workList }: Props) => {
 }
 
 const Container = styled.div`
-  width:50vw;
+  width:60vw;
   overflow:hidden;
 `;
 
@@ -126,8 +126,10 @@ const CaptionStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.5em;
-  line-height: 1.2;
+  ${media.desktop}{
+    font-size: 1.5em;
+    line-height: 1.2;
+  }
 `;
 const TitleStyle = styled.div`
   line-height: 1.6;
