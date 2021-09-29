@@ -175,22 +175,53 @@ export const GlobalStyle = createGlobalStyle`
     /* slider config */
 
   /* menu transition */
+    .menu-items{
+      display: flex;
+  flex-direction: row;
+  align-items: center;
+    }
+  .item-enter {
+	opacity: 0;
+  }
+  .item-enter-active {
+	opacity: 1;
+	transition: opacity 1s ease-in-out;
+  }
+  .item-exit {
+	opacity: 1;
+  }
+  .item-exit-active {
+  opacity: 0;
+	transition: opacity 1s ease-in-out;
+  }
 
-  .fade-enter {
+  .anim2-enter {
+	opacity: 0;
+  width:0%;
+  }
+  .anim2-enter-active {
+	opacity: 1;
+	transition: opacity 1s ease-in-out;
+  }
+  .anim2-exit {
+	opacity: 1;
+  }
+  .anim2-exit-active {
   opacity: 0;
-}
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-.fade-exit {
-  opacity: 1;
-}
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 500ms ease-in;
-}
+	transition: opacity 1s ease-in-out;;
+  }
+
   /* menu transition */
 
-
+  .child {
+	position: fixed;
+	background: indigo;
+	top: 50%;
+	right: 50%;
+	/* transform: translate(50%, -50%); */
+}
+.hide {
+  width:0;
+	/* transform: translate(50%, -50%); */
+}
 `;
