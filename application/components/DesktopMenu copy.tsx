@@ -13,42 +13,33 @@ import {
   TransitionGroup,
 } from 'react-transition-group';
 
-const DesktopMenu = () => {
+const DesktopMenuTemp = () => {
 
   const router = useRouter()
 
-  const [isClicked, setIsClicked] = useState(false);
-
-  const [items, setItems] = useState([
-    { title: 'Member', path: '/member', show: true },
-    { title: 'Interview', path: '/interview', show: true },
-    { title: 'Exhibition', path: '/exhibition', show: true },
-    { title: 'Texts', path: '/texts', show: true },
-    { title: 'SNS', path: '/sns', show: true },
-  ]);
+  const [fade, setFade] = useState(false);
 
   const handleClick = (e, path) => {
-    let newArr = [...items];
-
-    if (router.pathname === path) {
+    if (router.pathname === '/' + path) {
       router.push('/')
-      setIsClicked(false);
-      newArr.map(el => (el.show = true))
-
+      setFade(true);
     }
     else {
-      setIsClicked(true);
       router.push(path);
-      newArr.map(el => (el.path === path ? el.show = true : el.show = false))
+      setFade(false);
     }
-
-    console.log(newArr);
   };
-
   const isCurrentURL = (url) => {
     return router.pathname === url;
   }
 
+  const childFactoryCreator = (classNames) => (
+    (child) => (
+      cloneElement(child, {
+        classNames
+      })
+    )
+  );
   return (
     <>
 
@@ -56,23 +47,28 @@ const DesktopMenu = () => {
         <Image alt="Portal Site" src={logoImage} onClick={() => router.push('/')}></Image>
       </ImageContainer>
       <MenuWrapper>
-        {items.map((menuItem) => {
-          return (
-
-            (isCurrentURL(menuItem.path) || router.pathname === '/') &&
-            <div>
-              <MenuItem onClick={(e) => {
-                console.log(menuItem.path);
-                handleClick(e, menuItem.path);
-              }}
-                className={isCurrentURL(menuItem.path) && menuItem.show ? "large" : "nolarge"}
+        <TransitionGroup className="menu-items"
+          childFactory={childFactoryCreator(fade ? "anim2" : "item")}>
+          {menuItems && menuItems.map((menuItem) => {
+            return (
+              (isCurrentURL(`/${menuItem.path}`) || router.pathname === '/') && <CSSTransition
+                key={menuItem.path}
+                timeout={500}
+                classNames={(isCurrentURL(`/${menuItem.path}`) || router.pathname === '/') ? "anim2" : "item"}
+              // classNames="item"
               >
-                {menuItem.title !== 'SNS' ?
-                  <a >{menuItem.title}</a> : <a href="https://instagram.com/portalsite">{"SNS"}</a>}
-              </MenuItem>
-            </div>
-          )
-        })}
+                <MenuItem onClick={(e) => {
+                  handleClick(e, menuItem.path);
+                }}
+                  className={isCurrentURL(`/${menuItem.path}`) ? "fade" : "no-fade"}
+                >
+                  {menuItem.title !== 'SNS' ?
+                    <a >{menuItem.title}</a> : <a href="https://instagram.com/portalsite">{"SNS"}</a>}
+                </MenuItem>
+              </CSSTransition>
+            )
+          })}
+        </TransitionGroup>
       </MenuWrapper>
     </>
   )
@@ -129,30 +125,24 @@ const MenuItem = styled.div`
     padding: 0.6em 1em;
   }
 
-  &.large {
+  &.fade {
+    position:absolute;
     top:50%;
     left:50%;
-    /* transform: translateX(10%); */
-	  /* margin-left:50px; */
-    /* margin-top:50px; */
-	  -moz-transition:all 2s;
-    -webkit-transition:all 2s;
-    -o-transition:all 2s;
-    transition:all 2s;
-	  font-size: 4em;
+    opacity:1;
+     animation: slide 1s ease-in-out 0s 1 normal forwards;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-delay: 0.5s;
+  }
+  &.no-fade {
+    animation: ${bounce} 1s linear forwards;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-delay: 0.5s;
     }
-  &.nolarge {
-    top:50%;
-    left:50%;
-    /* margin-left:50px; */
-    /* margin-top:50px; */
-	  -moz-transition:all 2s;
-    -webkit-transition:all 2s;
-    -o-transition:all 2s;
-    transition:all 2s;
-	  font-size: 2em;
-    }
-  transform-origin: top left; /* add this in */
+    transform-origin: top left; /* add this in */
+
 `;
 const SubmenuWrapper = styled.div`
   display: flex;
@@ -160,4 +150,4 @@ const SubmenuWrapper = styled.div`
   text-align: center;
 `
 
-export default DesktopMenu
+export default DesktopMenuTemp
