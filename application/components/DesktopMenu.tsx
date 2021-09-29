@@ -6,12 +6,6 @@ import styled, { keyframes } from 'styled-components'
 import { media } from '../styles/theme'
 import { menuItems } from "./MenuItems";
 import { cloneElement, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-
-import {
-  CSSTransition,
-  TransitionGroup,
-} from 'react-transition-group';
 
 const DesktopMenu = () => {
 
@@ -58,19 +52,18 @@ const DesktopMenu = () => {
       <MenuWrapper>
         {items.map((menuItem) => {
           return (
-
             (isCurrentURL(menuItem.path) || router.pathname === '/') &&
-            <div>
+            <Sliding className="slide">
               <MenuItem onClick={(e) => {
                 console.log(menuItem.path);
                 handleClick(e, menuItem.path);
               }}
-                className={isCurrentURL(menuItem.path) && menuItem.show ? "large" : "nolarge"}
+                className={isCurrentURL(menuItem.path) && menuItem.show ? `large ${menuItem.title}` : `nolarge ${menuItem.title}`}
               >
                 {menuItem.title !== 'SNS' ?
                   <a >{menuItem.title}</a> : <a href="https://instagram.com/portalsite">{"SNS"}</a>}
               </MenuItem>
-            </div>
+            </Sliding>
           )
         })}
       </MenuWrapper>
@@ -102,23 +95,9 @@ const MenuWrapper = styled.div`
   }
 `;
 
-const bounce = keyframes`
-  from {
-    transform: translateX(200%);
-  }
-  to {
-    transform: translateX(0%);
+const Sliding = styled.div`
+
 `;
-
-const bounceReverse = keyframes`
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-50%);
-`;
-
-
 const MenuItem = styled.div`
   font-size: 2.2em;
   padding: 0.3em 0.5em;
@@ -131,26 +110,25 @@ const MenuItem = styled.div`
 
   &.large {
     top:50%;
-    left:50%;
-    /* transform: translateX(10%); */
-	  /* margin-left:50px; */
-    /* margin-top:50px; */
-	  -moz-transition:all 2s;
-    -webkit-transition:all 2s;
-    -o-transition:all 2s;
-    transition:all 2s;
-	  font-size: 4em;
+    left:-50%;
+
+
+    transform: scale(1.5) translate(0, 0);
+	  -moz-transition:all 1s;
+    -webkit-transition:all 1s;
+    -o-transition:all 1s;
+    transition:all 1s;
+	  /* font-size: 4em; */
     }
-  &.nolarge {
+
+    &.nolarge {
     top:50%;
     left:50%;
-    /* margin-left:50px; */
-    /* margin-top:50px; */
-	  -moz-transition:all 2s;
-    -webkit-transition:all 2s;
-    -o-transition:all 2s;
-    transition:all 2s;
-	  font-size: 2em;
+
+	  -moz-transition:all 1s;
+    -webkit-transition:all 1s;
+    -o-transition:all 1s;
+    transition:all 1s;
     }
   transform-origin: top left; /* add this in */
 `;
