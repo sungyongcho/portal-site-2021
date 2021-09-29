@@ -7,6 +7,11 @@ import { media } from '../styles/theme'
 import { menuItems } from "./MenuItems";
 import { cloneElement, useState } from 'react';
 
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
+
 const DesktopMenu = () => {
 
   const router = useRouter()
@@ -49,11 +54,14 @@ const DesktopMenu = () => {
       <ImageContainer>
         <Image alt="Portal Site" src={logoImage} onClick={() => router.push('/')}></Image>
       </ImageContainer>
-      <MenuWrapper>
+      <TransitionGroup className="menu-items">
         {items.map((menuItem) => {
           return (
             (isCurrentURL(menuItem.path) || router.pathname === '/') &&
-            <Sliding className="slide">
+            <CSSTransition
+              key={menuItem.path}
+              timeout={150}
+              classNames={"item"}>
               <MenuItem onClick={(e) => {
                 console.log(menuItem.path);
                 handleClick(e, menuItem.path);
@@ -63,10 +71,10 @@ const DesktopMenu = () => {
                 {menuItem.title !== 'SNS' ?
                   <a >{menuItem.title}</a> : <a href="https://instagram.com/portalsite">{"SNS"}</a>}
               </MenuItem>
-            </Sliding>
+            </CSSTransition>
           )
         })}
-      </MenuWrapper>
+      </TransitionGroup>
     </>
   )
 }
@@ -83,14 +91,11 @@ const ImageContainer = styled.div`
 `
 
 const MenuWrapper = styled.div`
-  margin-top: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
+  /* margin-top: 15%; */
+
   flex-direction:row;
   ${media.desktop}{
-    margin-top: 15em;
+    /* margin-top: 15em; */
     padding: 3%;
   }
 `;
@@ -109,11 +114,12 @@ const MenuItem = styled.div`
   }
 
   &.large {
+    padding:0;
+    margin:0;
     top:50%;
-    left:-50%;
-
-
-    transform: scale(1.5) translate(0, 0);
+    left:50%;
+    /* position:absolute; */
+    transform: scale(1.8);
 	  -moz-transition:all 1s;
     -webkit-transition:all 1s;
     -o-transition:all 1s;
@@ -122,8 +128,6 @@ const MenuItem = styled.div`
     }
 
     &.nolarge {
-    top:50%;
-    left:50%;
 
 	  -moz-transition:all 1s;
     -webkit-transition:all 1s;

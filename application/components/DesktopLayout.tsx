@@ -129,7 +129,6 @@ const DesktopBody = styled.div`
 `;
 
 const DesktopSubmenu = styled.div`
-  padding-top: 3%;
   display:flex;
   flex-direction: row;
   align-items:center;
