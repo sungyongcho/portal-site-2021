@@ -54,11 +54,13 @@ const DesktopMenu = () => {
               (isCurrentURL(`/${menuItem.path}`) || router.pathname === '/') && <CSSTransition
                 key={menuItem.path}
                 timeout={500}
-                classNames={fade ? "anim2" : "item"}
+                classNames={(isCurrentURL(`/${menuItem.path}`) || router.pathname === '/') ? "anim2" : "item"}
+              // classNames="item"
               >
                 <MenuItem onClick={(e) => {
                   handleClick(e, menuItem.path);
                 }}
+                  className={isCurrentURL(`/${menuItem.path}`) ? "fade" : "no-fade"}
                 >
                   {menuItem.title !== 'SNS' ?
                     <a >{menuItem.title}</a> : <a href="https://instagram.com/portalsite">{"SNS"}</a>}
@@ -97,18 +99,21 @@ const MenuWrapper = styled.div`
 `;
 
 const bounce = keyframes`
-    0% {
-        transform: translate(0, 40%) scale(0);
-    }
-    10% {
-        transform: translate(0, 40%) scale(1.1);
-    }
-    20% {
-        transform: translate(0, 40%) scale(1);
-   }
-   100% {
-        transform: translateY(0%);
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0%);
 `;
+
+const bounceReverse = keyframes`
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+`;
+
 
 const MenuItem = styled.div`
   font-size: 2.2em;
@@ -122,13 +127,13 @@ const MenuItem = styled.div`
 
   &.fade {
     opacity:1;
-    animation: ${bounce} 4s linear forwards;
+     animation: slide 1s ease-in-out 0s 1 normal forwards;
     transition-property: all;
     transition-duration: 1s;
     transition-delay: 0.5s;
   }
   &.no-fade {
-    animation: ${bounce} 4s linear forwards;
+    animation: ${bounce} 1s linear forwards;
     transition-property: all;
     transition-duration: 1s;
     transition-delay: 0.5s;

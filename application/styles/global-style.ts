@@ -180,37 +180,34 @@ export const GlobalStyle = createGlobalStyle`
   flex-direction: row;
   align-items: center;
     }
-  .item-enter {
-	opacity: 0;
-  }
-  .item-enter-active {
-	opacity: 1;
-	transition: opacity 1s ease-in-out;
-  }
-  .item-exit {
-	opacity: 1;
-  }
-  .item-exit-active {
-  opacity: 0;
-	transition: opacity 1s ease-in-out;
-  }
 
+  @keyframes slide {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
   .anim2-enter {
 	opacity: 0;
-  width:0%;
+  animation: smoothAppear 1s;
   }
   .anim2-enter-active {
 	opacity: 1;
-	transition: opacity 1s ease-in-out;
+  /* animation:  opacity 0.5s ease-in-out; */
+  animation: opacity 2s ease-in;
   }
   .anim2-exit {
 	opacity: 1;
   }
   .anim2-exit-active {
   opacity: 0;
-	transition: opacity 1s ease-in-out;;
-  }
-
+  animation: opacity 2s ease-in-out;
+}
+.fade {
+  .animate { transition: all linear 1s; opacity: 1; width: 10em; }
+}
   /* menu transition */
 
   .child {
