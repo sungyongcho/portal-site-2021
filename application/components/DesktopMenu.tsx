@@ -7,6 +7,7 @@ import { media } from '../styles/theme'
 import { menuItems } from "./MenuItems";
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+
 const DesktopMenu = () => {
 
   const router = useRouter()
@@ -25,6 +26,7 @@ const DesktopMenu = () => {
     return router.pathname === url;
   }
 
+
   return (
     <>
 
@@ -36,7 +38,7 @@ const DesktopMenu = () => {
           return (
             <Nav key={menuItem.path} className={(isCurrentURL(`/${menuItem.path}`) || router.pathname === '/') ? "isClicked" : "isNotClicked"}>
               {/* {(isCurrentURL(`/${menuItem.path}`) || router.pathname === '/') ? */}
-              <MenuItem className={(isCurrentURL(`/${menuItem.path}`) || router.pathname === '/') ? "" : "isNotClicked"}>
+              <MenuItem>
                 {menuItem.title !== 'SNS' ?
                   <a onClick={(e) => {
                     handleClick(e, menuItem.path)

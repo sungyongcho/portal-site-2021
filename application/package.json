@@ -32,6 +32,7 @@
     "react-modal": "^3.14.3",
     "react-ripples": "^2.2.1",
     "react-slick": "^0.28.1",
+    "react-transition-group": "^4.4.2",
     "react-virtualized-auto-sizer": "^1.0.4",
     "react-window": "^1.8.6",
     "sharp": "^0.29.1",
