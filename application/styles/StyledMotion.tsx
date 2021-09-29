@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { media } from './theme';
 
 const StyledMotion = styled(motion.div)`
-  font-size: 1.4rem;
-  display:flex;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default StyledMotion

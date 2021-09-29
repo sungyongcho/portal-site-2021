@@ -10,7 +10,7 @@ import { getAllTexts } from '../../utils/mdxUtils';
 import styled from 'styled-components'
 import { motion } from 'framer-motion';
 import Item from '../../styles/item'
-
+import StyledMotion from '../../styles/StyledMotion'
 type TextProps = {
   texts: IText[];
 }
@@ -18,14 +18,25 @@ type TextProps = {
 const TextNav = ({ texts }: TextProps) => {
   return (
     <>
-      <HeadInfo title="Texts"></HeadInfo>
-      {
-        texts.map((texts) => (
-          <Item key={texts.slug}>
-            <Link href={`texts/${texts.slug}`}><a>{texts.criticName}</a></Link>
-          </Item>
-        ))
-      }
+      <StyledMotion initial="initial"
+        animate="animate"
+        variants={{
+          initial: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+        }}>
+        <HeadInfo title="Texts"></HeadInfo>
+        {
+          texts.map((texts) => (
+            <Item key={texts.slug}>
+              <Link href={`texts/${texts.slug}`}><a>{texts.criticName}</a></Link>
+            </Item>
+          ))
+        }
+      </StyledMotion>
     </>
   )
 }

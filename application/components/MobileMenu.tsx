@@ -52,6 +52,7 @@ const MenuItem = styled.div`
 const SubmenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 1em;
   padding: 1.2em 1.4em;
   align-items: center;
   line-height: 1.6;

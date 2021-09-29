@@ -80,11 +80,11 @@ const DesktopMenu = () => {
 }
 
 const ImageContainer = styled.div`
-  margin-top: 40%;
+  margin-top: 30%;
   width:65%;
   align-self: center;
   ${media.desktop}{
-    margin-top: 6%;
+    margin-top: 10%;
     padding:3%;
     width: 60%;
   }

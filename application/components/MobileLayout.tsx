@@ -84,6 +84,7 @@ const MobileContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  padding-bottom: 15vh;
 `;
 
 const LeftNotch = styled.div`
