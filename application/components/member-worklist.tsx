@@ -111,8 +111,11 @@ const MemberWorklist = ({ workList }: Props) => {
 }
 
 const Container = styled.div`
-  width:100%;
+  width: 200%;
   overflow:hidden;
+  ${media.desktop}{
+    width:100%;
+  }
 `;
 
 const StyledSlider = styled(Slider)`

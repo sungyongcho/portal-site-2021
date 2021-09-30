@@ -10,7 +10,7 @@ import MemberWorklist from '../../components/member-worklist'
 
 import styled from 'styled-components'
 import { media } from "../../styles/theme";
-import ContentLayout from '../../styles/content-layout'
+import MemberContentLayout from '../../styles/member-content-layout'
 import ContentHeaderWrapper from '../../styles/content-header-wrapper'
 import ContentWrapper from '../../styles/content-wrapper'
 import ContentLogo from '../../components/ContentLogo'
@@ -30,7 +30,7 @@ const MemberPage = ({ source, frontMatter }: Props) => {
   return (
     <>
       <ContentLogo />
-      <ContentLayout>
+      <MemberContentLayout>
         <ContentHeaderWrapper>
           <MemberName> {frontMatter.memberName}</MemberName>
           <MemberGenre>{frontMatter.genre}</MemberGenre>
@@ -38,7 +38,7 @@ const MemberPage = ({ source, frontMatter }: Props) => {
         <ContentWrapper>
           <MDXRemote {...source} components={components} />
         </ContentWrapper>
-      </ContentLayout >
+      </MemberContentLayout >
     </>
   )
 }

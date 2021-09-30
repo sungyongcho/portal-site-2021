@@ -122,13 +122,16 @@ const DesktopNavFooter = styled.div`
 
 const DesktopBody = styled.div`
   align-self: center;
-  width:60%;
+  width:70vw;
   padding-top: 10vh;
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items:center;
   overflow: auto;
+  ${media.desktop}{
+    width:60%;
+  }
 `;
 
 const DesktopSubmenu = styled.div`

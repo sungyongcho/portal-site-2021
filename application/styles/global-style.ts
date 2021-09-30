@@ -104,6 +104,9 @@ export const GlobalStyle = createGlobalStyle`
         padding-bottom: 1%;
       }
     }
+    p {
+      font-size: 1.2em;
+    }
     // ---------MDX------------
 
     // 링크 색상
@@ -146,7 +149,10 @@ export const GlobalStyle = createGlobalStyle`
     }
     .slick-slide img {
       width: calc(100% - 10px) !important;
-      height: 35vh;
+      height: 25vh;
+      ${media.desktop}{
+        height: 35vh;
+      }
     }
 
     .custom-img {
