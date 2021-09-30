@@ -190,14 +190,14 @@ export const GlobalStyle = createGlobalStyle`
 
   /* menu transition */
     .menu-items{
-      margin-top: 10vh;
-      margin-bottom:10vh;
+      margin-bottom: 5%;
       display: flex;
-flex-direction: row;
-  justify-content: center;
-      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      align-items: top;
       background: transparent;
       position:relative;
+      text-align: center;
     }
 
   @keyframes slide {
@@ -210,20 +210,19 @@ flex-direction: row;
 }
   .item-enter {
 	opacity: 0;
-  animation: smoothAppear 1s;
+  /* animation: smoothAppear 1s; */
   }
   .item-enter-active {
 	opacity: 1;
-  /* animation:  opacity 0.5s ease-in-out; */
-  animation: opacity 2s ease-in;
+  animation:  opacity 0.5s ease-in-out;
+  /* animation: opacity 0.2s ease-in; */
   }
   .item-exit {
 	opacity: 1;
   }
   .item-exit-active {
-    display:none;
     opacity: 0;
-    animation: all 3s ease-in;
+    animation: all 0.1s ease-in;
 }
   /* menu transition */
 

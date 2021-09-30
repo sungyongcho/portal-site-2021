@@ -12,7 +12,7 @@ import {
   TransitionGroup,
 } from 'react-transition-group';
 
-const DesktopMenu = () => {
+const DesktopMenuWithMount = () => {
 
   const router = useRouter()
 
@@ -50,6 +50,7 @@ const DesktopMenu = () => {
 
   return (
     <>
+
       <ImageContainer>
         <Image alt="Portal Site" src={logoImage} onClick={() => router.push('/')}></Image>
       </ImageContainer>
@@ -59,7 +60,7 @@ const DesktopMenu = () => {
             (isCurrentURL(menuItem.path) || router.pathname === '/') &&
             <CSSTransition
               key={menuItem.path}
-              timeout={200}
+              timeout={150}
               classNames={"item"}>
               <MenuItem onClick={(e) => {
                 console.log(menuItem.path);
@@ -83,44 +84,62 @@ const ImageContainer = styled.div`
   width:65%;
   align-self: center;
   ${media.desktop}{
-    margin-top: 10%;
-    margin-bottom: 15%;
-    width: 100%;
+    margin-top: 20%;
+    padding:3%;
+    width: 90%;
   }
 `
+
+const MenuWrapper = styled.div`
+  /* margin-top: 15%; */
+
+  flex-direction:row;
+  ${media.desktop}{
+    /* margin-top: 15em; */
+    padding: 3%;
+  }
+`;
+
+const Sliding = styled.div`
+
+`;
 const MenuItem = styled.div`
-  margin:0;
-  padding:0;
   font-size: 2.2em;
   padding: 0.3em 0.5em;
   color: #EFEFEF;
 
   ${media.desktop}{
     font-size: 2.5em;
-    padding: 0 1em;
+    padding: 0.6em 1em;
   }
 
   &.large {
+    padding:0;
+    margin:0;
+    top:50%;
+    left:50%;
+    /* position:absolute; */
+    transform: scale(1.8);
 	  -moz-transition:all 1s;
     -webkit-transition:all 1s;
     -o-transition:all 1s;
     transition:all 1s;
-	  font-size: 4em;
+	  /* font-size: 4em; */
     }
 
     &.nolarge {
+
 	  -moz-transition:all 1s;
     -webkit-transition:all 1s;
     -o-transition:all 1s;
     transition:all 1s;
     }
-    transform-origin: top left; /* add this in */
+  transform-origin: top left; /* add this in */
 `;
-
 const SubmenuWrapper = styled.div`
   display: flex;
   flex-direction: row;
   text-align: center;
 `
 
-export default DesktopMenu
+export default DesktopMenuWithMount

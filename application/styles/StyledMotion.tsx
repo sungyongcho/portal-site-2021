@@ -6,6 +6,9 @@ const StyledMotion = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  ${media.desktop}{
+    flex-direction: row;
+  }
 `;
 
 export default StyledMotion

@@ -8,6 +8,10 @@ const Item = styled.div`
     font-size: 1.5em;
     margin: 0 0.5em;
   }
+  ${media.desktop}{
+    font-size: 2em;
+    margin: 0 0.5em;
+  }
 `;
 
 export default Item;
