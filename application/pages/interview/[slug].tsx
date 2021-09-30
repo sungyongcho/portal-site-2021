@@ -27,16 +27,14 @@ const interviewPage = ({ source, frontMatter }: Props) => {
   return (
     <>
       <ContentLogo />
-      <FlexTest>
-        <WrapperTest>
-          <ContentHeaderWrapper>
-            <InterviewTitle> {frontMatter.interviewTitle}</InterviewTitle>
-          </ContentHeaderWrapper>
-          <ContentWrapper>
-            <MDXRemote {...source} components={components} />
-          </ContentWrapper>
-        </WrapperTest>
-      </FlexTest>
+      <ContentLayout>
+        <ContentHeaderWrapper>
+          <InterviewTitle> {frontMatter.interviewTitle}</InterviewTitle>
+        </ContentHeaderWrapper>
+        <ContentWrapper>
+          <MDXRemote {...source} components={components} />
+        </ContentWrapper>
+      </ContentLayout>
     </>
   )
 }

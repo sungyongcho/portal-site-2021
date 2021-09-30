@@ -198,6 +198,9 @@ export const GlobalStyle = createGlobalStyle`
       background: transparent;
       position:relative;
       text-align: center;
+      ${media.desktop}{
+        margin-bottom: 5%;
+      }
     }
 
   @keyframes slide {

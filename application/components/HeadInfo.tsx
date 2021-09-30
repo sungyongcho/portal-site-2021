@@ -13,7 +13,7 @@ const HeadInfo = ({ title, keyword, contents }: Props) => {
       <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
       {/* TODO: og 기본값 세팅 */}
       <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
-      <meta property="og:title" content="" />
+      <meta property="og:title" content={title} />
       <meta property="og:image" content="" />
       <meta property="og:description" content="" />
       <meta property="og:url" content="//" />
@@ -40,7 +40,7 @@ const HeadInfo = ({ title, keyword, contents }: Props) => {
 }
 
 HeadInfo.defaultProps = {
-  title: 'title',
+  title: '',
   keyword: 'portal site 2021',
   contents: 'nextjs building'
 }

@@ -79,8 +79,9 @@ const DesktopMenu = () => {
 }
 
 const ImageContainer = styled.div`
-  margin-top: 40%;
-  width:65%;
+  margin-top: 35%;
+  margin-bottom: 15%;
+  width:100%;
   align-self: center;
   ${media.desktop}{
     margin-top: 10%;
@@ -91,7 +92,7 @@ const ImageContainer = styled.div`
 const MenuItem = styled.div`
   margin:0;
   padding:0;
-  font-size: 2.2em;
+  font-size: 2.1em;
   padding: 0.3em 0.5em;
   color: #EFEFEF;
 
@@ -105,7 +106,10 @@ const MenuItem = styled.div`
     -webkit-transition:all 1s;
     -o-transition:all 1s;
     transition:all 1s;
-	  font-size: 4em;
+      font-size: 3em;
+    ${media.desktop}{
+      font-size: 4em;
+    }
     }
 
     &.nolarge {

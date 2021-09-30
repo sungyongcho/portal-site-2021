@@ -12,6 +12,7 @@ import styled from 'styled-components'
 import { media } from "../../styles/theme";
 import MemberContentLayout from '../../styles/member-content-layout'
 import ContentHeaderWrapper from '../../styles/content-header-wrapper'
+import ContentBottomPadding from '../../styles/content-bottom-padding'
 import ContentWrapper from '../../styles/content-wrapper'
 import ContentLogo from '../../components/ContentLogo'
 type Props = {
@@ -38,6 +39,7 @@ const MemberPage = ({ source, frontMatter }: Props) => {
         <ContentWrapper>
           <MDXRemote {...source} components={components} />
         </ContentWrapper>
+        <ContentBottomPadding />
       </MemberContentLayout >
     </>
   )
@@ -59,8 +61,6 @@ const MemberGenre = styled.p`
     font-size: 2.5rem;
   }
 `;
-
-
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = getMemberPost(params?.slug as string);
