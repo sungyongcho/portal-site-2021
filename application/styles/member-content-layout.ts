@@ -4,6 +4,7 @@ import { media } from './theme';
 const MemberContentLayout = styled.div`
   font-size: 1.2em;
   width:80%;
+  align-self: center;
   margin-top:10vh;
   ${media.tablet}{
     width:100%;

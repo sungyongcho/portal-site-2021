@@ -10,7 +10,7 @@ const ContentWrapper = styled.div`
   line-height: 1.5em;
   box-sizing: "border-box";
   z-index:1;
-  width: 80%;
+  width: 90%;
   ${media.tablet} {
   }
   ${media.desktop}{

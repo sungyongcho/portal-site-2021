@@ -7,6 +7,7 @@ import { media } from '../styles/theme'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 type Props = {
   workList: [{
@@ -18,13 +19,22 @@ type Props = {
   }];
 }
 
-const settings = {
-  className: "slider variable-width",
+const desktopSetting = {
+  className: "slider-desktop variable-width",
   infinite: false,
   variableWidth: true,
   slidesToShow: 3,
 };
 
+const mobileSetting = {
+  className: "slider-mobile variable-width",
+  arrows: false,
+  infinite: true,
+  centerMode: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  variableWidth: true,
+};
 
 
 /**
@@ -37,6 +47,8 @@ const MoveDragThreshold = 10;
 
 
 const MemberWorklist = ({ workList }: Props) => {
+
+  const { height, width } = useWindowSize();
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [imageAddress, setImageAddress] = useState('');
@@ -74,8 +86,8 @@ const MemberWorklist = ({ workList }: Props) => {
 
   return (
     <>
-      <Container>
-        <Slider {...settings}>
+      {width > 767 ? (<Container>
+        <Slider {...desktopSetting}>
           {workList.map((workList) => (
             <img
               alt="" onClick={(e) => {
@@ -86,7 +98,18 @@ const MemberWorklist = ({ workList }: Props) => {
           <div />
           <div />
         </Slider>
-      </Container >
+      </Container >) :
+        (<MobileContainer>
+          <Slider {...mobileSetting}>
+            {workList.map((workList) => (
+              <img
+                alt="" onClick={(e) => {
+                  openModal(e, workList)
+                }}
+                src={`${workList.address}`} />
+            ))}
+          </Slider>
+        </MobileContainer >)}
       {
         modalIsOpen && <Modal
           onClose={() => setShowModal(false)}
@@ -116,6 +139,13 @@ const Container = styled.div`
   ${media.desktop}{
     width:100%;
   }
+`;
+
+const MobileContainer = styled.div`
+  overflow:hidden;
+  padding: 0;
+  width:100%;
+  height:25vh;
 `;
 
 const StyledSlider = styled(Slider)`

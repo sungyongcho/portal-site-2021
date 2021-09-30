@@ -134,26 +134,44 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     /* slider config */
-    .slick-slider {
+    /* mobile */
+
+    .slider-mobile .slick-slider {
       width: 100%;
       overflow: hidden;
     }
-    .slick-list {
+
+    .slider-mobile .slick-slide div {
+    }
+
+    .slider-mobile .slick-slide img {
+      height: 20vh;
+    }
+
+      /* desktop */
+     .slider-desktop .slick-slider {
+      width: 100%;
+      overflow: hidden;
+    }
+    .slider-desktop .slick-list {
       position: relative;
       display: block !important;
       width: 150%;
     }
-    .slick-slide div {
+    .slider-desktop .slick-slide div {
       width: auto;
       margin-right: 20px;
     }
-    .slick-slide img {
+    .slider-desktop .slick-slide img {
       width: calc(100% - 10px) !important;
       height: 25vh;
       ${media.desktop}{
         height: 35vh;
       }
     }
+
+
+    /* slider config */
 
     .custom-img {
       object-fit: contain;
