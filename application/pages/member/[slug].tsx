@@ -28,16 +28,18 @@ const components = {
 
 const MemberPage = ({ source, frontMatter }: Props) => {
   return (
-    <ContentLayout>
+    <>
       <ContentLogo />
-      <ContentHeaderWrapper>
-        <MemberName> {frontMatter.memberName}</MemberName>
-        <MemberGenre>{frontMatter.genre}</MemberGenre>
-      </ContentHeaderWrapper>
-      <ContentWrapper>
-        <MDXRemote {...source} components={components} />
-      </ContentWrapper>
-    </ContentLayout >
+      <ContentLayout>
+        <ContentHeaderWrapper>
+          <MemberName> {frontMatter.memberName}</MemberName>
+          <MemberGenre>{frontMatter.genre}</MemberGenre>
+        </ContentHeaderWrapper>
+        <ContentWrapper>
+          <MDXRemote {...source} components={components} />
+        </ContentWrapper>
+      </ContentLayout >
+    </>
   )
 }
 

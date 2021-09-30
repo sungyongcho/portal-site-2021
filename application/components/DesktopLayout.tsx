@@ -19,7 +19,8 @@ const DesktopLayout = ({ children }: Props) => {
   const router = useRouter();
 
   const showMenu = ((router.pathname.match(/\//g) || []).length === 2) ? false : true;
-
+  const showContent =
+    (router.pathname.match(/\//g) || []).length === 1 ? false : true;
   const config = {
     type: "spring",
     damping: 20,
@@ -55,12 +56,12 @@ const DesktopLayout = ({ children }: Props) => {
           <Image src={NotchRight} />
         </RightNotch>}
         {(showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition')) && <DesktopMenu />}
-        <DesktopSubmenu>
-          {children}
-        </DesktopSubmenu>
-        {/* <CurvedCourner className={"BottomLeft"} />
-        <HalfCircle className={"Right"} />
-        <CurvedCourner className={"BottomRight"} /> */}
+        {(showContent || (router.pathname === "/exhibition" || router.pathname === "/sns")) ?
+          children :
+          <DesktopSubmenu>
+            {children}
+          </DesktopSubmenu>
+        }
         {(showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition')) &&
           <DesktopDateFooter>
             {"2021.10.04-10.24"}
@@ -120,15 +121,18 @@ const DesktopNavFooter = styled.div`
 `;
 
 const DesktopBody = styled.div`
-  width: 100%;
+  align-self: center;
+  width:60%;
+  padding-top: 10vh;
   display:flex;
   flex-direction: column;
+  justify-content: center;
   align-items:center;
   overflow: auto;
-  padding-bottom: 15%;
 `;
 
 const DesktopSubmenu = styled.div`
+  padding-top: 3%;
   display:flex;
   flex-direction: row;
   align-items:center;
@@ -138,7 +142,6 @@ const DesktopSubmenu = styled.div`
     padding-top: 2%;
   }
   ${media.desktop}{
-    padding-top: 0%;
   }
 `;
 

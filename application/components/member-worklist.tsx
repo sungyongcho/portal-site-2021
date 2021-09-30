@@ -111,7 +111,7 @@ const MemberWorklist = ({ workList }: Props) => {
 }
 
 const Container = styled.div`
-  width:60vw;
+  width:100%;
   overflow:hidden;
 `;
 
