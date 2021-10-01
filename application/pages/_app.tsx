@@ -8,7 +8,6 @@ import Nav from "../components/Nav";
 import { useWindowSize } from "../hooks/useWindowSize";
 import DesktopLayout from "components/DesktopLayout";
 import MobileLayout from "../components/MobileLayout";
-import HeadInfo from "../components/HeadInfo";
 import LogoList from "../components/LogoList";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
