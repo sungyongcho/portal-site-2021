@@ -87,19 +87,20 @@ const MemberWorklist = ({ workList }: Props) => {
 
   return (
     <>
-      {width > 767 ? (<Container>
-        <Slider {...desktopSetting}>
-          {workList.map((workList) => (
-            <img
-              alt="" onClick={(e) => {
-                openModal(e, workList)
-              }}
-              src={`${workList.address}`} />
-          ))}
-          <div />
-          <div />
-        </Slider>
-      </Container >) :
+      {workList && (width > 767 ? (
+        <Container>
+          <Slider {...desktopSetting}>
+            {workList.map((workList) => (
+              <img
+                alt="" onClick={(e) => {
+                  openModal(e, workList)
+                }}
+                src={`${workList.address}`} />
+            ))}
+            <div />
+            <div />
+          </Slider>
+        </Container >) :
         (
           <MobileFrame>
             <MobileContainer>
@@ -117,7 +118,7 @@ const MemberWorklist = ({ workList }: Props) => {
                 </Slider>
               </MobileImage>
             </MobileContainer >
-          </MobileFrame>)}
+          </MobileFrame>))}
       {
         modalIsOpen && <Modal
           onClose={() => setShowModal(false)}
