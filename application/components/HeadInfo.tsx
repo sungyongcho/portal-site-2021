@@ -21,14 +21,14 @@ const HeadInfo = ({ title, artist, description, thumbnailAddress, siteAddress, k
       <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
       {/* TODO: og 기본값 세팅 */}
       <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
-      <meta property="og:title" content={title === '' ? `Portal Site -- 포털사이트`
+      <meta property="og:title" content={title === '' ? 'Portal Site -- 포털사이트'
         : (artist === '' ?
           `Portal Site -- 포털사이트 : ${title}`
           : `Portal Site -- 포털사이트 : ${title} - ${artist}`)
       } />
       <meta property="og:image" content={thumbnailAddress === '' ? "https://portalsite.xyz/thumbnail.png" : "https://portalsite.xyz/thumbnail.png"} />
       <meta property="og:description" content={description === '' ? "Portal Site -- 포털 사이트" : ""} />
-      <meta property="og:url" content={siteAddress === '' ? 'https://portalsite.xyz' : `https://portalsite.xyz/${siteAddress}`} />
+      <meta property="og:url" content={siteAddress === '' ? 'https://portalsite.xyz/' : `https://portalsite.xyz/${siteAddress}`} />
       <meta name="description" content={description === '' ? "Portal Site -- 포털 사이트" : ""} />
       <meta name="keywords" content="" />
       <meta
