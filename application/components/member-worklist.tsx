@@ -88,20 +88,24 @@ const MemberWorklist = ({ workList }: Props) => {
 
   return (
     <>
-      {workList && (width > 767 ? (
-        <Container>
-          <Slider {...desktopSetting}>
-            {workList.map((workList) => (
-              <img
-                alt="" onClick={(e) => {
-                  openModal(e, workList)
-                }}
-                src={`${workList.address}`} />
-            ))}
-            <div />
-            <div />
-          </Slider>
-        </Container >) :
+      {workList && (width > 767 ?
+        (width > 1439) ?
+          (
+            <Container>
+              <Slider {...desktopSetting}>
+                {workList.map((workList) => (
+                  <img
+                    alt="" onClick={(e) => {
+                      openModal(e, workList)
+                    }}
+                    src={`${workList.address}`} />
+                ))}
+                <div />
+                <div />
+              </Slider>
+            </Container >) :
+          (<>
+          </>) :
         (
           <MobileFrame>
             <MobileContainer>
