@@ -5,7 +5,7 @@ import HeadInfo from 'components/HeadInfo';
 const Home: NextPage = () => {
   return (
     <>
-      <HeadInfo title={''} />
+      <HeadInfo />
     </>
   )
 }
