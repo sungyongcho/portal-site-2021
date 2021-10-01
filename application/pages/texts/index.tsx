@@ -11,6 +11,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion';
 import Item from '../../styles/item'
 import StyledMotion from '../../styles/StyledMotion'
+
 type TextProps = {
   texts: IText[];
 }
@@ -18,6 +19,7 @@ type TextProps = {
 const TextNav = ({ texts }: TextProps) => {
   return (
     <>
+      <HeadInfo title={"Texts"} siteAddress={'texts'} />
       <StyledMotion initial="initial"
         animate="animate"
         variants={{

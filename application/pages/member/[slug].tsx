@@ -15,9 +15,12 @@ import ContentHeaderWrapper from '../../styles/content-header-wrapper'
 import ContentBottomPadding from '../../styles/content-bottom-padding'
 import ContentWrapper from '../../styles/content-wrapper'
 import ContentLogo from '../../components/ContentLogo'
+import HeadInfo from 'components/HeadInfo';
+
 type Props = {
   source: MDXRemoteSerializeResult;
-  frontMatter: Omit<IMember, 'slug' | 'order'>;
+  frontMatter: Omit<IMember, 'order'>;
+  memberPath: string;
 };
 
 const components = {
@@ -27,9 +30,10 @@ const components = {
 };
 
 
-const MemberPage = ({ source, frontMatter }: Props) => {
+const MemberPage = ({ source, frontMatter, memberPath }: Props) => {
   return (
     <>
+      <HeadInfo title={"Member"} artist={frontMatter.memberName} siteAddress={`member/${memberPath}`} />
       <ContentLogo />
       <MemberContentLayout>
         <ContentHeaderWrapper>
@@ -66,18 +70,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = getMemberPost(params?.slug as string);
 
   const mdxSource = await serialize(content, { scope: data });
-
   return {
     props: {
       source: mdxSource,
       frontMatter: data,
+      memberPath: params.slug
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllMemberPosts(['slug']);
-
   const paths = posts.map((post) => ({
     params: {
       slug: post.slug,

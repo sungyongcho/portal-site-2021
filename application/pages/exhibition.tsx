@@ -14,6 +14,7 @@ import ContentLayout from '../styles/content-layout'
 import ContentHeaderWrapper from '../styles/content-header-wrapper'
 import ContentWrapper from '../styles/content-wrapper'
 import ContentLogo from '../components/ContentLogo'
+import HeadInfo from 'components/HeadInfo';
 
 
 const components = {
@@ -23,6 +24,7 @@ const components = {
 const ExhibitionPage = () => {
   return (
     <>
+      <HeadInfo title={"Exhibition"} />
       <ContentLogo />
       <ExhibitionLayout>
         <ExhibitionWrapper>

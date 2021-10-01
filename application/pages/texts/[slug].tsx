@@ -12,20 +12,22 @@ import ContentHeaderWrapper from '../../styles/content-header-wrapper'
 import ContentWrapper from '../../styles/content-wrapper'
 import ContentLogo from '../../components/ContentLogo'
 import ContentBottomPadding from '../../styles/content-bottom-padding'
-
+import HeadInfo from 'components/HeadInfo';
 
 
 type Props = {
   source: MDXRemoteSerializeResult;
-  frontMatter: Omit<IText, 'slug' | 'order'>;
+  frontMatter: Omit<IText, 'order'>;
+  criticPath: string;
 };
 
 const components = {
 };
 
-const TextPage = ({ source, frontMatter }: Props) => {
+const TextPage = ({ source, frontMatter, criticPath }: Props) => {
   return (
     <>
+      <HeadInfo title={"Texts"} artist={frontMatter.criticName} siteAddress={`texts/${criticPath}`} />
       <ContentLayout>
         <ContentLogo />
         <ContentHeaderWrapper>
@@ -68,6 +70,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       source: mdxSource,
       frontMatter: data,
+      criticPath: params.slug
     },
   };
 };

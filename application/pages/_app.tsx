@@ -38,7 +38,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <HeadInfo />
       <GlobalStyle />
-
       <Wrapper>
         <NavWrapper>
           <Nav enableButton={false} />
@@ -92,7 +91,7 @@ const NavWrapper = styled(motion.div)`
   }
   ${media.desktop} {
     top: 4rem;
-    left: 3.5rem;
+    left: 3rem;
   }
 `;
 

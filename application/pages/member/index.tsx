@@ -9,6 +9,7 @@ import { getAllMemberPosts } from '../../utils/mdxUtils';
 import Item from '../../styles/item'
 import { motion } from 'framer-motion';
 import StyledMotion from '../../styles/StyledMotion'
+import HeadInfo from 'components/HeadInfo';
 
 type MemberProps = {
   members: IMember[];
@@ -16,24 +17,27 @@ type MemberProps = {
 
 const MemberNav = ({ members }: MemberProps) => {
   return (
-    <StyledMotion initial="initial"
-      animate="animate"
-      variants={{
-        initial: {
-          opacity: 0,
-        },
-        animate: {
-          opacity: 1,
-        },
-      }}>
-      {
-        members.map((members) => (
-          <Item key={members.slug}>
-            <Link href={`member/${members.slug}`}><a>{members.memberName}</a></Link>
-          </Item>
-        ))
-      }
-    </StyledMotion>
+    <>
+      <HeadInfo title={"Member"} />
+      <StyledMotion initial="initial"
+        animate="animate"
+        variants={{
+          initial: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+        }}>
+        {
+          members.map((members) => (
+            <Item key={members.slug}>
+              <Link href={`member/${members.slug}`}><a>{members.memberName}</a></Link>
+            </Item>
+          ))
+        }
+      </StyledMotion>
+    </>
   )
 }
 

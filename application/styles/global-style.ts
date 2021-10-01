@@ -105,7 +105,17 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
     p {
+      /* word-break: normal; */
+      word-break: break-all;
       font-size: 1.2em;
+      ${media.tablet}{
+        line-height: -1%;
+        padding-bottom: 1%;
+      }
+      ${media.desktop}{
+        line-height: -1%;
+        padding-bottom: 2%;
+      }
     }
     // ---------MDX------------
 

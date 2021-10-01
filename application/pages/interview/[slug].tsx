@@ -14,9 +14,12 @@ import ContentBottomPadding from '../../styles/content-bottom-padding'
 import ContentWrapper from 'styles/content-wrapper';
 import ContentLogo from '../../components/ContentLogo'
 import ContentPaddingTop from 'styles/content-padding-top';
+import HeadInfo from 'components/HeadInfo';
+
 type Props = {
   source: MDXRemoteSerializeResult;
   frontMatter: Omit<IInterview, 'slug' | 'order'>;
+  interviewPath: string;
 };
 
 const components = {
@@ -24,9 +27,13 @@ const components = {
 };
 
 
-const interviewPage = ({ source, frontMatter }: Props) => {
+const interviewPage = ({ source, frontMatter, interviewPath }: Props) => {
   return (
     <>
+      <HeadInfo title={"Interview"}
+        description={frontMatter.interviewTitle}
+        artist={frontMatter.artistName}
+        siteAddress={`interview/${interviewPath}`} />
       <ContentLogo />
       <ContentLayout>
         <ContentHeaderWrapper>
@@ -87,6 +94,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       source: mdxSource,
       frontMatter: data,
+      interviewPath: params.slug
     },
   };
 };

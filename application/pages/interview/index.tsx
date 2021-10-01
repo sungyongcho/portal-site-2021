@@ -9,6 +9,7 @@ import Item from '../../styles/item'
 
 import { motion } from 'framer-motion';
 import StyledMotion from '../../styles/StyledMotion'
+import HeadInfo from 'components/HeadInfo';
 
 type InterviewProps = {
   interviews: IInterview[];
@@ -16,24 +17,27 @@ type InterviewProps = {
 
 const InterviewNav = ({ interviews }: InterviewProps) => {
   return (
-    <StyledMotion initial="initial"
-      animate="animate"
-      variants={{
-        initial: {
-          opacity: 0,
-        },
-        animate: {
-          opacity: 1,
-        },
-      }}>
-      {
-        interviews.map((interviews) => (
-          <Item key={interviews.slug}>
-            <Link href={`interview/${interviews.slug}`}><a>{interviews.artistName}</a></Link>
-          </Item>
-        ))
-      }
-    </StyledMotion>
+    <>
+      <HeadInfo title={"Interview"} />
+      <StyledMotion initial="initial"
+        animate="animate"
+        variants={{
+          initial: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+        }}>
+        {
+          interviews.map((interviews) => (
+            <Item key={interviews.slug}>
+              <Link href={`interview/${interviews.slug}`}><a>{interviews.artistName}</a></Link>
+            </Item>
+          ))
+        }
+      </StyledMotion>
+    </>
   )
 }
 
