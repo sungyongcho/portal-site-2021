@@ -23,7 +23,6 @@ const Modal = ({ show, onClose, children, title }) => {
       </StyledModalHeader>
       {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
       {children}
-
     </StyledModalOverlay>
   ) : null;
 
@@ -39,8 +38,6 @@ const Modal = ({ show, onClose, children, title }) => {
 
 const StyledModalBody = styled.div`
   display:inline-block;
-  width:100px;
-  height:100px;
   background-color: gray;
 `;
 

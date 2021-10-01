@@ -125,10 +125,16 @@ const MemberWorklist = ({ workList }: Props) => {
         >
           <div className="unset-img">
             <img className="custom-img" onClick={closeModal}
-              src={imageAddress} width='100%'
-              height='100%'
+              src={imageAddress}
               alt="" />
           </div>
+          {/* {
+                      <div className="unset-img">
+                      <img className="custom-img" onClick={closeModal}
+                        src={imageAddress}
+                        alt="" />
+                    </div>
+          } */}
           <br />
           <CaptionStyle>
             <TitleStyle>{captionTitle !== '' && <div>{captionTitle}</div>}</TitleStyle>
@@ -145,7 +151,8 @@ const Container = styled.div`
   width: 200%;
   overflow:hidden;
   ${media.desktop}{
-    width:100%;
+    width:110%;
+    overflow:hidden;
   }
 `;
 

@@ -196,15 +196,26 @@ export const GlobalStyle = createGlobalStyle`
     /* slider config */
 
     .custom-img {
-      object-fit: contain;
-      width: 100% !important;
-      position: relative !important;
-      height: unset !important;
+      max-width: 100%;
+    max-height:100%;
+    margin: auto;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
     }
 
     .unset-img {
-      width: 30%;
+    width: 60%;
+    height: 60%;
+    background-color:transparent;
+    margin:0;
+    padding:0;
+    display:inline-block;
+    position:relative;
     }
+
     .unset-img > div {
       position: unset !important;
     }
