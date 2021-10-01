@@ -196,28 +196,6 @@ export const GlobalStyle = createGlobalStyle`
     .slider-tablet .slick-track {
     }
 
-
-      /* desktop */
-    .slider-desktop .slick-slider {
-      width: 100%;
-      overflow: hidden;
-    }
-    .slider-desktop .slick-list {
-      position: relative;
-      display: block !important;
-      width: 150%;
-    }
-    .slider-desktop .slick-slide div {
-      width: calc(100%- 10px);
-      margin-right: 20px;
-    }
-    .slider-desktop .slick-slide img {
-      width: 95% !important;
-      /* height: 25vh; */
-      object-fit: cover;
-      height:30vh;
-    }
-
     /* slider config */
 
     /* mobile */
