@@ -19,14 +19,6 @@ type Props = {
   }];
 }
 
-const desktopSetting = {
-  className: "slider-desktop variable-width",
-  infinite: false,
-  variableWidth: true,
-  slidesToShow: 3,
-  swipeToSlide: true
-};
-
 const mobileSetting = {
   className: "slider-mobile variable-width",
   arrows: false,
