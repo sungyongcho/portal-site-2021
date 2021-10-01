@@ -1,7 +1,11 @@
 
 type Props = {
   email: string,
-  sns: string,
+  sns: {
+    type: string,
+    id: string,
+    address: string
+  },
   website: string
 }
 
@@ -9,21 +13,21 @@ const MemberContact = ({ email, sns, website }: Props) => {
   return (
     <div className="max-w-2xl mx-auto">
       <ul>
-        {(typeof email !== undefined && email !== null) ?
+        {(typeof email !== undefined && email !== null && email !== '') ?
           <li>
-            email: {email}
+            email: <a href={`mailto:${email}`} >{email}</a>
           </li> :
           ''
         }
-        {(typeof sns !== undefined && sns !== null) ?
+        {(typeof sns !== undefined && sns !== null && sns.type !== '') ?
           <li>
-            sns: {sns}
+            sns:  <a href={`${sns.address}`}>{sns.id}</a> ({sns.type})
           </li> :
           ''
         }
-        {(typeof website !== undefined && website !== null) ?
+        {(typeof website !== undefined && website !== null && website !== '') ?
           <li>
-            website: {website}
+            website: <a href={`http://${website}`} >{website}</a>
           </li> : ''
         }
       </ul>
