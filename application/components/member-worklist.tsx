@@ -24,6 +24,7 @@ const desktopSetting = {
   infinite: false,
   variableWidth: true,
   slidesToShow: 3,
+  swipeToSlide: true
 };
 
 const mobileSetting = {
@@ -156,6 +157,10 @@ const MemberWorklist = ({ workList }: Props) => {
 const Container = styled.div`
   width: 200%;
   overflow:hidden;
+  ${media.tablet}
+  {
+    height: 20vh;
+  }
   ${media.desktop}{
     width:110%;
     overflow:hidden;
