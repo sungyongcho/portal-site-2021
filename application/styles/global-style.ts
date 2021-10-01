@@ -150,11 +150,12 @@ export const GlobalStyle = createGlobalStyle`
 
     }
     .slider-mobile .slick-slide  {
-      border-left: 4vw solid transparent;
-      border-right: 4vw solid transparent;
+
       /* cursor: pointer; */
     }
     .slider-mobile .slick-slide img {
+      border-left: 4vw solid transparent;
+      border-right: 4vw solid transparent;
       display: block;
       width:auto;
       height:20vh;
