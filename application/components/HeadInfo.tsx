@@ -20,7 +20,7 @@ const HeadInfo = ({ title, artist, description, thumbnailAddress, siteAddress, k
       }
       <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
       {/* TODO: og 기본값 세팅 */}
-      <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
+      <link rel="shortcut icon" href="/favicon.ico" />
       <meta property="og:title" content={title === '' ? 'Portal Site -- 포털사이트'
         : (artist === '' ?
           `Portal Site -- 포털사이트 : ${title}`
