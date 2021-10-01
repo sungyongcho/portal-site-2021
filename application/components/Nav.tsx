@@ -44,13 +44,22 @@ const NavStyle = styled.div`
 
 
 const NavButton = styled.button`
+  font-size: 0.7em;
   border: none;
   background-color: #EFEFEF;
   text-decoration: none;
   border-radius: 50%;
   padding: 0.75em;
-  margin: 0.1em 0.2em;
+  margin: 0.15em 0.8em;
   pointer-events: none;
+  ${media.tablet}{
+    font-size: 1.1em;
+    margin: 0.2em 0.8em;
+  }
+  ${media.desktop}{
+    font-size: 1.1em;
+    margin: 0.2em 0.8em;
+  }
 `;
 
 const ToHomeButton = styled(NavButton)`

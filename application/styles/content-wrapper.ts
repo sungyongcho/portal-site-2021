@@ -12,6 +12,7 @@ const ContentWrapper = styled.div`
   z-index:1;
   width: 90%;
   ${media.tablet} {
+    padding: 4%;
   }
   ${media.desktop}{
     padding: 3%;

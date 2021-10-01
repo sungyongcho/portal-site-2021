@@ -11,6 +11,8 @@ import ContentLayout from '../../styles/content-layout'
 import ContentHeaderWrapper from '../../styles/content-header-wrapper'
 import ContentWrapper from '../../styles/content-wrapper'
 import ContentLogo from '../../components/ContentLogo'
+import ContentBottomPadding from '../../styles/content-bottom-padding'
+
 
 
 type Props = {
@@ -33,6 +35,7 @@ const TextPage = ({ source, frontMatter }: Props) => {
         <ContentWrapper>
           <MDXRemote {...source} components={components} />
         </ContentWrapper>
+        <ContentBottomPadding />
       </ContentLayout >
     </>
   )

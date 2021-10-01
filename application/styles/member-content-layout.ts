@@ -5,15 +5,16 @@ const MemberContentLayout = styled.div`
   position: relative;
   font-size: 1.2em;
   width:80%;
+  height: 100%;
+  margin-top: 8vh;
   align-self: center;
   ${media.tablet}{
-    width:100%;
-    margin-top:45vh;
-    padding-bottom: 15vh;
+    height: 100%;
+    margin-top: 25vh;
   }
   ${media.desktop}{
     height:100%;
-    margin-top: 20vh;
+    margin-top: 30vh;
     font-size: 1.6em;
   }
   `;

@@ -37,9 +37,6 @@ export default ExhibitionPage
 
 const ExhibitionLayout = styled.div`
   height: 100%;
-  margin-top: 10vh;
-  margin-left: 3%;
-  margin-right: 3%;
   font-size: 1.2em;
   overflow: hidden;
   ${media.tablet} {
@@ -52,9 +49,6 @@ const ExhibitionLayout = styled.div`
     margin-top: 0%;
     margin-left: 0%;
     margin-right: 0%;
-    margin-bottom: 0;
-    overflow: visible;
-    padding:0;
     font-size: 2em;
   }
   `;
@@ -86,8 +80,8 @@ const ExhibitionWrapper = styled.div`
   width: 80vw;
   height: 65vh;
   border-radius: 20px;
+  margin-top: 10vh;
   padding: 0;
-  margin: 0;
   overflow: scroll;
   box-sizing: "border-box";
   ${media.tablet}{
@@ -96,9 +90,9 @@ const ExhibitionWrapper = styled.div`
     height: 70vh;
   }
   ${media.desktop}{
-    margin-top: 10%;
-    width: 70vw;
-    height: 70vh;
+    margin-top: 13vh;
+    width: 55vw;
+    height: 72vh;
   }
 `;
 

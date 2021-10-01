@@ -80,15 +80,19 @@ const NavWrapper = styled(motion.div)`
   z-index: 1;
 
   position: fixed;
-  top: 3%;
-  left: 4.5%;
+  top: 1.8rem;
+  left: 2rem;
   ${media.tabletRotate} {
     top: 5%;
     left: 4%;
   }
+  ${media.tablet} {
+    top: 2.5rem;
+    left: 2rem;
+  }
   ${media.desktop} {
-    top: 4%;
-    left: 2.5%;
+    top: 4rem;
+    left: 3.5rem;
   }
 `;
 

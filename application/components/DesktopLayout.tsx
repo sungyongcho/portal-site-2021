@@ -48,7 +48,6 @@ const DesktopLayout = ({ children }: Props) => {
   return (
     <>
       <DesktopBody>
-
         {showMenu && !(router.pathname === '/sns' || router.pathname === '/exhibition') && <LeftNotch>
           <Image src={NotchLeft} />
         </LeftNotch>}
@@ -100,11 +99,12 @@ const DesktopLogoFooter = styled.div`
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-around;
-  bottom: 0;
-  right: 10%;
+  bottom: 0.25%;
+  right: 10rem;
+  width: 50%;
   ${media.desktop}{
     bottom: 0.25%;
-    right: 6%;
+    right: 12rem;
     width: 30%;
   }
 `;
@@ -115,27 +115,25 @@ const DesktopNavFooter = styled.div`
   bottom:1%;
   right:0.5%;
   ${media.desktop}{
-    bottom: 2%;
-    right: 1%;
+    bottom: 1.5rem;
+    right: 2rem;
   }
 `;
 
 const DesktopBody = styled.div`
   align-self: center;
-  width:70vw;
-  padding-top: 10vh;
+  width:80vw;
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items:center;
   overflow: auto;
   ${media.desktop}{
-    width:60%;
+    width:60vw;
   }
 `;
 
 const DesktopSubmenu = styled.div`
-  padding-top: 3%;
   display:flex;
   flex-direction: row;
   align-items:center;
@@ -145,6 +143,8 @@ const DesktopSubmenu = styled.div`
     padding-top: 2%;
   }
   ${media.desktop}{
+    margin:0;
+    padding:0;
   }
 `;
 

@@ -110,7 +110,8 @@ const MenuItem = styled.div`
 
   ${media.desktop}{
     font-size: 2.5em;
-    padding: 0.6em 1em;
+    padding:0;
+    margin:0;
   }
 
   &.large {
