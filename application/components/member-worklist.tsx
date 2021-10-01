@@ -30,7 +30,7 @@ const desktopSetting = {
 const mobileSetting = {
   className: "slider-mobile variable-width",
   arrows: false,
-  dots: true,
+  dots: false,
   infinite: true,
   centerMode: true,
   slidesToShow: 1,
@@ -38,6 +38,14 @@ const mobileSetting = {
   variableWidth: true
 };
 
+const tabletSetting = {
+  className: "slider-tablet variable-width",
+  centerMode: false,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  infinite: false,
+  variableWidth: true
+};
 
 /**
  * Threshold from which mouse movement with pressed mouse button
@@ -89,40 +97,43 @@ const MemberWorklist = ({ workList }: Props) => {
   return (
     <>
       {workList && (width > 767 ?
-        (width > 1439) ?
-          (
-            <Container>
-              <Slider {...desktopSetting}>
+        (
+          <TabletFrame>
+            <TabletImage>
+
+              <Slider {...tabletSetting}>
                 {workList.map((workList) => (
-                  <img
-                    alt="" onClick={(e) => {
-                      openModal(e, workList)
-                    }}
-                    src={`${workList.address}`} />
+                  <>
+                    <img
+                      alt="" onClick={(e) => {
+                        openModal(e, workList)
+                      }}
+                      src={`${workList.address}`} />
+                  </>
                 ))}
                 <div />
                 <div />
               </Slider>
-            </Container >) :
-          (<>
-          </>) :
+            </TabletImage>
+
+          </TabletFrame>
+        )
+        :
         (
           <MobileFrame>
-            <MobileContainer>
-              <MobileImage>
-                <Slider {...mobileSetting}>
-                  {workList.map((workList) => (
-                    <>
-                      <img
-                        alt="" onClick={(e) => {
-                          openModal(e, workList)
-                        }}
-                        src={`${workList.address}`} />
-                    </>
-                  ))}
-                </Slider>
-              </MobileImage>
-            </MobileContainer >
+            <MobileImage>
+              <Slider {...mobileSetting}>
+                {workList.map((workList) => (
+                  <>
+                    <img
+                      alt="" onClick={(e) => {
+                        openModal(e, workList)
+                      }}
+                      src={`${workList.address}`} />
+                  </>
+                ))}
+              </Slider>
+            </MobileImage>
           </MobileFrame>))}
       {
         modalIsOpen && <Modal
@@ -158,17 +169,10 @@ const MemberWorklist = ({ workList }: Props) => {
   )
 }
 
-const Container = styled.div`
-  width: 200%;
-  overflow:hidden;
-  ${media.tablet}
-  {
-    height: 20vh;
-  }
-  ${media.desktop}{
+const DesktopContainer = styled.div`
     width:110%;
+    height: 30vh;
     overflow:hidden;
-  }
 `;
 
 
@@ -196,6 +200,7 @@ const TitleStyle = styled.div`
 const MobileFrame = styled.div`
   margin-top:0.5em;
   margin-bottom:1em;
+  width:100%;
   height: 20vh;
   overflow: hidden;
 `;
@@ -207,6 +212,25 @@ const MobileContainer = styled.div`
 const MobileImage = styled.div`
   width:auto;
 `;
+
+const TabletFrame = styled.div`
+  margin-left: 1%;
+  margin-bottom: 3%;
+  background-color: transparent;
+  width: 200%;
+  height: 20vh;
+  overflow: hidden;
+  ${media.desktop}
+  {
+    height: 25vh;
+  }
+`;
+
+
+const TabletImage = styled.div`
+  width:auto;
+`;
+
 
 
 // https://github.com/akiran/react-slick/issues/848

@@ -168,9 +168,37 @@ export const GlobalStyle = createGlobalStyle`
     .slider-mobile .slick-track {
     }
 
+    /* tablet */
+    .slider-tablet .slick-list {
+    }
+    .slider-tablet .slick-slide  {
+      /* border-left: 4vw solid transparent; */
+      /* border-right: 4vw solid transparent; */
+    }
+    .slider-tablet .slick-slide img {
+        border-right: 3vw solid transparent;
+
+        ${media.desktop}
+        {
+          border-right: 4vw solid transparent;
+        }
+        display: block;
+      	height:20vh;
+        ${media.desktop}
+        {
+          height: 25vh;
+        }
+    }
+
+    .slider-tablet .slick-dots {
+    }
+
+    .slider-tablet .slick-track {
+    }
+
 
       /* desktop */
-     .slider-desktop .slick-slider {
+    .slider-desktop .slick-slider {
       width: 100%;
       overflow: hidden;
     }
@@ -180,18 +208,15 @@ export const GlobalStyle = createGlobalStyle`
       width: 150%;
     }
     .slider-desktop .slick-slide div {
-      width: auto;
+      width: calc(100%- 10px);
       margin-right: 20px;
     }
     .slider-desktop .slick-slide img {
-      width: calc(100% - 10px) !important;
+      width: 95% !important;
       /* height: 25vh; */
-
-      ${media.desktop}{
-        height:30vh;
-      }
+      object-fit: cover;
+      height:30vh;
     }
-
 
     /* slider config */
 
