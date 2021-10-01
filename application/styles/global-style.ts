@@ -258,7 +258,7 @@ export const GlobalStyle = createGlobalStyle`
       position:relative;
       text-align: center;
       ${media.desktop}{
-        margin-bottom: 5%;
+        margin-bottom: 4.5%;
       }
     }
 
