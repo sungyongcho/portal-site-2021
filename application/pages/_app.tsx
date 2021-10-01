@@ -36,7 +36,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <HeadInfo />
       <GlobalStyle />
       <Wrapper>
         <NavWrapper>

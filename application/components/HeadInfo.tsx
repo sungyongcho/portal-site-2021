@@ -6,10 +6,11 @@ type Props = {
   artist: string,
   description: string,
   siteAddress: string,
+  thumbnailAddress: string,
   keyword: string,
   contents: string;
 }
-const HeadInfo = ({ title, artist, description, siteAddress, keyword, contents }: Props) => {
+const HeadInfo = ({ title, artist, description, thumbnailAddress, siteAddress, keyword, contents }: Props) => {
   return (
     <Head>
       {title === '' ? <title>Portal Site -- 포털사이트</title>
@@ -25,10 +26,10 @@ const HeadInfo = ({ title, artist, description, siteAddress, keyword, contents }
           `Portal Site -- 포털사이트 : ${title}`
           : `Portal Site -- 포털사이트 : ${title} - ${artist}`)
       } />
-      <meta property="og:image" content="" />
+      <meta property="og:image" content={thumbnailAddress} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={`https://portalsite.xyz/${siteAddress}`} />
-      <meta name="description" content="" />
+      <meta property="og:url" content={siteAddress ? `https://portalsite.xyz/${siteAddress}` : 'https://portalsite.xyz'} />
+      <meta name="description" content={description} />
       <meta name="keywords" content="" />
       <meta
         name="viewport"
@@ -54,6 +55,7 @@ HeadInfo.defaultProps = {
   title: '',
   artist: '',
   siteAddress: '',
+  thumbnailAddress: 'https://portalsite.xyz/public/logo.png',
   description: 'Portal Site -- 포털 사이트',
   keyword: 'portal site 2021',
   contents: 'nextjs building'

@@ -18,7 +18,7 @@ type MemberProps = {
 const MemberNav = ({ members }: MemberProps) => {
   return (
     <>
-      <HeadInfo title={"Member"} />
+      <HeadInfo title={"Member"} siteAddress={'member'} />
       <StyledMotion initial="initial"
         animate="animate"
         variants={{
