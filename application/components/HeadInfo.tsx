@@ -55,7 +55,7 @@ HeadInfo.defaultProps = {
   title: '',
   artist: '',
   siteAddress: '',
-  thumbnailAddress: 'https://portalsite.xyz/public/logo.png',
+  thumbnailAddress: 'https://portalsite.xyz/public/thumbnail.png',
   description: 'Portal Site -- 포털 사이트',
   keyword: 'portal site 2021',
   contents: 'nextjs building'
