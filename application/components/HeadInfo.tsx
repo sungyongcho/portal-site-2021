@@ -27,8 +27,8 @@ const HeadInfo = ({ title, artist, description, thumbnailAddress, siteAddress, k
           : `Portal Site -- 포털사이트 : ${title} - ${artist}`)
       } />
       <meta property="og:image" content={thumbnailAddress === '' ? "https://portalsite.xyz/thumbnail.png" : "https://portalsite.xyz/thumbnail.png"} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={siteAddress ? `https://portalsite.xyz/${siteAddress}` : 'https://portalsite.xyz'} />
+      <meta property="og:description" content={description === '' ? "Portal Site -- 포털 사이트" : ""} />
+      <meta property="og:url" content={siteAddress === '' ? 'https://portalsite.xyz' : `https://portalsite.xyz/${siteAddress}`} />
       <meta name="description" content={description} />
       <meta name="keywords" content="" />
       <meta
@@ -56,7 +56,7 @@ HeadInfo.defaultProps = {
   artist: '',
   siteAddress: '',
   thumbnailAddress: '',
-  description: 'Portal Site -- 포털 사이트',
+  description: '',
   keyword: 'portal site 2021',
   contents: 'nextjs building'
 }
