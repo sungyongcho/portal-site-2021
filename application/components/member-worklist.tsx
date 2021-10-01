@@ -123,18 +123,23 @@ const MemberWorklist = ({ workList }: Props) => {
           onClose={() => setShowModal(false)}
           show={showModal} title={captionTitle}
         >
-          <div className="unset-img">
-            <img className="custom-img" onClick={closeModal}
-              src={imageAddress}
-              alt="" />
-          </div>
-          {/* {
-                      <div className="unset-img">
-                      <img className="custom-img" onClick={closeModal}
-                        src={imageAddress}
-                        alt="" />
-                    </div>
-          } */}
+          {
+            width > 767 ?
+              (
+                <div className="unset-img-desktop">
+                  <img className="custom-img-desktop" onClick={closeModal}
+                    src={imageAddress}
+                    alt="" />
+                </div>
+              ) :
+              (
+                <div className="unset-img-mobile">
+                  <img className="custom-img-mobile" onClick={closeModal}
+                    src={imageAddress}
+                    alt="" />
+                </div>
+              )
+          }
           <br />
           <CaptionStyle>
             <TitleStyle>{captionTitle !== '' && <div>{captionTitle}</div>}</TitleStyle>
