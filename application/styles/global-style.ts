@@ -146,17 +146,27 @@ export const GlobalStyle = createGlobalStyle`
     /* slider config */
     /* mobile */
 
-    .slider-mobile .slick-slider {
-      width: 100%;
-      overflow: hidden;
-    }
+    .slider-mobile .slick-list {
 
-    .slider-mobile .slick-slide div {
     }
-
+    .slider-mobile .slick-slide  {
+      border-left: 4vw solid transparent;
+      border-right: 4vw solid transparent;
+      /* cursor: pointer; */
+    }
     .slider-mobile .slick-slide img {
-      height: 20vh;
+      display: block;
+      width:auto;
+      height:20vh;
+      /* cursor: pointer; */
     }
+
+    .slider-mobile .slick-dots {
+    }
+
+    .slider-mobile .slick-track {
+    }
+
 
       /* desktop */
      .slider-desktop .slick-slider {

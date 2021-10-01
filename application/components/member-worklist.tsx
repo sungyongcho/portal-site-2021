@@ -29,11 +29,12 @@ const desktopSetting = {
 const mobileSetting = {
   className: "slider-mobile variable-width",
   arrows: false,
+  dots: true,
   infinite: true,
   centerMode: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  variableWidth: true,
+  variableWidth: true
 };
 
 
@@ -99,17 +100,24 @@ const MemberWorklist = ({ workList }: Props) => {
           <div />
         </Slider>
       </Container >) :
-        (<MobileContainer>
-          <Slider {...mobileSetting}>
-            {workList.map((workList) => (
-              <img
-                alt="" onClick={(e) => {
-                  openModal(e, workList)
-                }}
-                src={`${workList.address}`} />
-            ))}
-          </Slider>
-        </MobileContainer >)}
+        (
+          <MobileFrame>
+            <MobileContainer>
+              <MobileImage>
+                <Slider {...mobileSetting}>
+                  {workList.map((workList) => (
+                    <>
+                      <img
+                        alt="" onClick={(e) => {
+                          openModal(e, workList)
+                        }}
+                        src={`${workList.address}`} />
+                    </>
+                  ))}
+                </Slider>
+              </MobileImage>
+            </MobileContainer >
+          </MobileFrame>)}
       {
         modalIsOpen && <Modal
           onClose={() => setShowModal(false)}
@@ -141,12 +149,6 @@ const Container = styled.div`
   }
 `;
 
-const MobileContainer = styled.div`
-  overflow:hidden;
-  padding: 0;
-  width:100%;
-  height:25vh;
-`;
 
 const StyledSlider = styled(Slider)`
   .slick-slide div{
@@ -168,6 +170,22 @@ const TitleStyle = styled.div`
   line-height: 1.6;
   font-size: 1.8em;
 `;
+
+const MobileFrame = styled.div`
+  margin-top:0.5em;
+  margin-bottom:1em;
+  width:100%;
+  height: 20vh;
+`;
+
+const MobileContainer = styled.div`
+  background-color:transparent;
+`;
+
+const MobileImage = styled.div`
+  width:auto;
+`;
+
 
 // https://github.com/akiran/react-slick/issues/848
 export default MemberWorklist

@@ -29,7 +29,7 @@ const HeadInfo = ({ title, artist, description, thumbnailAddress, siteAddress, k
       <meta property="og:image" content={thumbnailAddress === '' ? "https://portalsite.xyz/thumbnail.png" : "https://portalsite.xyz/thumbnail.png"} />
       <meta property="og:description" content={description === '' ? "Portal Site -- 포털 사이트" : ""} />
       <meta property="og:url" content={siteAddress === '' ? 'https://portalsite.xyz' : `https://portalsite.xyz/${siteAddress}`} />
-      <meta name="description" content={description} />
+      <meta name="description" content={description === '' ? "Portal Site -- 포털 사이트" : ""} />
       <meta name="keywords" content="" />
       <meta
         name="viewport"

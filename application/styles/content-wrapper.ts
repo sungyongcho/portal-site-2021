@@ -6,7 +6,7 @@ const ContentWrapper = styled.div`
   border: 0.1em solid #EFEFEF;
   border-radius: 20px;
   padding: 5%;
-  overflow: scroll;
+  overflow: hidden;
   line-height: 1.5em;
   box-sizing: "border-box";
   z-index:1;
