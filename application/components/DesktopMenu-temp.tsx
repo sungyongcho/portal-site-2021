@@ -95,14 +95,13 @@ const MenuItem = styled.div`
   font-size: 2.1em;
   padding: 0.3em 0.5em;
   color: #EFEFEF;
-
   ${media.desktop}{
     font-size: 2.5em;
     padding: 0 1em;
   }
 
   &.large {
-    -moz-transition:all 1s;
+	  -moz-transition:all 1s;
     -webkit-transition:all 1s;
     -o-transition:all 1s;
     transition:all 1s;
@@ -110,16 +109,21 @@ const MenuItem = styled.div`
     ${media.desktop}{
       font-size: 4em;
     }
-  }
+    }
 
     &.nolarge {
-      -moz-transition:all 1s;
-      -webkit-transition:all 1s;
-      -o-transition:all 1s;
-      transition:all 1s;
+	  -moz-transition:all 1s;
+    -webkit-transition:all 1s;
+    -o-transition:all 1s;
+    transition:all 1s;
     }
     transform-origin: top left; /* add this in */
 `;
 
+const SubmenuWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+`
 
 export default DesktopMenu

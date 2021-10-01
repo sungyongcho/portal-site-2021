@@ -145,7 +145,7 @@ const Container = styled.div`
   width: 200%;
   overflow:hidden;
   ${media.desktop}{
-    width:200%;
+    width:100%;
   }
 `;
 
@@ -174,8 +174,8 @@ const TitleStyle = styled.div`
 const MobileFrame = styled.div`
   margin-top:0.5em;
   margin-bottom:1em;
-  /* width:100%; */
   height: 20vh;
+  overflow: hidden;
 `;
 
 const MobileContainer = styled.div`

@@ -121,26 +121,26 @@ const MenuItem = styled.div`
     left:50%;
     /* position:absolute; */
     transform: scale(1.8);
-	  -moz-transition:all 1s;
+    -moz-transition:all 1s;
     -webkit-transition:all 1s;
     -o-transition:all 1s;
     transition:all 1s;
-	  /* font-size: 4em; */
-    }
+    /* font-size: 4em; */
+  }
 
-    &.nolarge {
-
-	  -moz-transition:all 1s;
+  &.nolarge {
+    -moz-transition:all 1s;
     -webkit-transition:all 1s;
     -o-transition:all 1s;
     transition:all 1s;
     }
   transform-origin: top left; /* add this in */
 `;
+
 const SubmenuWrapper = styled.div`
   display: flex;
   flex-direction: row;
   text-align: center;
-`
+`;
 
 export default DesktopMenuWithMount

@@ -110,6 +110,7 @@ const GradientTop = styled.div`
   background: rgb(234,85,20);
   background: linear-gradient(0deg, rgba(234,85,20,0) 0%, rgba(234,85,20,1) 95%);
 `;
+
 const GradientBottom = styled.div`
   position: absolute;
   display: block;

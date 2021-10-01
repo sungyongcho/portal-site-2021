@@ -150,14 +150,14 @@ export const GlobalStyle = createGlobalStyle`
 
     }
     .slider-mobile .slick-slide  {
-
+      border-left: 4vw solid transparent;
+      border-right: 4vw solid transparent;
       /* cursor: pointer; */
     }
     .slider-mobile .slick-slide img {
-      border-left: 4vw solid transparent;
-      border-right: 4vw solid transparent;
+
       display: block;
-      width:auto;
+      width:80;
       height:20vh;
       /* cursor: pointer; */
     }
@@ -185,9 +185,10 @@ export const GlobalStyle = createGlobalStyle`
     }
     .slider-desktop .slick-slide img {
       width: calc(100% - 10px) !important;
-      height: 25vh;
+      /* height: 25vh; */
+
       ${media.desktop}{
-        height: 35vh;
+        height:30vh;
       }
     }
 
