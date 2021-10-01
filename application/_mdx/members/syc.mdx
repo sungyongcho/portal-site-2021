@@ -1,11 +1,19 @@
 ---
-memberName: 이다영
-genre: 전시 기획
+memberName: 조성용
+genre: 개발
 profilePhoto: /assets/artists/parkdongjoon/parkdongjoon_profile.png
 workList: []
 email: 'to.sungyongcho@gmail.com'
-website: 'https://github.com/sungyongcho/'
-order: 5
+sns: {
+	type: 'none',
+	id: '',
+	address: ''
+}
+website: {
+	name: 'Github (https://github.com/sungyongcho)',
+	address: 'https://github.com/sungyongcho/'
+}
+order: 9
 ---
 <MemberProfile picture={profilePhoto} content={`
 	소개글 들어갈 자리
@@ -15,5 +23,5 @@ order: 5
 
 ---
 ## Contact
-<MemberContact email={email} website={website} />
+<MemberContact email={email} sns={sns} website={website} />
 

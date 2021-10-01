@@ -1,3 +1,4 @@
+import { StringMappingType } from "typescript";
 
 type Props = {
   email: string,
@@ -6,10 +7,14 @@ type Props = {
     id: string,
     address: string
   },
-  website: string
+  website: {
+    name: string,
+    address: string
+  }
 }
 
 const MemberContact = ({ email, sns, website }: Props) => {
+  console.log(sns);
   return (
     <div className="max-w-2xl mx-auto">
       <ul>
@@ -19,15 +24,15 @@ const MemberContact = ({ email, sns, website }: Props) => {
           </li> :
           ''
         }
-        {(typeof sns !== undefined && sns !== null && sns.type !== '') ?
+        {(typeof sns !== undefined && sns !== null && sns.type !== 'none') ?
           <li>
             sns:  <a href={`${sns.address}`}>{sns.id}</a> ({sns.type})
           </li> :
           ''
         }
-        {(typeof website !== undefined && website !== null && website !== '') ?
+        {(typeof website !== undefined && website !== null && website.name !== 'none') ?
           <li>
-            website: <a href={`http://${website}`} >{website}</a>
+            website: <a href={`${website.address}`} >{website.name}</a>
           </li> : ''
         }
       </ul>

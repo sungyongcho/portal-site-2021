@@ -218,7 +218,6 @@ const TabletFrame = styled.div`
   }
 `;
 
-
 const TabletImage = styled.div`
   width:auto;
 `;
