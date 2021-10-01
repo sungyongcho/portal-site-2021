@@ -13,7 +13,7 @@ import LogoList from "../components/LogoList";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 import Image from "next/image";
-
+import HeadInfo from 'components/HeadInfo';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { height, width } = useWindowSize();
@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <HeadInfo />
       <GlobalStyle />
       <Wrapper>
         <NavWrapper>
