@@ -81,7 +81,7 @@ const ExhibitionHeaderWrapper = styled.div`
 const ExhibitionWrapper = styled.div`
   border: 0.1em solid #EFEFEF;
   width: 80vw;
-  height: 58vh;
+  height: 56vh;
   border-radius: 20px;
   margin-top: 8vh;
   padding: 0;
