@@ -107,7 +107,6 @@ const MemberWorklist = ({ workList }: Props) => {
                 <div />
               </Slider>
             </TabletImage>
-
           </TabletFrame>
         )
         :
@@ -192,7 +191,7 @@ const TitleStyle = styled.div`
 const MobileFrame = styled.div`
   margin-top:0.5em;
   margin-bottom:1em;
-  width:100%;
+  width:70vw;
   height: 20vh;
   overflow: hidden;
 `;
