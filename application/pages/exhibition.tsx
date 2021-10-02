@@ -88,14 +88,14 @@ const ExhibitionWrapper = styled.div`
   overflow: scroll;
   box-sizing: "border-box";
   ${media.tablet}{
-    margin-top: 18%;
+    margin-top: 11vh;
     width: 75vw;
-    height: 70vh;
+    height: 68vh;
   }
   ${media.desktop}{
-    margin-top: 13vh;
+    margin-top: 15vh;
     width: 55vw;
-    height: 72vh;
+    height: 64vh;
   }
 `;
 
