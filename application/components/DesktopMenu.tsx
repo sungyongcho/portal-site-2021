@@ -41,7 +41,6 @@ const DesktopMenu = () => {
       newArr.map(el => (el.path === path ? el.show = true : el.show = false))
     }
 
-    console.log(newArr);
   };
 
   const isCurrentURL = (url) => {
@@ -62,7 +61,6 @@ const DesktopMenu = () => {
               timeout={200}
               classNames={"item"}>
               <MenuItem onClick={(e) => {
-                console.log(menuItem.path);
                 handleClick(e, menuItem.path);
               }}
                 className={isCurrentURL(menuItem.path) && menuItem.show ? `large ${menuItem.title}` : `nolarge ${menuItem.title}`}

@@ -14,7 +14,6 @@ type Props = {
 }
 
 const MemberContact = ({ email, sns, website }: Props) => {
-  console.log(sns);
   return (
     <div className="max-w-2xl mx-auto">
       <ul>

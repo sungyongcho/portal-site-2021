@@ -89,21 +89,21 @@ const MobileContentWrapper = styled.div`
 `;
 
 const LeftNotch = styled.div`
-  position:fixed;
+  position:absolute;
   margin-left: auto; margin-right: auto; display: block;
   pointer-events: none;
   top:40%;
   left:0;
-  width:32%;
+  width:30%;
 `;
 
 const RightNotch = styled.div`
-  position:fixed;
+  position:absolute;
   margin-left: auto; margin-right: auto; display: block;
   pointer-events: none;
   top:40%;
   right:0;
-  width:32%;
+  width:30%;
 `;
 
 
