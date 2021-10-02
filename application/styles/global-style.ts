@@ -91,15 +91,23 @@ export const GlobalStyle = createGlobalStyle`
         padding-bottom: 1%;
       }
     }
+    ul{
+      margin-left: 2.5em;
+    }
     li {
+      font-size: 0.9em;
       list-style-position: inside;
-      text-indent: 1em;
+      text-indent: -2em;
+      margin-left: 1em;
       margin:0px; padding:0px;
+      line-height: -1%;
+      padding-bottom: 1%;
       ${media.tablet}{
         line-height: -1%;
         padding-bottom: 1%;
       }
       ${media.desktop}{
+        font-size: 1em;
         line-height: -1%;
         padding-bottom: 1%;
       }
@@ -107,12 +115,15 @@ export const GlobalStyle = createGlobalStyle`
     p {
       /* word-break: normal; */
       word-break: break-all;
-      font-size: 1.2em;
+      font-size: 0.9em;
+      line-height: -1%;
+      padding-bottom: 3%;
       ${media.tablet}{
         line-height: -1%;
         padding-bottom: 1%;
       }
       ${media.desktop}{
+        font-size: 1em;
         line-height: -1%;
         padding-bottom: 2%;
       }

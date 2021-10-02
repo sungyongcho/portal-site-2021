@@ -35,7 +35,9 @@ const TextPage = ({ source, frontMatter, criticPath }: Props) => {
           <TextTitle>{frontMatter.textTitle}</TextTitle>
         </ContentHeaderWrapper>
         <ContentWrapper>
-          <MDXRemote {...source} components={components} />
+          <IndentWrapper>
+            <MDXRemote {...source} components={components} />
+          </IndentWrapper>
         </ContentWrapper>
         <ContentBottomPadding />
       </ContentLayout >
@@ -58,6 +60,10 @@ const TextTitle = styled.p`
   ${media.tablet} {
     font-size: 2.5rem;
   }
+`;
+
+const IndentWrapper = styled.p`
+  text-indent: 1em;
 `;
 
 

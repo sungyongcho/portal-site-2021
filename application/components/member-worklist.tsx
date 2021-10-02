@@ -184,15 +184,21 @@ const CaptionStyle = styled.div`
   }
 `;
 const TitleStyle = styled.div`
-  line-height: 1.6;
-  font-size: 1.8em;
+  text-align: center;
+  line-height: 2;
+  font-size: 1.4em;
+  ${media.desktop}
+  {
+    line-height: 1.6;
+    font-size:1.8em;
+  }
 `;
 
 const MobileFrame = styled.div`
   margin-top:0.5em;
   margin-bottom:1em;
   width:66vw;
-  height: 20vh;
+  height: 22vh;
   overflow: hidden;
 `;
 
