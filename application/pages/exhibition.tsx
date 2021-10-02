@@ -38,6 +38,7 @@ const ExhibitionPage = () => {
 export default ExhibitionPage
 
 const ExhibitionLayout = styled.div`
+  z-index: 1;
   height: 80vh;
   font-size: 1.2em;
   overflow: hidden;
@@ -82,7 +83,7 @@ const ExhibitionWrapper = styled.div`
   width: 80vw;
   height: 55vh;
   border-radius: 20px;
-  margin-top: 15vh;
+  margin-top: 10vh;
   padding: 0;
   overflow: scroll;
   box-sizing: "border-box";
