@@ -38,7 +38,6 @@ const ExhibitionPage = () => {
 export default ExhibitionPage
 
 const ExhibitionLayout = styled.div`
-  z-index: 1;
   height: 80vh;
   font-size: 1.2em;
   overflow: hidden;
