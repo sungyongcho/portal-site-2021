@@ -83,7 +83,7 @@ const ExhibitionWrapper = styled.div`
   width: 80vw;
   height: 58vh;
   border-radius: 20px;
-  margin-top: 10vh;
+  margin-top: 8vh;
   padding: 0;
   overflow: scroll;
   box-sizing: "border-box";
