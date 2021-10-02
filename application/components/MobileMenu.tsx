@@ -25,9 +25,14 @@ const MobileMenu = ({ children }: Props) => {
         return (
           <Nav key={menuItem.path}>
             <MenuItem>
-              <a onClick={(e) => {
-                handleClick(e, menuItem.path)
-              }}>{menuItem.title}</a>
+              {
+                menuItem.title !== 'SNS' ?
+                  <a onClick={(e) => {
+                    handleClick(e, menuItem.path)
+                  }}>{menuItem.title}</a>
+                  :
+                  <a href="https://instagram.com/portalsite">{"SNS"}</a>
+              }
             </MenuItem>
             {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <SubmenuWrapper> {children} </SubmenuWrapper> : ''}
           </Nav>
