@@ -19,7 +19,6 @@ const MemberProfile = ({ name, picture, content }: Props) => {
           src={picture}
           width='200px'
           height='200px'
-          objectFit={'contain'}
           alt={name} /> :
           <ProfilePhotoFrame
             src={picture}
@@ -35,6 +34,20 @@ const MemberProfile = ({ name, picture, content }: Props) => {
   )
 }
 
+const PhotoWrapper = styled.div`
+  flex: 1 0 100px;
+  ${media.tablet}{
+    flex: 1 0 120px;
+  }
+  ${media.desktop}{
+    flex: 1 0 120px;
+  }
+`;
+
+const IntroWrapper = styled.div`
+  flex: 0 1 auto;
+`;
+
 const ProfileLayout = styled.div`
   display:flex;
   flex-direction: column;
@@ -49,34 +62,22 @@ const ProfileLayout = styled.div`
     flex-direction: row;
     line-height: 2em;
   }
-`
-const PhotoWrapper = styled.div`
-  position: relative;
-  justify-content: center;
-  margin-bottom: 3%;
-  ${media.tablet}{
-    width: 100%;
-    margin-bottom:0;
+  & ${PhotoWrapper} {
+    /* background: #ff00ff; */
   }
-  ${media.desktop}{
-    width: 120%;
-    margin-bottom:0;
-  }
-`;
 
-const IntroWrapper = styled.div`
-  position: relative;
-  margin-bottom: 3%;
-  margin-left: 5%;
-  ${media.tablet}{
-    margin-bottom:0;
+  & ${IntroWrapper} {
+    padding-left: 2vw;
+    /* background: black; */
   }
-  ${media.desktop}{
-    margin-bottom:0;
-  }
-`;
+`
 
 const ProfilePhotoFrame = styled(Image)`
-  align-self: center;
+display : block;
+margin : auto;
 `;
+
+
+
+
 export default MemberProfile
