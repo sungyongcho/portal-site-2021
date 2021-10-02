@@ -161,8 +161,8 @@ export const GlobalStyle = createGlobalStyle`
 
     }
     .slider-mobile .slick-slide  {
-      border-left: 4vw solid transparent;
-      border-right: 4vw solid transparent;
+      border-left: 2vw solid transparent;
+      border-right: 2vw solid transparent;
       /* cursor: pointer; */
     }
     .slider-mobile .slick-slide img {

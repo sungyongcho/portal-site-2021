@@ -231,8 +231,9 @@ const TitleStyle = styled.div`
 const MobileFrame = styled.div`
   margin-top:0.5em;
   margin-bottom:1em;
-  width:66vw;
-  height: 22vh;
+  margin-left: -2vw;
+  width:70vw;
+  height: 20vh;
   overflow: hidden;
 `;
 
