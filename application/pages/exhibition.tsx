@@ -38,7 +38,7 @@ const ExhibitionPage = () => {
 export default ExhibitionPage
 
 const ExhibitionLayout = styled.div`
-  height: 100%;
+  height: 80vh;
   font-size: 1.2em;
   overflow: hidden;
   ${media.tablet} {
@@ -80,7 +80,7 @@ const ExhibitionHeaderWrapper = styled.div`
 const ExhibitionWrapper = styled.div`
   border: 0.1em solid #EFEFEF;
   width: 80vw;
-  height: 55vh;
+  height: 65vh;
   border-radius: 20px;
   margin-top: 8vh;
   padding: 0;
