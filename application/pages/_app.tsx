@@ -54,9 +54,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         </ThemeProvider>
         <GradientTop /> {/* 올리면 안가려짐, 내리면 가려짐, wrapper 바로 밑으로 */}
         <GradientBottom />
-        <NavWrapper>
-          <Nav enableButton={false} />
-        </NavWrapper>
       </Wrapper>
     </>
   );
@@ -89,7 +86,7 @@ const NavWrapper = styled(motion.div)`
     left: 2rem;
   }
   ${media.desktop} {
-    top: 4rem;
+    top: 3rem;
     left: 3rem;
   }
 `;
