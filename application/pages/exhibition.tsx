@@ -80,9 +80,9 @@ const ExhibitionHeaderWrapper = styled.div`
 const ExhibitionWrapper = styled.div`
   border: 0.1em solid #EFEFEF;
   width: 80vw;
-  height: 65vh;
+  height: 55vh;
   border-radius: 20px;
-  margin-top: 10vh;
+  margin-top: 8vh;
   padding: 0;
   overflow: scroll;
   box-sizing: "border-box";
