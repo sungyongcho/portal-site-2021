@@ -20,9 +20,9 @@ const DesktopMenu = () => {
 
   const [items, setItems] = useState([
     { title: 'Member', path: '/member', show: true },
-    { title: 'Interview', path: '/interview', show: true },
-    { title: 'Exhibition', path: '/exhibition', show: true },
     { title: 'Texts', path: '/texts', show: true },
+    { title: 'Exhibition', path: '/exhibition', show: true },
+    { title: 'Interview', path: '/interview', show: true },
     { title: 'SNS', path: '/sns', show: true },
   ]);
 
