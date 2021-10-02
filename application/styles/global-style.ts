@@ -157,7 +157,6 @@ export const GlobalStyle = createGlobalStyle`
     .slider-mobile .slick-slide img {
 
       display: block;
-      width:80;
       height:20vh;
       /* cursor: pointer; */
     }
