@@ -70,12 +70,10 @@ const MemberWorklist = ({ workList }: Props) => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    console.log("useEffect");
-    modal.isOpen ? setShowModal(true) : setShowModal(false);
+    setShowModal(modal.isOpen);
   }, [modal]);
 
   const handleOnMouseDown = (e: React.MouseEvent<HTMLElement>) => {
-    console.log("handleOnMouseDown");
     setClickedPosisionX({
       x: e.clientX,
       y: e.clientY,
@@ -84,7 +82,6 @@ const MemberWorklist = ({ workList }: Props) => {
   };
 
   const handleOnMouseUp = (e: React.MouseEvent<HTMLElement>, work) => {
-    console.log("handleOnMouseUp", clickedPosision);
     if (
       Math.abs(clickedPosision.x - e.clientX) >= MoveDragThreshold ||
       Math.abs(clickedPosision.y - e.clientY) >= MoveDragThreshold
