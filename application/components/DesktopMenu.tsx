@@ -60,13 +60,11 @@ const DesktopMenu = () => {
               key={menuItem.path}
               timeout={200}
               classNames={"item"}>
-              <MenuItem onClick={(e) => {
-                handleClick(e, menuItem.path);
-              }}
+              <MenuItem
                 className={isCurrentURL(menuItem.path) && menuItem.show ? `large ${menuItem.title}` : `nolarge ${menuItem.title}`}
               >
                 {menuItem.title !== 'SNS' ?
-                  <a >{menuItem.title}</a> : <a href="https://instagram.com/portalsite" target="_blank">{"SNS"}</a>}
+                  <a href="https://instagram.com/portalsite" target="_blank">{"SNS"}</a> : <a >{menuItem.title}</a>}
               </MenuItem>
             </CSSTransition>
           )
