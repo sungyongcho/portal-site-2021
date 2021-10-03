@@ -14,7 +14,7 @@ import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import HeadInfo from 'components/HeadInfo';
 
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -37,16 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const showContent =
     (router.pathname.match(/\//g) || []).length === 1 ? false : true;
 
-  useEffect(() => {
-    window.history.scrollRestoration = 'manual'
-    if (showContent || router.pathname === "/") {
-      router.events.on('routeChangeComplete', () => {
-        setTimeout(() => window.scrollTo(0, 0), 0);
-        console.log("ssup");
-      })
-    }
-  });
-
+  if (typeof window !== 'undefined') window.scrollTo(0, 0)
 
   return (
     <>
