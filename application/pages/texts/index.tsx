@@ -34,7 +34,7 @@ const TextNav = ({ texts }: TextProps) => {
         {
           texts.map((texts) => (
             <Item key={texts.slug}>
-              <Link href={`texts/${texts.slug}`}><a>{texts.criticName}</a></Link>
+              <Link href={`texts/${texts.slug}`}><a>{texts.textMenuName}</a></Link>
             </Item>
           ))
         }
@@ -50,6 +50,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const texts = getAllTexts([
     'slug',
     'order',
+    'textMenuName',
     'criticName',
     'content'
   ]);
