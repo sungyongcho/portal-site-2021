@@ -52,6 +52,7 @@ const ProfileLayout = styled.div`
   display:flex;
   flex-direction: column;
   align-items: center;
+  line-height: 1.6em;
   ${media.tablet} {
     font-size: 0.8em;
     flex-direction: row;
