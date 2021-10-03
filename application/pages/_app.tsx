@@ -14,8 +14,6 @@ import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import HeadInfo from 'components/HeadInfo';
 
-import Router from "next/router";
-import { useEffect, useCallback } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { height, width } = useWindowSize();
@@ -34,15 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
   };
 
-  const resetWindowScrollPosition = useCallback(() => window.scrollTo(0, 0), []);
 
-  useEffect(() => {
-    Router.events.on("routeChangeComplete", resetWindowScrollPosition);
-
-    return () => {
-      Router.events.off("routeChangeComplete", resetWindowScrollPosition);
-    };
-  }, []);
 
   return (
     <>

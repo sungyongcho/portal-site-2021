@@ -34,7 +34,7 @@ const TextNav = ({ texts }: TextProps) => {
         {
           texts.map((texts) => (
             <Item key={texts.slug}>
-              <Link href={`texts/${texts.slug}`}><a>{texts.textMenuName}</a></Link>
+              <Link href={`texts/${texts.slug}`} passHref><a>{texts.textMenuName}</a></Link>
             </Item>
           ))
         }

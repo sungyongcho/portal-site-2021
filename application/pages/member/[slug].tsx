@@ -17,10 +17,6 @@ import ContentWrapper from '../../styles/content-wrapper'
 import ContentLogo from '../../components/ContentLogo'
 import HeadInfo from 'components/HeadInfo';
 
-import Router from "next/router";
-import { useEffect, useCallback } from 'react';
-
-
 type Props = {
   source: MDXRemoteSerializeResult;
   frontMatter: Omit<IMember, 'order'>;
@@ -35,16 +31,6 @@ const components = {
 
 
 const MemberPage = ({ source, frontMatter, memberPath }: Props) => {
-  const resetWindowScrollPosition = useCallback(() => window.scrollTo(0, 0), []);
-
-  useEffect(() => {
-    Router.events.on("routeChangeComplete", resetWindowScrollPosition);
-
-    return () => {
-      Router.events.off("routeChangeComplete", resetWindowScrollPosition);
-    };
-  }, []);
-
   return (
     <>
       <HeadInfo title={"Member"} artist={frontMatter.memberName} siteAddress={`member/${memberPath}`} />

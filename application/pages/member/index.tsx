@@ -36,7 +36,7 @@ const MemberNav = ({ members }: MemberProps) => {
         {
           members.map((members) => (
             <Item key={members.slug}>
-              <Link href={`member/${members.slug}`}><a>{members.memberName}</a></Link>
+              <Link href={`member/${members.slug}`} passHref><a>{members.memberName}</a></Link>
             </Item>
           ))
         }

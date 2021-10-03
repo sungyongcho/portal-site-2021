@@ -32,7 +32,7 @@ const InterviewNav = ({ interviews }: InterviewProps) => {
         {
           interviews.map((interviews) => (
             <Item key={interviews.slug}>
-              <Link href={`interview/${interviews.slug}`}><a>{interviews.artistName}</a></Link>
+              <Link href={`interview/${interviews.slug}`} passHref><a>{interviews.artistName}</a></Link>
             </Item>
           ))
         }
