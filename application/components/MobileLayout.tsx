@@ -36,16 +36,19 @@ const MobileLayout = ({ children }: Props) => {
       path: "/logos/arko_logo.png",
       widthRatio: 9.2457142857,
       altText: "arko_logo",
+      url: "https://www.arko.or.kr/"
     },
     {
       path: "/logos/archiving_babel_logo.png",
       widthRatio: 3.9031007752,
       altText: "archiving_babel_logo",
+      url: "https://www.archivingbabel.com/"
     },
     {
       path: "/logos/saegonggan_logo.png",
       widthRatio: 1.4175152749,
       altText: "saegonggan_logo",
+      url: "https://saegonggan.com/"
     },
   ]
 
