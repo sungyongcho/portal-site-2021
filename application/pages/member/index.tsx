@@ -16,10 +16,6 @@ type MemberProps = {
 }
 
 const MemberNav = ({ members }: MemberProps) => {
-  const scrollToTop = (event) => {
-    document.getElementById('root').scrollTo(0, 0);
-  };
-
   return (
     <>
       <HeadInfo title={"Member"} siteAddress={'member'} />
@@ -36,7 +32,7 @@ const MemberNav = ({ members }: MemberProps) => {
         {
           members.map((members) => (
             <Item key={members.slug}>
-              <Link href={`member/${members.slug}`} >{members.memberName}</Link>
+              <Link href={`member/${members.slug}`}><a>{members.memberName}</a></Link>
             </Item>
           ))
         }

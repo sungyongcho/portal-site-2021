@@ -14,6 +14,8 @@ import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import HeadInfo from 'components/HeadInfo';
 
+import { useRouter } from "next/router";
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { height, width } = useWindowSize();
@@ -31,7 +33,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       desktop: width - ((width * 0.01) * 2),
     },
   };
+  const router = useRouter();
+  const showContent =
+    (router.pathname.match(/\//g) || []).length === 1 ? false : true;
 
+  useEffect(() => {
+    (showContent || router.pathname === "/") && window.scrollTo(0, 0);
+    console.log(showContent);
+  });
 
 
   return (
