@@ -9,12 +9,13 @@ const ContentWrapper = styled.div`
   overflow: hidden;
   line-height: 1.5em;
   box-sizing: "border-box";
-  z-index:1;
-  width: 90%;
+  width: 68vw;
   ${media.tablet} {
+    width: 58vw;
     padding: 4%;
   }
   ${media.desktop}{
+    width: 44vw;
     padding: 3%;
   }
 `;

@@ -53,7 +53,6 @@ const MemberNav = ({ members }: MemberProps) => {
           members.map((members) => (
             <Item key={members.slug}>
               <Link href={`member/${members.slug}`}>{members.memberName}</Link>
-              <ButtonTest name='탑승하기' onClick={goToRecruit} >야야야</ButtonTest>
             </Item>
           ))
         }

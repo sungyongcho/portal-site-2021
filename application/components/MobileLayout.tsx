@@ -81,14 +81,12 @@ const MobileFooter = styled.div`
 `;
 
 const MobileContentWrapper = styled.div`
-  margin-top: 10%;
   position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: auto;
-  padding-bottom: 15vh;
 `;
 
 const LeftNotch = styled.div`

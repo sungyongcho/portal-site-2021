@@ -53,11 +53,9 @@ function MyApp({ Component, pageProps }: AppProps) {
               <Component {...pageProps} />
             </DesktopLayout>
           ) : (
-            <RouterScrollProvider>
-              <MobileLayout>
-                <Component {...pageProps} />
-              </MobileLayout>
-            </RouterScrollProvider>
+            <MobileLayout>
+              <Component {...pageProps} />
+            </MobileLayout>
           )}
         </ThemeProvider>
         <GradientTop /> {/* 올리면 안가려짐, 내리면 가려짐, wrapper 바로 밑으로 */}
@@ -122,6 +120,7 @@ const GradientBottom = styled.div`
   bottom: 0;
   width:100%;
   height:15%;
+  background-color: transparent;
   background: rgb(234,85,20);
   background: linear-gradient(180deg, rgba(234,85,20,0) 0%, rgba(234,85,20,1) 100%);
 `;

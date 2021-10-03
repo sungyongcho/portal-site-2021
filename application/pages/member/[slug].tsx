@@ -36,11 +36,7 @@ const components = {
 
 
 const MemberPage = ({ source, frontMatter, memberPath }: Props) => {
-  const { updateScroll } = useRouterScroll();
 
-  useEffect(() => {
-    updateScroll();
-  }, []);
   return (
     <>
 

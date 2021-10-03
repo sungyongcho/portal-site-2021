@@ -4,16 +4,16 @@ import { media } from './theme';
 const MemberContentLayout = styled.div`
   position: relative;
   font-size: 1.2em;
-  width:80%;
-  margin-top: 8vh;
+  width:76vw;
+  padding-top: 12vh;
   overflow: auto;
   ${media.tablet}{
-    height: 100%;
-    margin-top: 25vh;
+    padding-top: 12vh;
+    width:64vw;
   }
   ${media.desktop}{
-    height:100%;
-    margin-top: 30vh;
+    padding-top: 12vh;
+    width:48vw;
     font-size: 1.6em;
   }
   `;
