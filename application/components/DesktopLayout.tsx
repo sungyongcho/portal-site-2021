@@ -9,7 +9,8 @@ import Nav from './Nav'
 import NotchLeft from "../public/notch_left.png"
 import NotchRight from "../public/notch_right.png"
 import Image from 'next/image'
-
+import useRouterScroll from 'hooks/useRouterScroll';
+import { useScroll } from '../hooks/useScroll'
 type Props = {
   children: any
 }
@@ -47,6 +48,9 @@ const DesktopLayout = ({ children }: Props) => {
       url: "https://saegonggan.com/"
     },
   ]
+  useRouterScroll();
+  useScroll();
+
 
   return (
     <>

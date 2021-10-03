@@ -15,6 +15,7 @@ import ContentWrapper from 'styles/content-wrapper';
 import ContentLogo from '../../components/ContentLogo'
 import ContentPaddingTop from 'styles/content-padding-top';
 import HeadInfo from 'components/HeadInfo';
+import useRouterScroll from 'hooks/useRouterScroll';
 
 type Props = {
   source: MDXRemoteSerializeResult;
@@ -28,6 +29,7 @@ const components = {
 
 
 const interviewPage = ({ source, frontMatter, interviewPath }: Props) => {
+  useRouterScroll();
   return (
     <>
       <HeadInfo title={"Interview"}

@@ -10,12 +10,14 @@ import Item from '../../styles/item'
 import { motion } from 'framer-motion';
 import StyledMotion from '../../styles/StyledMotion'
 import HeadInfo from 'components/HeadInfo';
+import useRouterScroll from 'hooks/useRouterScroll';
 
 type InterviewProps = {
   interviews: IInterview[];
 }
 
 const InterviewNav = ({ interviews }: InterviewProps) => {
+  useRouterScroll();
   return (
     <>
       <HeadInfo title={"Interview"} />

@@ -17,6 +17,11 @@ import ContentWrapper from '../../styles/content-wrapper'
 import ContentLogo from '../../components/ContentLogo'
 import HeadInfo from 'components/HeadInfo';
 
+import { useScroll } from '../../hooks/useScroll'
+
+import React, { useEffect, useRef } from 'react';
+import { useRouterScroll } from '@moxy/next-router-scroll';
+
 type Props = {
   source: MDXRemoteSerializeResult;
   frontMatter: Omit<IMember, 'order'>;
@@ -31,9 +36,14 @@ const components = {
 
 
 const MemberPage = ({ source, frontMatter, memberPath }: Props) => {
+  const { updateScroll } = useRouterScroll();
 
+  useEffect(() => {
+    updateScroll();
+  }, []);
   return (
     <>
+
       <HeadInfo title={"Member"} artist={frontMatter.memberName} siteAddress={`member/${memberPath}`} />
       <ContentLogo />
       <MemberContentLayout>

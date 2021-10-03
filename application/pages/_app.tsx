@@ -15,9 +15,10 @@ import Image from "next/image";
 import HeadInfo from 'components/HeadInfo';
 
 import Router, { useRouter } from "next/router";
-import { useEffect } from 'react';
+import { RouterScrollProvider } from '@moxy/next-router-scroll';
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   const { height, width } = useWindowSize();
 
   // TODO: rename
@@ -37,8 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const showContent =
     (router.pathname.match(/\//g) || []).length === 1 ? false : true;
 
-  if (typeof window !== 'undefined') window.scrollTo(0, 0)
-
+  console.log(router.pathname);
   return (
     <>
       <HeadInfo />
@@ -53,9 +53,11 @@ function MyApp({ Component, pageProps }: AppProps) {
               <Component {...pageProps} />
             </DesktopLayout>
           ) : (
-            <MobileLayout>
-              <Component {...pageProps} />
-            </MobileLayout>
+            <RouterScrollProvider>
+              <MobileLayout>
+                <Component {...pageProps} />
+              </MobileLayout>
+            </RouterScrollProvider>
           )}
         </ThemeProvider>
         <GradientTop /> {/* 올리면 안가려짐, 내리면 가려짐, wrapper 바로 밑으로 */}

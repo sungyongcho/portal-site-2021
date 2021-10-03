@@ -5,9 +5,8 @@ const MemberContentLayout = styled.div`
   position: relative;
   font-size: 1.2em;
   width:80%;
-  height: 100%;
   margin-top: 8vh;
-  align-self: center;
+  overflow: auto;
   ${media.tablet}{
     height: 100%;
     margin-top: 25vh;

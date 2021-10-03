@@ -10,12 +10,32 @@ import Item from '../../styles/item'
 import { motion } from 'framer-motion';
 import StyledMotion from '../../styles/StyledMotion'
 import HeadInfo from 'components/HeadInfo';
+import useRouterScroll from 'hooks/useRouterScroll';
+
+import { useRouter } from 'next/router';
+
+import React, { forwardRef } from 'react';
+import styled from 'styled-components'
 
 type MemberProps = {
   members: IMember[];
 }
 
+type Props = {
+  onClick: () => void,
+  href: string
+}
+
+type RefType = number
+
+
 const MemberNav = ({ members }: MemberProps) => {
+  const router = useRouter();
+  const goToRecruit = () => {
+    router.push('/member/syc').then(() => window.scrollTo(0, 0));
+  };
+
+
   return (
     <>
       <HeadInfo title={"Member"} siteAddress={'member'} />
@@ -32,7 +52,8 @@ const MemberNav = ({ members }: MemberProps) => {
         {
           members.map((members) => (
             <Item key={members.slug}>
-              <Link href={`member/${members.slug}`}><a>{members.memberName}</a></Link>
+              <Link href={`member/${members.slug}`}>{members.memberName}</Link>
+              <ButtonTest name='탑승하기' onClick={goToRecruit} >야야야</ButtonTest>
             </Item>
           ))
         }
@@ -40,6 +61,9 @@ const MemberNav = ({ members }: MemberProps) => {
     </>
   )
 }
+
+const ButtonTest = styled.button`
+`;
 
 export default MemberNav
 

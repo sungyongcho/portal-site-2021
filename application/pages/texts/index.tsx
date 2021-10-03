@@ -12,11 +12,20 @@ import { motion } from 'framer-motion';
 import Item from '../../styles/item'
 import StyledMotion from '../../styles/StyledMotion'
 
+import { useRouter } from 'next/router';
+
 type TextProps = {
   texts: IText[];
 }
 
+
 const TextNav = ({ texts }: TextProps) => {
+
+  const router = useRouter();
+  const goToRecruit = () => {
+    router.push('/texts/leedayoung').then(() => window.scrollTo(0, 0));
+  };
+
   return (
     <>
       <HeadInfo title={"Texts"} siteAddress={'texts'} />
@@ -35,6 +44,8 @@ const TextNav = ({ texts }: TextProps) => {
           texts.map((texts) => (
             <Item key={texts.slug}>
               <Link href={`texts/${texts.slug}`}><a>{texts.textMenuName}</a></Link>
+              <ButtonTest name='탑승하기' onClick={goToRecruit} />
+
             </Item>
           ))
         }
@@ -43,6 +54,8 @@ const TextNav = ({ texts }: TextProps) => {
   )
 }
 
+const ButtonTest = styled.button`
+`;
 
 export default TextNav
 

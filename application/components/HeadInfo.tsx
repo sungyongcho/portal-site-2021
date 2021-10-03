@@ -13,6 +13,11 @@ type Props = {
 const HeadInfo = ({ title, artist, description, thumbnailAddress, siteAddress, keyword, contents }: Props) => {
   return (
     <Head>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `history.scrollRestoration = "manual"`,
+        }}
+      />
       {title === '' ? <title>Portal Site -- 포털사이트</title>
         : (artist === '' ?
           <title>Portal Site -- 포털사이트 : {title}</title>
