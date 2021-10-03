@@ -17,8 +17,8 @@ const MemberProfile = ({ name, picture, content }: Props) => {
       <PhotoWrapper>
         {width > 767 ? <ProfilePhotoFrame
           src={picture}
-          width='200px'
-          height='200px'
+          width='120px'
+          height='120px'
           alt={name} /> :
           <ProfilePhotoFrame
             src={picture}
@@ -49,26 +49,29 @@ const IntroWrapper = styled.div`
 `;
 
 const ProfileLayout = styled.div`
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   display:flex;
   flex-direction: column;
   align-items: center;
   line-height: 1.6em;
   ${media.tablet} {
     font-size: 0.8em;
-    flex-direction: row;
+    flex-direction: column;
     line-height: 2.2em;
   }
   ${media.desktop} {
     font-size: 0.98em;
-    flex-direction: row;
+    flex-direction: column;
     line-height: 2em;
   }
   & ${PhotoWrapper} {
+    margin-bottom: 2%;
     /* background: #ff00ff; */
   }
 
   & ${IntroWrapper} {
-    padding-left: 2vw;
     /* background: black; */
   }
 `
