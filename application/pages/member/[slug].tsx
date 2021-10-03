@@ -31,6 +31,7 @@ const components = {
 
 
 const MemberPage = ({ source, frontMatter, memberPath }: Props) => {
+  window.scrollTo(0, 0);
   return (
     <>
       <HeadInfo title={"Member"} artist={frontMatter.memberName} siteAddress={`member/${memberPath}`} />
