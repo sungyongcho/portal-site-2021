@@ -17,8 +17,8 @@ const MemberProfile = ({ name, picture, content }: Props) => {
       <PhotoWrapper>
         {width > 767 ? <ProfilePhotoFrame
           src={picture}
-          width='150px'
-          height='150px'
+          width='200px'
+          height='200px'
           alt={name} /> :
           <ProfilePhotoFrame
             src={picture}
