@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
         display: none;
     }
     html{
+        overflow:hidden;
         color: #EFEFEF;
         height: 100%;
         width: 100%;
