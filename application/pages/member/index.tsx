@@ -16,6 +16,10 @@ type MemberProps = {
 }
 
 const MemberNav = ({ members }: MemberProps) => {
+  const scrollToTop = (event) => {
+    document.getElementById('root').scrollTo(0, 0);
+  };
+
   return (
     <>
       <HeadInfo title={"Member"} siteAddress={'member'} />

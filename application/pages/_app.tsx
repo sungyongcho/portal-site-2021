@@ -14,6 +14,9 @@ import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import HeadInfo from 'components/HeadInfo';
 
+import * as React from "react";
+
+
 function MyApp({ Component, pageProps }: AppProps) {
   const { height, width } = useWindowSize();
 
@@ -31,7 +34,24 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
   };
 
+  const timeoutRef = React.useRef();
 
+  const clearTimer = React.useCallback(
+    () => clearTimeout(timeoutRef.current),
+    []
+  );
+
+  React.useEffect(() => {
+    if (timeoutRef.current) clearTimer();
+
+    timeoutRef.current = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 1000);
+
+    return () => {
+      clearTimer();
+    };
+  }, [clearTimer]);
 
   return (
     <>
