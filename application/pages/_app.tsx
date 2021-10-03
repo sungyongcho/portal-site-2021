@@ -38,8 +38,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     (router.pathname.match(/\//g) || []).length === 1 ? false : true;
 
   useEffect(() => {
-    (showContent || router.pathname === "/") && window.scrollTo(0, 0);
-    console.log(showContent);
+    if (showContent || router.pathname === "/") {
+      router.events.on('routeChangeComplete', () => {
+        setTimeout(() => window.scrollTo(0, 0), 0);
+        console.log("ssup");
+      })
+    }
   });
 
 

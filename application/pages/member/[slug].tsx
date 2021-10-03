@@ -31,6 +31,7 @@ const components = {
 
 
 const MemberPage = ({ source, frontMatter, memberPath }: Props) => {
+
   return (
     <>
       <HeadInfo title={"Member"} artist={frontMatter.memberName} siteAddress={`member/${memberPath}`} />
