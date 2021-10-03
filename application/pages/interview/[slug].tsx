@@ -37,7 +37,7 @@ const interviewPage = ({ source, frontMatter, interviewPath }: Props) => {
       <ContentLogo />
       <ContentLayout>
         <ContentHeaderWrapper>
-          <InterviewTitle> {frontMatter.interviewTitle}</InterviewTitle>
+          {/* <InterviewTitle> {frontMatter.interviewTitle}</InterviewTitle> */}
         </ContentHeaderWrapper>
         <ContentWrapper>
           <MDXRemote {...source} components={components} />

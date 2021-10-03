@@ -62,7 +62,10 @@ const MemberName = styled.p`
 const MemberGenre = styled.p`
   font-size: 1.7rem;
   ${media.tablet} {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
+  }
+  ${media.desktop} {
+    font-size: 1.8rem;
   }
 `;
 

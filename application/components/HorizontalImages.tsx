@@ -6,6 +6,7 @@ type Images = {
   path: string;
   widthRatio: number;
   altText: string;
+  url: string;
 };
 
 type Props = {
@@ -18,7 +19,9 @@ const HorizontalImages: FunctionComponent<Props> = ({ images, gap }) => {
     <Container>
       {images && images.map((image) => (
         <div key={image.altText} style={{ flexGrow: image.widthRatio, padding: gap ?? 0 }}>
-          <Image src={image.path} width={image.widthRatio * 100} height={100} alt={image.altText} layout="responsive" />
+          <a href={image.url} target="_blank">
+            <Image src={image.path} width={image.widthRatio * 100} height={100} alt={image.altText} layout="responsive" />
+          </a>
         </div>
       ))}
     </Container>

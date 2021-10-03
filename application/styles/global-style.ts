@@ -190,7 +190,7 @@ export const GlobalStyle = createGlobalStyle`
 
         ${media.desktop}
         {
-          border-right: 4vw solid transparent;
+          border-right: 2vw solid transparent;
         }
         display: block;
       	height:20vh;

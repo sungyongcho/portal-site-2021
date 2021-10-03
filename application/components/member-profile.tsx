@@ -55,7 +55,7 @@ const ProfileLayout = styled.div`
   ${media.tablet} {
     font-size: 0.8em;
     flex-direction: row;
-    line-height: 1.3em;
+    line-height: 2.2em;
   }
   ${media.desktop} {
     font-size: 0.98em;

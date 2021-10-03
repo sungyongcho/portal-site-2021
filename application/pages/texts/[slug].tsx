@@ -31,7 +31,7 @@ const TextPage = ({ source, frontMatter, criticPath }: Props) => {
       <ContentLayout>
         <ContentLogo />
         <ContentHeaderWrapper>
-          <CriticName> {frontMatter.criticName}</CriticName>
+          {/* <CriticName> {frontMatter.criticName}</CriticName> */}
           <TextTitle>{frontMatter.textTitle}</TextTitle>
         </ContentHeaderWrapper>
         <ContentWrapper>

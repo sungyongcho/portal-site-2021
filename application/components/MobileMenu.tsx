@@ -31,7 +31,7 @@ const MobileMenu = ({ children }: Props) => {
                     handleClick(e, menuItem.path)
                   }}>{menuItem.title}</a>
                   :
-                  <a href="https://instagram.com/portalsite">{"SNS"}</a>
+                  <a href="https://instagram.com/portalsite" target='_blank'>{"SNS"}</a>
               }
             </MenuItem>
             {menuItem.hasSubmenu && (router.pathname === `/${menuItem.path}`) ? <SubmenuWrapper> {children} </SubmenuWrapper> : ''}
