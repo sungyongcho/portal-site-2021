@@ -14,8 +14,8 @@ import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import HeadInfo from 'components/HeadInfo';
 
-import * as React from "react";
-
+import Router from "next/router";
+import { useEffect, useCallback } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { height, width } = useWindowSize();
@@ -34,24 +34,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
   };
 
-  const timeoutRef = React.useRef();
+  const resetWindowScrollPosition = useCallback(() => window.scrollTo(0, 0), []);
 
-  const clearTimer = React.useCallback(
-    () => clearTimeout(timeoutRef.current),
-    []
-  );
-
-  React.useEffect(() => {
-    if (timeoutRef.current) clearTimer();
-
-    timeoutRef.current = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 1000);
+  useEffect(() => {
+    Router.events.on("routeChangeComplete", resetWindowScrollPosition);
 
     return () => {
-      clearTimer();
+      Router.events.off("routeChangeComplete", resetWindowScrollPosition);
     };
-  }, [clearTimer]);
+  }, []);
 
   return (
     <>
