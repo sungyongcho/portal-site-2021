@@ -9,8 +9,8 @@ import { getAllTexts } from '../../utils/mdxUtils';
 
 import styled from 'styled-components'
 import { motion } from 'framer-motion';
-import Item from '../../styles/item'
-import StyledMotion from '../../styles/StyledMotion'
+import ItemText from '../../styles/itemForTexts'
+import StyledMotionForText from '../../styles/StyledMotionForTexts'
 
 import { useRouter } from 'next/router';
 
@@ -20,16 +20,12 @@ type TextProps = {
 
 
 const TextNav = ({ texts }: TextProps) => {
-
   const router = useRouter();
-  const goToRecruit = () => {
-    router.push('/texts/leedayoung').then(() => window.scrollTo(0, 0));
-  };
 
   return (
     <>
       <HeadInfo title={"Texts"} siteAddress={'texts'} />
-      <StyledMotion initial="initial"
+      <StyledMotionForText initial="initial"
         animate="animate"
         variants={{
           initial: {
@@ -42,14 +38,12 @@ const TextNav = ({ texts }: TextProps) => {
         <HeadInfo title="Texts"></HeadInfo>
         {
           texts.map((texts) => (
-            <Item key={texts.slug}>
+            <ItemText key={texts.slug}>
               <Link href={`texts/${texts.slug}`}><a>{texts.textMenuName}</a></Link>
-              <ButtonTest name='탑승하기' onClick={goToRecruit} />
-
-            </Item>
+            </ItemText>
           ))
         }
-      </StyledMotion>
+      </StyledMotionForText>
     </>
   )
 }
