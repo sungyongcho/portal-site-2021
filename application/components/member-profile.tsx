@@ -15,11 +15,10 @@ const MemberProfile = ({ name, picture, content }: Props) => {
   return (
     <ProfileLayout>
       <PhotoWrapper>
-        {width > 376 ? <ProfilePhotoFrame
+        {width > 767 ? <ProfilePhotoFrame
           src={picture}
           width='200px'
           height='200px'
-          objectFit={'contain'}
           alt={name} /> :
           <ProfilePhotoFrame
             src={picture}
@@ -35,47 +34,54 @@ const MemberProfile = ({ name, picture, content }: Props) => {
   )
 }
 
-const ProfileLayout = styled.div`
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  ${media.tablet} {
-    font-size: 0.8em;
-    flex-direction: row;
-    line-height: 1.3em;
-  }
-  ${media.desktop} {
-    font-size: 1.0em;
-    flex-direction: row;
-    line-height: 1.5em;
-  }
-`
 const PhotoWrapper = styled.div`
-  position: relative;
-  justify-content: center;
-  margin-bottom: 3%;
+  flex: 1 0 100px;
   ${media.tablet}{
-    width: 100%;
-    margin-bottom:0;
+    flex: 1 0 120px;
   }
   ${media.desktop}{
-    width: 120%;
-    margin-bottom:0;
+    flex: 1 0 120px;
   }
 `;
 
 const IntroWrapper = styled.div`
-  position: relative;
-  margin-bottom: 3%;
-  ${media.tablet}{
-    margin-bottom:0;
-  }
-  ${media.desktop}{
-    margin-bottom:0;
-  }
+  flex: 0 1 auto;
 `;
 
+const ProfileLayout = styled.div`
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6em;
+  ${media.tablet} {
+    font-size: 0.8em;
+    flex-direction: column;
+    line-height: 2.2em;
+  }
+  ${media.desktop} {
+    font-size: 0.98em;
+    flex-direction: column;
+    line-height: 2em;
+  }
+  & ${PhotoWrapper} {
+    margin-bottom: 2%;
+    /* background: #ff00ff; */
+  }
+
+  & ${IntroWrapper} {
+    /* background: black; */
+  }
+`
+
 const ProfilePhotoFrame = styled(Image)`
-  align-self: center;
+display : block;
+margin : auto;
 `;
+
+
+
+
 export default MemberProfile

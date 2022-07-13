@@ -11,23 +11,24 @@ export const menuItems: MenuItem[] = [
     hasSubmenu: true,
   },
   {
+    title: "Text",
+    path: "texts",
+    hasSubmenu: true,
+  },
+
+  {
+    title: "Exhibition",
+    path: "exhibition",
+    hasSubmenu: false,
+  },
+  {
     title: "Interview",
     path: "interview",
     hasSubmenu: true,
   },
   {
-    title: "Exhibition",
-    path: "exhibition",
-    hasSubmenu: true,
-  },
-  {
-    title: "Text",
-    path: "texts",
-    hasSubmenu: true,
-  },
-  {
-    title: "Networking",
-    path: "networking",
+    title: "SNS",
+    path: "sns",
     hasSubmenu: false,
   },
 ];

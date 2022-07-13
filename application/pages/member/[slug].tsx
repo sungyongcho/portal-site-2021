@@ -10,13 +10,22 @@ import MemberWorklist from '../../components/member-worklist'
 
 import styled from 'styled-components'
 import { media } from "../../styles/theme";
-import ContentLayout from '../../styles/content-layout'
+import MemberContentLayout from '../../styles/member-content-layout'
 import ContentHeaderWrapper from '../../styles/content-header-wrapper'
+import ContentBottomPadding from '../../styles/content-bottom-padding'
 import ContentWrapper from '../../styles/content-wrapper'
+import ContentLogo from '../../components/ContentLogo'
+import HeadInfo from 'components/HeadInfo';
+
+import { useScroll } from '../../hooks/useScroll'
+
+import React, { useEffect, useRef } from 'react';
+import { useRouterScroll } from '@moxy/next-router-scroll';
 
 type Props = {
   source: MDXRemoteSerializeResult;
-  frontMatter: Omit<IMember, 'slug' | 'order'>;
+  frontMatter: Omit<IMember, 'order'>;
+  memberPath: string;
 };
 
 const components = {
@@ -26,17 +35,24 @@ const components = {
 };
 
 
-const MemberPage = ({ source, frontMatter }: Props) => {
+const MemberPage = ({ source, frontMatter, memberPath }: Props) => {
+
   return (
-    <ContentLayout>
-      <ContentHeaderWrapper>
-        <MemberName> {frontMatter.memberName}</MemberName>
-        <MemberGenre>{frontMatter.genre}</MemberGenre>
-      </ContentHeaderWrapper>
-      <ContentWrapper>
-        <MDXRemote {...source} components={components} />
-      </ContentWrapper>
-    </ContentLayout >
+    <>
+
+      <HeadInfo title={"Member"} artist={frontMatter.memberName} siteAddress={`member/${memberPath}`} />
+      <ContentLogo />
+      <MemberContentLayout>
+        <ContentHeaderWrapper>
+          <MemberName> {frontMatter.memberName}</MemberName>
+          <MemberGenre>{frontMatter.genre}</MemberGenre>
+        </ContentHeaderWrapper>
+        <ContentWrapper>
+          <MDXRemote {...source} components={components} />
+        </ContentWrapper>
+        <ContentBottomPadding />
+      </MemberContentLayout >
+    </>
   )
 }
 
@@ -51,30 +67,30 @@ const MemberName = styled.p`
 `;
 
 const MemberGenre = styled.p`
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   ${media.tablet} {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
+  }
+  ${media.desktop} {
+    font-size: 1.8rem;
   }
 `;
-
-
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, data } = getMemberPost(params?.slug as string);
 
   const mdxSource = await serialize(content, { scope: data });
-
   return {
     props: {
       source: mdxSource,
       frontMatter: data,
+      memberPath: params.slug
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllMemberPosts(['slug']);
-
   const paths = posts.map((post) => ({
     params: {
       slug: post.slug,
@@ -86,3 +102,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   };
 };
+

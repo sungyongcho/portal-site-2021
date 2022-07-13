@@ -5,33 +5,44 @@ import Link from 'next/link'
 import { IInterview } from '../../types/IInterview'
 import { getAllInterviews } from '../../utils/mdxUtils';
 
-import styled from 'styled-components'
-import { motion } from 'framer-motion';
 import Item from '../../styles/item'
+
+import { motion } from 'framer-motion';
+import StyledMotion from '../../styles/StyledMotion'
+import HeadInfo from 'components/HeadInfo';
+import useRouterScroll from 'hooks/useRouterScroll';
 
 type InterviewProps = {
   interviews: IInterview[];
 }
 
 const InterviewNav = ({ interviews }: InterviewProps) => {
+  useRouterScroll();
   return (
     <>
-      {
-        interviews.map((interviews) => (
-          <Item key={interviews.slug}>
-            <Link href={`interview/${interviews.slug}`}><a>{interviews.artistName}</a></Link>
-          </Item>
-        ))
-      }
+      <HeadInfo title={"Interview"} />
+      <StyledMotion initial="initial"
+        animate="animate"
+        variants={{
+          initial: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+        }}>
+        {
+          interviews.map((interviews) => (
+            <Item key={interviews.slug}>
+              <Link href={`interview/${interviews.slug}`}><a>{interviews.artistName}</a></Link>
+            </Item>
+          ))
+        }
+      </StyledMotion>
     </>
   )
 }
 
-
-const InterviewItem = styled(motion.div)`
-  font-size: 1.8em;
-  margin-bottom: 0.5em;
-`
 
 export default InterviewNav
 

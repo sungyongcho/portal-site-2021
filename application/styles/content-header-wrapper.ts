@@ -11,6 +11,7 @@ const ContentHeaderWrapper = styled.div`
   margin-left: 3%;
   margin-bottom: 3%;
   ${media.tablet} {
+    /* padding-top: 10vh; */
     margin-bottom: 1.5%;
     margin-left: 4%;
   }

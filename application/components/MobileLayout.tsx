@@ -5,6 +5,9 @@ import styled from "styled-components";
 import InterviewLayout from "./interview-body";
 import HorizontalImages from "./HorizontalImages";
 import { menuItems } from "./MenuItems";
+import Image from 'next/image'
+import NotchLeft from "../public/notch_left.png"
+import NotchRight from "../public/notch_right.png"
 
 type Props = {
   children: any;
@@ -23,38 +26,47 @@ const MobileLayout = ({ children }: Props) => {
     router.pathname === "/" ||
     menuItems.filter((menuItem) => {
       return (
-        router.pathname !== "/networking" &&
+        !(router.pathname === "/sns" || router.pathname === "/exhibition") &&
         `/${menuItem.path}` === router.pathname
       );
     }).length > 0;
-  
+
   const images = [
     {
       path: "/logos/arko_logo.png",
       widthRatio: 9.2457142857,
       altText: "arko_logo",
+      url: "https://www.arko.or.kr/"
     },
     {
       path: "/logos/archiving_babel_logo.png",
       widthRatio: 3.9031007752,
       altText: "archiving_babel_logo",
+      url: "https://www.archivingbabel.com/"
     },
     {
       path: "/logos/saegonggan_logo.png",
       widthRatio: 1.4175152749,
       altText: "saegonggan_logo",
+      url: "https://saegonggan.com/"
     },
   ]
 
   return (
     <>
-      <MobileFooter>
-        <HorizontalImages images={images} gap={"0.4em"}/>
-      </MobileFooter>
+      {isMenuPage && <LeftNotch>
+        <Image src={NotchLeft} />
+      </LeftNotch>}
+      {isMenuPage && <RightNotch>
+        <Image src={NotchRight} />
+      </RightNotch>}
+      {isMenuPage && <MobileFooter>
+        <HorizontalImages images={images} gap={"0.4em"} />
+      </MobileFooter>}
       <MobileContentWrapper>
         {isMenuPage && <MobileLogo />}
         {isMenuPage && showMenu && <MobileMenu children={children} />}
-        {(showContent || router.pathname === "/networking") && children}
+        {(showContent || (router.pathname === "/exhibition" || router.pathname === "/sns")) && children}
       </MobileContentWrapper>
     </>
   );
@@ -65,6 +77,7 @@ const MobileFooter = styled.div`
   top: 0.4rem;
   right: 0.4rem;
   width: 60vw;
+  z-index:1;
 `;
 
 const MobileContentWrapper = styled.div`
@@ -75,5 +88,24 @@ const MobileContentWrapper = styled.div`
   align-items: center;
   overflow: auto;
 `;
+
+const LeftNotch = styled.div`
+  position:absolute;
+  margin-left: auto; margin-right: auto; display: block;
+  pointer-events: none;
+  top:40%;
+  left:0;
+  width:30%;
+`;
+
+const RightNotch = styled.div`
+  position:absolute;
+  margin-left: auto; margin-right: auto; display: block;
+  pointer-events: none;
+  top:40%;
+  right:0;
+  width:30%;
+`;
+
 
 export default MobileLayout;
